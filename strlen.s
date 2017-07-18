@@ -24,6 +24,7 @@
 
   ORG $3000                 ; Change this if you have a 4K Coco
 
+_strlen
 _strlen_start
 
   STX ,--S                  ; Remember what the start value was

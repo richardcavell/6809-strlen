@@ -23,6 +23,7 @@
   ORG $3100   ; Change this if you have a 4K Coco
 
 _strlen_test
+_strlen_test_start
 
   LDX $2FFE   ; Pull the pointer from memory into register X
   JSR [$2FFC] ; Execute strlen
