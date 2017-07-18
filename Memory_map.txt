@@ -1,0 +1,26 @@
+Memory_map.txt
+by Richard John Foster Cavell (c) 2017
+
+This is the memory map as used by our test suite:
+
+$2FFE-$2FFF
+      Before entry into strlen_test:
+        Pointer to the string (16 bits) is passed in this memory location
+      After exit from strlen_test:
+        The length of the string (16 bits) is found in this memory location
+
+$3000-$30FF
+      strlen machine language object code
+      Start address is $3000
+
+$3100-$31FF
+      strlen_test machine language object code
+      Start address is $3100
+
+$3200-$32FF
+      The string to be tested is placed here by the BASIC program
+      Start address is $3200
+
+Therefore, this test suite will only work in its unmodified form with Cocos
+that have at least 16K RAM.  You can modify it to work with 4K Cocos.
+
