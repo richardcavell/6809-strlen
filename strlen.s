@@ -33,10 +33,12 @@ _strlen_loop
   TST ,X+                   ; Is X pointing to the terminating zero?
   BNE _strlen_loop          ; If no -> test the next byte
 
+_strlen_loop_end
+
   LEAX -1,X                 ; X was incremented one byte too far
   TFR X,D                   ; Get ready for pointer arithmetic
   SUBD ,S                   ; Calculate the length (result is in D)
   LDX ,S++                  ; Restore X. The stack is left in a correct state
   RTS
 
-_strlen_loop_end
+_strlen_end
