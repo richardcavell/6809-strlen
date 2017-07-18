@@ -14,6 +14,9 @@
 ;
 ; All other registers, including X, are preserved.
 ;
+; The code is position-independent, re-entrant, and interrupts are allowed
+; to occur during execution.
+;
 ; Issues:
 ; If X does not point to a valid string, the behaviour is undefined.
 ;   If there is no terminating null byte, the code might access forbidden

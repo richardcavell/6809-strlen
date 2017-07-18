@@ -7,12 +7,18 @@
 ; Licensed to you under the MIT License.
 ;
 ; Inputs:
+; Memory location $2FFC (2 bytes) = Pointer to the strlen routine.
 ; Memory location $2FFE (2 bytes) = Pointer to the string.
 ;
 ; Outputs:
 ; Memory location $2FFE (2 bytes) = Length of the string.
 ;
+; This code may be placed anywhere in memory, so it is position-independent.
+; It is re-entrant.
+; But the memory locations $2FFC and $2FFE are hard-coded below.
+;
 ; Issues:
+; If ($2FFC) does not point to a valid routine, the behaviour is undefined.
 ; If ($2FFE) does not point to a valid string, the behaviour is undefined.
 ;   If there is no terminating null byte, the code might access forbidden
 ;     areas of the memory map.
