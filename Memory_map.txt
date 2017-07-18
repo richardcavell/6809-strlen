@@ -3,6 +3,10 @@ by Richard John Foster Cavell (c) 2017
 
 This is the memory map as used by our test suite:
 
+$2FFC-$2FFD
+      Address of the strlen binary (default $3000),
+      being passed to strlen_test
+
 $2FFE-$2FFF
       Before entry into strlen_test:
         Pointer to the string (16 bits) is passed in this memory location

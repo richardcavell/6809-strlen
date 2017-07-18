@@ -25,7 +25,7 @@
 _strlen_test
 
   LDX $2FFE   ; Pull the pointer from memory into register X
-  JSR $3000   ; Execute strlen
+  JSR [$2FFC] ; Execute strlen
   STD $2FFE   ; Store the result in memory
 
   RTS         ; Return to BASIC
