@@ -1,0 +1,21 @@
+6809-strlen
+by Richard John Foster Cavell
+(c) 2017
+Licensed to you under the MIT License
+
+Here is how you use the test suite:
+
+1. You need a UNIX-like operating system.  I use Ubuntu 16.04.
+2. Install asm6809, make, and MAME.
+   I find that the very latest version of MAME works significantly better
+   in emulating the Coco than the one that comes with Ubuntu 16.04.
+3. Install the Coco ROMS for MAME's use.
+4. Build the binary files by going to the 6809-strlen directory and typing
+   "make", then going to the "Test suite" directory and typing "make".
+5. Start a MAME session with debugger with the following command:
+   mame coco2b -debug
+6. In the debug window, type:
+   load strlen.bin, 3000, 0
+7  load strlen_test.bin, 3100, 0
+8. Load STRLEN.BAS into the MAME Coco.
+   I haven't figured out how to do this yet.

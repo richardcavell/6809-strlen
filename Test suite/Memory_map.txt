@@ -27,4 +27,3 @@ $3200-$32FF
 
 Therefore, this test suite will only work in its unmodified form with Cocos
 that have at least 16K RAM.  You can modify it to work with 4K Cocos.
-

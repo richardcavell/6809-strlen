@@ -20,5 +20,10 @@ Issues:
      no attempt to detect this possibility, because the behaviour may be
      desirable.
 
+The folder "Test suite" contains a method of testing this routine to be
+sure that it works.  The test suite is not intended for anything other than
+testing purposes.
+
 Licensed to you under the MIT License
+
 Published and maintained at: https://github.com/richardcavell/6809-strlen

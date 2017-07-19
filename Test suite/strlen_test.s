@@ -26,7 +26,7 @@
 ;     no attempt to detect this possibility, because the behaviour may be
 ;     desirable.
 
-  ORG $3100   ; Change this if you have a 4K Coco
+  ORG $3100   ; Change all the locations if you have a 4K Coco
 
 _strlen_test
 _strlen_test_start
