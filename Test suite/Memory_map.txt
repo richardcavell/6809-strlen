@@ -25,5 +25,6 @@ $3200-$32FF
       The string to be tested is placed here by the BASIC program
       Start address is $3200
 
-Therefore, this test suite will only work in its unmodified form with Cocos
-that have at least 16K RAM.  You can modify it to work with 4K Cocos.
+This test suite will only work in its unmodified form with Cocos
+that have at least 16K RAM.  Portability of the suite is not a priority.
+However, you can modify it to work with 8K or 4K Cocos.
