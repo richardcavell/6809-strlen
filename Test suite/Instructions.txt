@@ -1,4 +1,4 @@
-6809-strlen
+6809-strlen Test suite instructions
 by Richard John Foster Cavell
 (c) 2017
 Licensed to you under the MIT License
