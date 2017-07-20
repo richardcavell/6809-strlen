@@ -34,7 +34,7 @@ _strlen_start
 
 _strlen_loop
 
-  TST ,X+                   ; Is X pointing to the terminating zero?
+  LDA ,X+                   ; Is X pointing to the terminating zero?
   BNE _strlen_loop          ; If no -> test the next byte
 
 _strlen_loop_end
