@@ -39,8 +39,8 @@ _strlen_loop
 
 _strlen_loop_end
 
-  LEAX -1,X                 ; X was incremented one byte too far
   TFR X,D                   ; Get ready for pointer arithmetic
+  SUBD #1                   ; X went one byte too far
   SUBD ,S                   ; Calculate the length (result is in D)
   PULS X                    ; Restore X. The stack is left in a correct state
   RTS
