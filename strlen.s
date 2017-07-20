@@ -30,7 +30,7 @@
 _strlen
 _strlen_start
 
-  STX ,--S                  ; Remember what the start value was
+  PSHS X                    ; Remember what the start value was
 
 _strlen_loop
 
@@ -42,7 +42,7 @@ _strlen_loop_end
   LEAX -1,X                 ; X was incremented one byte too far
   TFR X,D                   ; Get ready for pointer arithmetic
   SUBD ,S                   ; Calculate the length (result is in D)
-  LDX ,S++                  ; Restore X. The stack is left in a correct state
+  PULS X                    ; Restore X. The stack is left in a correct state
   RTS
 
 _strlen_end
