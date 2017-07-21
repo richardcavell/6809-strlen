@@ -1,16 +1,16 @@
-Memory_map.txt
+Memory map.txt
 by Richard John Foster Cavell (c) 2017
 
 This is the memory map as used by our test suite:
 
 $2FFC-$2FFD
       Address of the strlen binary (default $3000),
-      being passed to strlen_test
+      being passed to the helper routine
 
 $2FFE-$2FFF
-      Before entry into strlen_test:
+      Before entry into helper:
         Pointer to the string (16 bits) is passed in this memory location
-      After exit from strlen_test:
+      After exit from helper:
         The length of the string (16 bits) is found in this memory location
 
 $3000-$30FF
@@ -18,13 +18,14 @@ $3000-$30FF
       Start address is $3000
 
 $3100-$31FF
-      strlen_test machine language object code
+      helper machine language object code
       Start address is $3100
 
-$3200-$32FF
-      The string to be tested is placed here by the BASIC program
+$3200-$3FFF
+      The string to be tested is placed here by the TEST program,
+      which is written in BASIC
       Start address is $3200
 
 This test suite will only work in its unmodified form with Cocos
-that have at least 16K RAM.  Portability of the suite is not a priority.
-However, you can modify it to work with 8K or 4K Cocos.
+that have at least 16K RAM and a disk drive, with Disk Extended
+Color BASIC.

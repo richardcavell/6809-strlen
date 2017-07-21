@@ -1,16 +1,16 @@
 # Makefile
 # by Richard John Foster Cavell (c) 2017
-# Part of the strlen.s project
+# Part of the 6809-strlen project
 
 ASM = asm6809
 
 .DEFAULT: all
 .PHONY: all
 
-all: strlen_test.bin
+all: helper.bin
 
-strlen_test.bin: strlen_test.s
+helper.bin: helper.s
 	$(ASM) $< $(OUTPUT_OPTION)
 
 clean:
-	$(RM) strlen_test.bin
+	$(RM) helper.bin

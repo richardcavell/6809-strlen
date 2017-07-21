@@ -1,4 +1,4 @@
-; strlen_test.s
+; helper.s
 ; Version 1.0
 ;
 ; A 6809 assembly routine to help with the testing of strlen.s
@@ -28,8 +28,8 @@
 
   ORG $3100   ; Change all the locations if you have <16K RAM
 
-_strlen_test
-_strlen_test_start
+_helper
+_helper_start
 
   LDX $2FFE   ; Pull the pointer from memory into register X
   JSR [$2FFC] ; Execute strlen
@@ -37,4 +37,4 @@ _strlen_test_start
 
   RTS         ; Return to BASIC
 
-_strlen_test_end
+_helper_end
