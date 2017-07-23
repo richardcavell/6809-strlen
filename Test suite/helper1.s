@@ -30,6 +30,7 @@
 
 _helper1
 _helper1_start
+_helper1_entry
 
   LDX $2FFE   ; Pull the pointer from memory into register X
   JSR [$2FFC] ; Execute strlen
