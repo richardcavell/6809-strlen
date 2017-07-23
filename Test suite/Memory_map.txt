@@ -3,27 +3,38 @@ by Richard John Foster Cavell (c) 2017
 
 This is the memory map as used by our test suite:
 
-$2FFC-$2FFD
+$2FFC-$2FFD (PA)
       Address of the strlen binary (default $3000),
-      being passed to the helper routine
+      being passed to the helper1 routine
 
-$2FFE-$2FFF
-      Before entry into helper:
+$2FFE-$2FFF (PB)
+      Before entry into helper1:
         Pointer to the string (16 bits) is passed in this memory location
-      After exit from helper:
+      After exit from helper1:
         The length of the string (16 bits) is found in this memory location
 
-$3000-$30FF
+$3000-$30FF (PM)
       strlen machine language object code
       Start address is $3000
 
-$3100-$31FF
-      helper machine language object code
+$3100-$3170 (PN)
+      helper1 machine language object code
       Start address is $3100
 
-$3200-$3FFF
-      The string to be tested is placed here by the TEST program,
-      which is written in BASIC
+$317C-$317D (PP)
+      Length of the string that shall be constructed, being passed to helper2
+
+$317E-$317F (PQ)
+      Address where the constructed string will start
+
+$3180 (PR)
+      helper2 machine language object code
+      Start address is $3180
+
+$3200-$3FFF (PS)
+      The string to be tested is placed here either by:
+        the TEST program, which is written in BASIC, OR
+        the helper2 program, which is written in assembly
       Start address is $3200
 
 This test suite will only work in its unmodified form with Cocos
