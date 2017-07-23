@@ -43,10 +43,10 @@ _helper2_entry
 _copy_loop
   STA ,X+                 ; Store the character and increment X
 
-  CMPA _Z,PCR             ; Have we reached the letter Z?
+  CMPA #'Z'               ; Have we reached the letter Z?
   BEQ _start_digits       ; Yes, start with the digits
 
-  CMPA _nine,PCR          ; Have we reached the digit 9?
+  CMPA #'9'               ; Have we reached the digit 9?
   BEQ  _start_alphabet    ; Yes, start with the alphabet
 
   INCA                    ; Alter the character that we're storing
@@ -69,13 +69,5 @@ _start_digits
 _start_alphabet
   LDA #'A'                ; Start with the alphabet (again)
   BRA _count_and_loop
-
-; Data
-
-_Z
-  FCB 'Z'
-
-_nine
-  FCB '9'
 
 _helper2_end
