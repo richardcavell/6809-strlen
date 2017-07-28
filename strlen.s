@@ -1,5 +1,5 @@
 ; strlen.s
-; Version 1.0
+; Version 1.0 (28 July 2017)
 ;
 ; A 6809 assembly routine to find the length of a C-style string.
 ;
