@@ -38,15 +38,15 @@ _helper2_entry
   LDY $317C               ; Length of the string
   BEQ _terminate_string   ; If length == 0
 
-  LDA #'A'                ; The string will consist of this character
+  LDA #'A                 ; The string will consist of this character
 
 _copy_loop
   STA ,X+                 ; Store the character and increment X
 
-  CMPA #'Z'               ; Have we reached the letter Z?
+  CMPA #'Z                ; Have we reached the letter Z?
   BEQ _start_digits       ; Yes, start with the digits
 
-  CMPA #'9'               ; Have we reached the digit 9?
+  CMPA #'9                ; Have we reached the digit 9?
   BEQ  _start_alphabet    ; Yes, start with the alphabet
 
   INCA                    ; Alter the character that we're storing
@@ -63,11 +63,11 @@ _terminate_string
 ; Subroutines
 
 _start_digits
-  LDA #'0'                ; Start with the digits
+  LDA #'0                 ; Start with the digits
   BRA _count_and_loop
 
 _start_alphabet
-  LDA #'A'                ; Start with the alphabet (again)
+  LDA #'A                 ; Start with the alphabet (again)
   BRA _count_and_loop
 
 _helper2_end
