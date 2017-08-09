@@ -42,7 +42,7 @@ _strlen_loop_end
   TFR X,D                   ; Get ready for pointer arithmetic
   SUBD #1                   ; X went one byte too far
   SUBD ,S                   ; Calculate the length (result is in D)
-  PULS X, PC                ; Restore X and return
+  PULS X,PC                 ; Restore X and return
                             ; The stack is left in a correct state
 
 _strlen_end
