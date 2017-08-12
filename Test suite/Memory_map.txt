@@ -36,7 +36,3 @@ $3200-$3FFF (PS)
         the TEST program, which is written in BASIC, OR
         the helper2 program, which is written in assembly
       Start address is $3200
-
-This test suite will only work in its unmodified form with Cocos
-that have at least 16K RAM and a disk drive, with Disk Extended
-Color BASIC.

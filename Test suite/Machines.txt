@@ -1,0 +1,16 @@
+Machines.txt
+Part of the 6809-strlen Test suite
+(c) 2017 Richard Cavell
+
+This test suite has been successfully tested with the following emulators:
+
+$ xroar -machine coco2b
+
+  (with bas13.rom, extbas11.rom and disk11.rom in the ~/.xroar/roms directory)
+
+  There are annoying bugs with prior ROM versions.
+  I suggest that you don't use them.
+
+$ mame coco2b
+
+  (with coco2b.zip in ~/.mame/roms)
