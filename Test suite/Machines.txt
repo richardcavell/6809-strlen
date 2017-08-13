@@ -2,7 +2,8 @@ Machines.txt
 Part of the 6809-strlen Test suite
 (c) 2017 Richard Cavell
 
-This test suite has been successfully tested with the following emulators:
+This test suite has been successfully tested with, and is only officially
+supported in regard to, the following emulated machines:
 
 $ xroar -machine coco2b
 
@@ -14,3 +15,6 @@ $ xroar -machine coco2b
 $ mame coco2b
 
   (with coco2b.zip in ~/.mame/roms)
+
+It probably works with other machines as well, but I do not desire to
+provide official support to other configurations.
