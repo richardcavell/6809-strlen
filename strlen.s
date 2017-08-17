@@ -8,17 +8,22 @@
 ; Licensed to you under the MIT License.
 ;
 ; Inputs:
-; X = Pointer to the string.
+;
+;   X = Pointer to the string.
 ;
 ; Outputs:
-; D = Length of the string.
 ;
-; All other registers, including X, are preserved.
+;   D = Length of the string.
+;
+;   All other registers, including X, are preserved.
+;
+; A C-style string, for the purposes of this routine, is a sequence of
+; non-zero 8-bit bytes, followed by a zero byte. The sequence may have
+; zero length.
 ;
 ; The code is position-independent and re-entrant. Interrupts are allowed
-; to occur during execution. It uses 2 bytes of the S stack, in
-; addition to the 2 bytes used for the return PC value when calling this
-; routine.
+; to occur during execution. It uses 2 bytes of the S stack, in addition
+; to the 2 bytes used for the return PC value when calling this routine.
 ;
 ; Issues:
 ; If X does not point to a valid string, the behaviour is undefined.

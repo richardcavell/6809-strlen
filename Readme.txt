@@ -1,7 +1,6 @@
 6809 Assembly Language String Length Calculation
 by Richard John Foster Cavell (c) 2017
 Version 1.0 (28 July 2017)
-https://github.com/richardcavell/6809-strlen
 
 A 6809 assembly routine to find the length of a C-style string.
 
@@ -11,7 +10,15 @@ Inputs:
 Outputs:
   D = Length of the string.
 
-All other registers, including X, are preserved.
+  All other registers, including X, are preserved.
+
+A C-style string, for the purposes of this routine, is a sequence of
+non-zero 8-bit bytes, followed by a zero byte. The sequence may have
+zero length.
+
+The code is position-independent and re-entrant. Interrupts are allowed
+to occur during execution. It uses 2 bytes of the S stack, in addition
+to the 2 bytes used for the return PC value when calling this routine.
 
 Issues:
  If X does not point to a valid string, the behaviour is undefined.
