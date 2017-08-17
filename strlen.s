@@ -14,8 +14,10 @@
 ;
 ; All other registers, including X, are preserved.
 ;
-; The code is position-independent, re-entrant, and interrupts are allowed
-; to occur during execution.
+; The code is position-independent and re-entrant. Interrupts are allowed
+; to occur during execution. It uses 2 bytes of the S stack, in
+; addition to the 2 bytes used for the return PC value when calling this
+; routine.
 ;
 ; Issues:
 ; If X does not point to a valid string, the behaviour is undefined.
@@ -44,5 +46,4 @@ _strlen_loop_end
   SUBD ,S                   ; Calculate the length (result is in D)
   PULS X,PC                 ; Restore X and return
                             ; The stack is left in a correct state
-
 _strlen_end
