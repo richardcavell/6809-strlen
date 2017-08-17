@@ -1,6 +1,7 @@
 # Makefile
 # by Richard John Foster Cavell (c) 2017
 # Part of the 6809-strlen project
+# https://github.com/richardcavell/6809-strlen
 
 ASM = asm6809
 
