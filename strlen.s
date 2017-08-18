@@ -33,12 +33,10 @@
 ;     no attempt to detect this possibility, because the behaviour may be
 ;     desirable.
 
-  ORG $3000                 ; Change this if you have <16K RAM
-
 _strlen
 _strlen_start
 
-  PSHS X                    ; Remember what the start value was
+  PSHS X                    ; Remember the start of the string
 
 _strlen_loop
 

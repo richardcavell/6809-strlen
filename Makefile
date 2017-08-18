@@ -10,7 +10,7 @@ ASM = asm6809
 
 all: strlen.bin
 
-strlen.bin: strlen.s
+strlen.bin: main.s strlen.s
 	$(ASM) $< $(OUTPUT_OPTION)
 
 clean:
