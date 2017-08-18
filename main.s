@@ -11,6 +11,7 @@
   ORG $3000                 ; Change this if you have <16K RAM
 
 _main
+_start
 
   INCLUDE "strlen.s"
 
