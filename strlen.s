@@ -35,6 +35,7 @@
 
 _strlen
 _strlen_start
+_strlen_entry
 
   PSHS X                    ; Remember the start of the string
 
