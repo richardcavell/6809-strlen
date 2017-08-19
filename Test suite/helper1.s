@@ -15,12 +15,16 @@
 ; Memory location $2FFE (2 bytes) = Length of the string.
 ;
 ; This code may be placed anywhere in memory, so it is position-independent.
-; It is re-entrant.
-; But the memory locations $2FFC and $2FFE are hard-coded below.
+; It is re-entrant. But the memory locations $2FFC and $2FFE are
+; hard-coded below. Interrupts are allowed to occur during execution.
+;
+; The pointers are stored in big-endian order (the 6809's natural method).
 ;
 ; Issues:
-; If ($2FFC) does not point to a valid routine, the behaviour is undefined.
-; If ($2FFE) does not point to a valid string, the behaviour is undefined.
+; If ($2FFC:$2FFD) does not point to a valid routine, the
+;   behaviour is undefined.
+; If ($2FFE:$2FFF) does not point to a valid string, the
+;   behaviour is undefined.
 ;   If there is no terminating null byte, the code might access forbidden
 ;     areas of the memory map.
 ;   It is possible for X to wrap (say from $FFFF to $0000). This code makes
