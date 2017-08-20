@@ -15,6 +15,8 @@
 ; At the memory location pointed to by [$317E], a string of length
 ; given in [$317C], null-terminated.
 ;
+; This routine leaves garbage in registers X, Y, and D.
+;
 ; This code may be placed anywhere in memory, so it is position-independent.
 ; It is re-entrant.
 ; But the memory locations $317C and $317E are hard-coded below.
@@ -28,47 +30,45 @@
 ;  This code makes no attempt to detect this possibility, because the
 ;  behaviour may be desirable.
 
-  ORG $3180   ; Change all the locations if you have <16K RAM
+  ORG $3180               ; Change all the locations if you have <16K RAM
 
 _helper2
 _helper2_start
-
 _helper2_entry
 
-  LDX $317E               ; Start of the string
-  LDY $317C               ; Length of the string
-  BEQ _terminate_string   ; If length == 0
+  LDX $317E                       ; Start of the string
+  LDY $317C                       ; Length of the string
+  BEQ _helper2_terminate_string   ; If length == 0
 
-  LDA #'A                 ; The string will consist of this character
+  LDA #'A                         ; The string will start with this character
 
-_copy_loop
-  STA ,X+                 ; Store the character and increment X
+_helper2_copy_loop
+  STA ,X+                         ; Store the character and increment X
 
-  CMPA #'Z                ; Have we reached the letter Z?
-  BEQ _start_digits       ; Yes, start with the digits
+  CMPA #'Z                        ; Have we reached the letter Z?
+  BEQ _helper2_start_digits       ; Yes, start with the digits
 
-  CMPA #'9                ; Have we reached the digit 9?
-  BEQ  _start_alphabet    ; Yes, start with the alphabet
+  CMPA #'9                        ; Have we reached the digit 9?
+  BEQ  _helper2_start_alphabet    ; Yes, start with the alphabet
 
-  INCA                    ; Alter the character that we're storing
+  INCA                            ; Alter the character that we're storing
 
-_count_and_loop
-  LEAY -1,Y               ; Y is our counter
-  BNE _copy_loop          ; If more chars are needed, loop
+_helper2_count_and_loop
+  LEAY -1,Y                       ; Y is our counter
+  BNE _helper2_copy_loop          ; If more chars are needed, loop
 
-_terminate_string
-  CLR ,X                  ; Add the terminating zero
-  RTS                     ; Return to BASIC
-
+_helper2_terminate_string
+  CLR ,X                          ; Add the terminating zero
+  RTS                             ; Return to BASIC
 
 ; Subroutines
 
-_start_digits
-  LDA #'0                 ; Start with the digits
-  BRA _count_and_loop
+_helper2_start_digits
+  LDA #'0                         ; Start with the digits
+  BRA _helper2_count_and_loop
 
-_start_alphabet
-  LDA #'A                 ; Start with the alphabet (again)
-  BRA _count_and_loop
+_helper2_start_alphabet
+  LDA #'A                         ; Start with the alphabet (again)
+  BRA _helper2_count_and_loop
 
 _helper2_end
