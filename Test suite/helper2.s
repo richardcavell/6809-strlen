@@ -12,14 +12,18 @@
 ; Memory location $317E (2 bytes) = Pointer to where the string should start.
 ;
 ; Outputs:
-; At the memory location pointed to by [$317E], a string of length
-; given in [$317C], null-terminated.
+; At the memory location pointed to by [$317E:$317F], a string of length
+; given in [$317C:$317D], null-terminated.
 ;
-; This routine leaves garbage in registers X, Y, and D.
+; Both pointers are in big-endian order (the 6809's natural method).
+; This routine leaves garbage in registers X, Y, and A.
 ;
 ; This code may be placed anywhere in memory, so it is position-independent.
 ; It is re-entrant.
+;
 ; But the memory locations $317C and $317E are hard-coded below.
+;
+; This routine could be made to run faster, but clarity is the goal here.
 ;
 ; Issues:
 ; This code must be assembled with an assembler that substitutes ASCII
