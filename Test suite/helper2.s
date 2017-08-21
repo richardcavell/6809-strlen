@@ -16,7 +16,7 @@
 ; given in [$317C:$317D], null-terminated.
 ;
 ; Both pointers are in big-endian order (the 6809's natural method).
-; All registers are preserved.  5 bytes of the System stack are used, in
+; All registers are preserved.  7 bytes of the System stack are used, in
 ; addition to the 2 used for the return address.
 ;
 ; This code may be placed anywhere in memory, so it is position-independent.
@@ -41,46 +41,57 @@ _helper2
 _helper2_start
 _helper2_entry
 
-  PSHS X,Y,A                      ; Preserve these registers
-  LDX $317E                       ; Start of the string
-  LDY $317C                       ; Length of the string
-  BEQ _helper2_terminate_string   ; If length == 0
+  PSHS X,Y,D                      ; Preserve these registers
+  LDX $317E                       ; X = Start of the string
+  LDD $317C                       ; Length of the string
+  PSHS B                          ; Store the LSB of the length
+  ANDB #$fe                       ; Round down to an even number
+  TFR D,Y                         ; Y = Length rounded down to an even number
+  BEQ _helper2_terminate_string   ; If length == 0, don't loop
 
-  LDA #'A                         ; The string will start with this character
+  LDD #'AB                        ; String will start with these characters
 
 _helper2_copy_loop
 
-  STA ,X+                         ; Store the character and increment X
-
-  CMPA #'Z                        ; Have we reached the letter Z?
+  STD ,X++                        ; Store the next two characters
+                                  ; and increment X by 2
+  CMPB #'Z                        ; Have we reached the letter Z?
   BEQ _helper2_start_digits       ; Yes, start with the digits
 
-  CMPA #'9                        ; Have we reached the digit 9?
+  CMPB #'9                        ; Have we reached the digit 9?
   BEQ  _helper2_start_alphabet    ; Yes, start with the alphabet
 
-  INCA                            ; Alter the character that we're storing
+  ADDD #$0202                     ; Alter the characters that we're storing
 
 _helper2_count_and_loop
 
-  LEAY -1,Y                       ; Y is our counter
+  LEAY -2,Y                       ; Y is our counter
   BNE _helper2_copy_loop          ; If more chars are needed, loop
 
 _helper2_terminate_string
 
+  PULS B
+  ANDB #$1
+  BEQ _helper2_even_count
+
+  STA ,X+
+
+_helper2_even_count
+
   CLR ,X                          ; Add the terminating zero
-  PULS X,Y,A                      ; Restore these registers
-  RTS                             ; Return to BASIC
+  PULS X,Y,D,PC                   ; Restore these registers
+                                  ; and return to BASIC
 
 ; Subroutines
 
 _helper2_start_digits
 
-  LDA #'0                         ; Start with the digits
+  LDD #'01                        ; Start with the digits
   BRA _helper2_count_and_loop
 
 _helper2_start_alphabet
 
-  LDA #'A                         ; Start with the alphabet (again)
+  LDD #'AB                        ; Start with the alphabet (again)
   BRA _helper2_count_and_loop
 
 _helper2_end
