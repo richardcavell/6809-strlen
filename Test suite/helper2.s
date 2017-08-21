@@ -16,7 +16,8 @@
 ; given in [$317C:$317D], null-terminated.
 ;
 ; Both pointers are in big-endian order (the 6809's natural method).
-; All registers are preserved.
+; All registers are preserved.  5 bytes of the System stack are used, in
+; addition to the 2 used for the return address.
 ;
 ; This code may be placed anywhere in memory, so it is position-independent.
 ; It is re-entrant.  Interrupts are allowed to occur during execution.
