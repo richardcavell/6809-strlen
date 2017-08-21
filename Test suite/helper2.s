@@ -16,10 +16,10 @@
 ; given in [$317C:$317D], null-terminated.
 ;
 ; Both pointers are in big-endian order (the 6809's natural method).
-; This routine leaves garbage in registers X, Y, and A.
+; All registers are preserved.
 ;
 ; This code may be placed anywhere in memory, so it is position-independent.
-; It is re-entrant.
+; It is re-entrant.  Interrupts are allowed to occur during execution.
 ;
 ; But the memory locations $317C and $317E are hard-coded below.
 ;
@@ -40,6 +40,7 @@ _helper2
 _helper2_start
 _helper2_entry
 
+  PSHS X,Y,A                      ; Preserve these registers
   LDX $317E                       ; Start of the string
   LDY $317C                       ; Length of the string
   BEQ _helper2_terminate_string   ; If length == 0
@@ -47,6 +48,7 @@ _helper2_entry
   LDA #'A                         ; The string will start with this character
 
 _helper2_copy_loop
+
   STA ,X+                         ; Store the character and increment X
 
   CMPA #'Z                        ; Have we reached the letter Z?
@@ -58,20 +60,25 @@ _helper2_copy_loop
   INCA                            ; Alter the character that we're storing
 
 _helper2_count_and_loop
+
   LEAY -1,Y                       ; Y is our counter
   BNE _helper2_copy_loop          ; If more chars are needed, loop
 
 _helper2_terminate_string
+
   CLR ,X                          ; Add the terminating zero
+  PULS X,Y,A                      ; Restore these registers
   RTS                             ; Return to BASIC
 
 ; Subroutines
 
 _helper2_start_digits
+
   LDA #'0                         ; Start with the digits
   BRA _helper2_count_and_loop
 
 _helper2_start_alphabet
+
   LDA #'A                         ; Start with the alphabet (again)
   BRA _helper2_count_and_loop
 
