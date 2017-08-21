@@ -17,6 +17,8 @@
 ; This code may be placed anywhere in memory, so it is position-independent.
 ; It is re-entrant. But the memory locations $2FFC and $2FFE are
 ; hard-coded below. Interrupts are allowed to occur during execution.
+; It uses 6 bytes of the System stack, in addition to the 2 bytes used
+; for the return address
 ;
 ; The pointers are stored in big-endian order (the 6809's natural method).
 ;
@@ -37,9 +39,11 @@ _helper1
 _helper1_start
 _helper1_entry
 
+  PSHS X,A,B  ; Preserve registers
   LDX $2FFE   ; Pull the pointer from memory into register X
   JSR [$2FFC] ; Execute strlen
   STD $2FFE   ; Store the result in memory
+  PULS X,A,B  ; Restore registers
 
   RTS         ; Return to BASIC
 
