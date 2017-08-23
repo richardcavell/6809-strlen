@@ -47,9 +47,11 @@ _helper2_entry
   PSHS B                          ; Store the LSB of the length
   ANDB #$fe                       ; Round down to an even number
   TFR D,Y                         ; Y = Length rounded down to an even number
-  BEQ _helper2_terminate_string   ; If length == 0, don't loop
 
-  LDD #'AB                        ; String will start with these characters
+  LDD #'A*256+'B                  ; String will start with these characters
+
+  LEAY ,Y                         ; Test length
+  BEQ _helper2_terminate_string   ; If length is 0 or 1, don't loop
 
 _helper2_copy_loop
 
@@ -86,12 +88,12 @@ _helper2_even_count
 
 _helper2_start_digits
 
-  LDD #'01                        ; Start with the digits
+  LDD #'0*256+'B                  ; Start with the digits
   BRA _helper2_count_and_loop
 
 _helper2_start_alphabet
 
-  LDD #'AB                        ; Start with the alphabet (again)
+  LDD #'A*256+'B                  ; Start with the alphabet (again)
   BRA _helper2_count_and_loop
 
 _helper2_end
