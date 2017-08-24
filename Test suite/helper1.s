@@ -10,10 +10,10 @@
 ; This routine is designed to be used with Disk Extended Color BASIC.
 ;
 ; Inputs:
-;   Pointer to the string (0 to 64k)
+;   Pointer to the string (0 to 0xffff)
 ;
 ; Outputs:
-;   Length of the string (0 to 64k)
+;   Length of the string (0 to 0xffff)
 ;
 ; This routine adheres to the Disk Extended Color BASIC USRx()
 ; calling conventions.

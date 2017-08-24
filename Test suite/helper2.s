@@ -8,7 +8,7 @@
 ; Licensed to you under the MIT License.
 ;
 ; Inputs:
-;   Length of the string (unsigned 16-bit int)
+;   Length of the string (0 to 0xffff)
 ;
 ; Outputs:
 ;   Garbage is returned as the value of the USRx() call
