@@ -10,10 +10,10 @@
 ; This routine is designed to be used with Disk Extended Color BASIC.
 ;
 ; Inputs:
-;   Pointer to the string (16 bits)
+;   Pointer to the string (0 to 64k)
 ;
 ; Outputs:
-;   Length of the string (16 bits)
+;   Length of the string (0 to 64k)
 ;
 ; This routine adheres to the Disk Extended Color BASIC USRx()
 ; calling conventions.
@@ -41,9 +41,9 @@
 
   ORG $3100   ; Change all the locations if you have <16K RAM
 
-STRLEN EQU $3000
-INTCNV EQU $B3ED
-GIVABF EQU $B4F4
+STRLEN EQU $3000                 ; This must be loaded here first
+INTCNV EQU $B3ED                 ; Get the parameter from BASIC
+GIVABF EQU $B4F4                 ; Give the result to BASIC
 
 _helper1
 _helper1_start

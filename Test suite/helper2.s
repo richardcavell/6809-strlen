@@ -8,9 +8,10 @@
 ; Licensed to you under the MIT License.
 ;
 ; Inputs:
-;   Length of the string (16 bits)
+;   Length of the string (unsigned 16-bit int)
 ;
 ; Outputs:
+;   Garbage is returned as the value of the USRx() call
 ;   Beginning at the memory location $3200, a string of the length
 ;     requested, null-terminated
 ;
@@ -21,6 +22,7 @@
 ;
 ; This code may be placed anywhere in memory, so it is position-independent.
 ; It is re-entrant.  Interrupts are allowed to occur during execution.
+; This routine assumes that your assembler uses ASCII.
 ;
 ; But the memory location $3200 is hard-coded below.
 ;
@@ -51,7 +53,7 @@ _helper2_entry
   ANDB #$fe                       ; Round down to an even number
   TFR D,Y                         ; Y = Length rounded down to an even number
 
-  LDD #'A*256+'B                  ; String will start with these characters
+  LDD #'A*256+'B                  ; String will start with "AB"
 
   LEAY ,Y                         ; Test length
   BEQ _helper2_terminate_string   ; If length is 0 or 1, don't loop
@@ -61,10 +63,10 @@ _helper2_copy_loop
   STD ,X++                        ; Store the next two characters
                                   ; and increment X by 2
   CMPB #'Z                        ; Have we reached the letter Z?
-  BEQ _helper2_start_digits       ; Yes, start with the digits
+  BEQ _helper2_start_digits       ; If yes, start with the digits
 
   CMPB #'9                        ; Have we reached the digit 9?
-  BEQ  _helper2_start_alphabet    ; Yes, start with the alphabet
+  BEQ  _helper2_start_alphabet    ; If yes, start with the alphabet
 
   ADDD #$0202                     ; Alter the characters that we're storing
 
@@ -75,11 +77,11 @@ _helper2_count_and_loop
 
 _helper2_terminate_string
 
-  PULS B
-  ANDB #$1
-  BEQ _helper2_even_count
+  PULS B                          ; B = The LSB of the length
+  ANDB #$1                        ; Is the length an odd number?
+  BEQ _helper2_even_count         ; If no, skip the next instruction
 
-  STA ,X+
+  STA ,X+                         ; Store one last character
 
 _helper2_even_count
 
