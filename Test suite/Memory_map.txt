@@ -1,39 +1,17 @@
 Memory map.txt
 by Richard John Foster Cavell (c) 2017
 
-The letters PA, etc are the pointer variables used in TEST.BAS to access
-these data.
-
 This is the memory map as used by our test suite:
 
-$2FFC-$2FFD (PA)
-      Address of the strlen binary (default $3000),
-      being passed to the helper1 routine
-
-$2FFE-$2FFF (PB)
-      Before entry into helper1:
-        Pointer to the string (16 bits) is passed in this memory location
-
-$2FFE-$2FFF (PL)
-      After exit from helper1:
-        The length of the string (16 bits) is found in this memory location
-      PB and PL have the same value
-
-$3000-$30FF (PM)
+$3000-$30FF
       strlen machine language object code
       Start address is $3000
 
-$3100-$3170 (PN)
+$3100-$3170 (USR1)
       helper1 machine language object code
       Start address is $3100
 
-$317C-$317D (PP)
-      Length of the string that shall be constructed, being passed to helper2
-
-$317E-$317F (PQ)
-      Address where the constructed string will start
-
-$3180-$31FF (PR)
+$3180-$31FF (USR2)
       helper2 machine language object code
       Start address is $3180
 

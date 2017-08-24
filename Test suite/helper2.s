@@ -8,21 +8,21 @@
 ; Licensed to you under the MIT License.
 ;
 ; Inputs:
-; Memory location $317C (2 bytes) = The length of a string to be constructed.
-; Memory location $317E (2 bytes) = Pointer to where the string should start.
+;   Length of the string (16 bits)
 ;
 ; Outputs:
-; At the memory location pointed to by [$317E:$317F], a string of length
-; given in [$317C:$317D], null-terminated.
+;   Beginning at the memory location $3200, a string of the length
+;     requested, null-terminated
 ;
-; Both pointers are in big-endian order (the 6809's natural method).
-; All registers are preserved.  7 bytes of the System stack are used, in
-; addition to the 2 used for the return address.
+; The DECB calling conventions are honoured.
+;
+; 3 bytes of the System stack are used, in addition to the 2 used
+; for the return address.
 ;
 ; This code may be placed anywhere in memory, so it is position-independent.
 ; It is re-entrant.  Interrupts are allowed to occur during execution.
 ;
-; But the memory locations $317C and $317E are hard-coded below.
+; But the memory location $3200 is hard-coded below.
 ;
 ; This routine could be made to run faster, but clarity is the goal here.
 ;
@@ -37,13 +37,16 @@
 
   ORG $3180               ; Change all the locations if you have <16K RAM
 
+PS     EQU $3200          ; Pointer to where the string shall be constructed
+INTCNV EQU $B3ED          ; BASIC routine to get the passed value
+
 _helper2
 _helper2_start
 _helper2_entry
 
-  PSHS X,Y,D                      ; Preserve these registers
-  LDX $317E                       ; X = Start of the string
-  LDD $317C                       ; Length of the string
+  PSHS Y                          ; Preserve register Y
+  JSR INTCNV                      ; D = Requested length (passed from BASIC)
+  LDX #PS                         ; X = Start of the string
   PSHS B                          ; Store the LSB of the length
   ANDB #$fe                       ; Round down to an even number
   TFR D,Y                         ; Y = Length rounded down to an even number
@@ -81,14 +84,14 @@ _helper2_terminate_string
 _helper2_even_count
 
   CLR ,X                          ; Add the terminating zero
-  PULS X,Y,D,PC                   ; Restore these registers
+  PULS Y,PC                       ; Restore register Y
                                   ; and return to BASIC
 
 ; Subroutines
 
 _helper2_start_digits
 
-  LDD #'0*256+'B                  ; Start with the digits
+  LDD #'0*256+'1                  ; Start with the digits
   BRA _helper2_count_and_loop
 
 _helper2_start_alphabet
