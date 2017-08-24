@@ -1,0 +1,14 @@
+6809-strlen Version_history.txt
+(c) 2017 by Richard Cavell
+
+Version 1.1 :
+
+    * Slight improvements to strlen.s, for portability and performance
+    * Many significant improvements to the test suite
+    * Many significant improvements to the text documents and the
+      comments within source code
+    * We are now supporting only two platforms for the test suite
+
+Version 1.0 (28 July 2017)
+
+    * Initial stable release of 6809-strlen

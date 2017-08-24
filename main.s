@@ -1,5 +1,5 @@
 ; main.s
-; Version 1.0 (18 August 2017)
+; Version 1.1 (24 August 2017)
 ; https://github.com/richardcavell/6809-strlen
 ;
 ; A very short file to assist in assembling strlen.s
