@@ -28,6 +28,9 @@
 ;
 ; The routine assembles to 26 bytes of object code using asm6809.
 ;
+; There is a no_error_strlen.s version of this code, which does not detect
+; the "no end" condition.
+;
 ; Errors:
 ;
 ; A "no end" error occurs when the string appears to continue past memory

@@ -27,6 +27,10 @@
 ;
 ; The routine assembles to 15 bytes (0xF bytes) of object code using asm6809.
 ;
+; There is another version of this routine which detects the situation that
+; exists when the routine reaches location 0xFFFF without encountering
+; the end of string.
+;
 ; Issues:
 ; If X does not point to a valid string, the behaviour is undefined.
 ;   If there is no terminating null byte, the code might access forbidden
