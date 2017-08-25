@@ -40,19 +40,13 @@ $(DSKIMG): $(HELPER1BIN) $(HELPER2BIN) $(STRLENBIN)
 .PHONY: xroar
 
 xroar:
-	@echo "....................."
-	@echo "...Launching XRoar..."
-	@echo "....................."
-	@echo "  Type : RUN \"TEST\""
-	@echo "....................."
+	@echo "Launching XRoar"
+	@echo "Type : RUN \"TEST\""
 	@$(XROAR) -machine coco2b -load $(DSKIMG) -q 2> /dev/null
 
 mame:
-	@echo "....................."
-	@echo "...Launching MAME...."
-	@echo "....................."
-	@echo "  Type : RUN \"TEST\""
-	@echo "....................."
+	@echo "Launching MAME"
+	@echo "Type : RUN \"TEST\""
 	@$(MAME) coco2b -flop1 $(DSKIMG)
 
 clean:
