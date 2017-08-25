@@ -20,6 +20,8 @@ The code is position-independent and re-entrant. Interrupts are allowed
 to occur during execution. It uses 2 bytes of the S stack, in addition
 to the 2 bytes used for the return PC value when calling this routine.
 
+It assembles to 15 bytes (0xF bytes) of object code using asm6809.
+
 Issues:
  If X does not point to a valid string, the behaviour is undefined.
    If there is no terminating null byte, the code might access forbidden
