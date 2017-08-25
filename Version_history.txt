@@ -14,6 +14,7 @@ Version 1.1 :
       * To assemble a standalone routine or to incorporate it in the
         test suite, you should now use main.s, which includes the ORG
         command and what remains of strlen.s
+      * And more!
 
   * Many significant improvements to the test suite
 
@@ -29,6 +30,7 @@ Version 1.1 :
           * Strings are now presented as 'A * 256 + 'B  rather than "AB"
       * All magic numbers are now presented as symbols
       * More helpful comments, where possible
+      * And more!
 
   * We are now supporting only two platforms for the test suite
 
