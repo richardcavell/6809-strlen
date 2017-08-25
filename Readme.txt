@@ -24,7 +24,7 @@ The code is position-independent and re-entrant. Interrupts are allowed
 to occur during execution. It uses 2 bytes of the S stack, in addition
 to the 2 bytes used for the return PC value when calling this routine.
 
-It assembles to 15 bytes (0xF bytes) of object code using asm6809.
+It assembles to 26 bytes (0xF bytes) of object code using asm6809.
 
 Issues:
  If X does not point to a valid string, the behaviour is undefined.
@@ -33,6 +33,17 @@ Issues:
 
 The folder "Test suite" contains a method of testing this routine to be
 sure that it works.
+
+Another version of the routine is included, as "no_error_strlen.s". This
+routine is significantly smaller in code size. It assembles to 15 bytes of
+object code and will run faster if the no-end condition never occurs.
+
+It does not detect the "no end" condition and will simply wrap from 0xFFFF
+to 0x0000 while searching for the end of the string.
+
+You should only use this routine if you want extra performance or reduced
+code size and can be quite sure that the string passed into the routine
+is valid, and that the "no end" condition will never occur.
 
 Licensed to you under the MIT License.
 
