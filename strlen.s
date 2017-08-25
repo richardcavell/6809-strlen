@@ -14,6 +14,7 @@
 ; Outputs:
 ;
 ;   D = Length of the string.
+;   (A value of 0xFFFF means there was a "no end" error)
 ;
 ;   All other registers, including X, are preserved.
 ;
