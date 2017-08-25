@@ -16,6 +16,10 @@ A C-style string, for the purposes of this routine, is a sequence of
 non-zero 8-bit bytes, followed by a zero byte. The sequence may have
 zero length.
 
+A "no end" error can occur if the string continues past memory location
+0xFFFF. The default error handler returns a length of 0xFFFF. You should
+check for this. You can also write your own error handler.
+
 The code is position-independent and re-entrant. Interrupts are allowed
 to occur during execution. It uses 2 bytes of the S stack, in addition
 to the 2 bytes used for the return PC value when calling this routine.
@@ -26,9 +30,6 @@ Issues:
  If X does not point to a valid string, the behaviour is undefined.
    If there is no terminating null byte, the code might access forbidden
      areas of the memory map.
-   It is possible for X to wrap (say from $FFFF to $0000). This code makes
-     no attempt to detect this possibility, because the behaviour may be
-     desirable.
 
 The folder "Test suite" contains a method of testing this routine to be
 sure that it works.
