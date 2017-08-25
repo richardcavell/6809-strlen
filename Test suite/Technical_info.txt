@@ -17,5 +17,4 @@ In order to build the test suite yourself, you will need to install:
   * decb, part of the Toolshed project located here:
           https://sourceforge.net/p/toolshed/wiki/Home/
 
-
 Richard Cavell
