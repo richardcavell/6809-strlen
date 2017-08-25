@@ -3,11 +3,41 @@
 
 Version 1.1 :
 
-    * Slight improvements to strlen.s, for portability and performance
-    * Many significant improvements to the test suite
-    * Many significant improvements to the text documents and the
-      comments within source code
-    * We are now supporting only two platforms for the test suite
+  * Slight improvements to strlen.s
+
+      * Add label _strlen_entry, which identifies the entry point
+      * Slight modification to the code, for maximum portability
+        to other assemblers
+          * PULS X, PC -> PULS X,PC  (removal of space)
+      * Removal of the ORG command, for maximum portability to other
+        projects
+      * To assemble a standalone routine or to incorporate it in the
+        test suite, you should now use main.s, which includes the ORG
+        command and what remains of strlen.s
+
+  * Many significant improvements to the test suite
+
+      * TEST.BAS now calls the machine language routines using USRx()
+        instead of EXEC, so parameters are handled more neatly
+      * helper1.s and helper2.s now use the DECB (Disk Extended Color BASIC)
+        calling conventions
+      * helper2.s now constructs the test string 2 bytes at a time, so
+        it is faster. It will still correctly handle odd lengths
+      * Both assembly files have been modified for maximum portability
+        to other assemblers.
+          * Characters are now presented as 'A rather than 'A'
+          * Strings are now presented as 'A * 256 + 'B  rather than "AB"
+      * All magic numbers are now presented as symbols
+      * More helpful comments, where possible
+
+  * We are now supporting only two platforms for the test suite
+
+      * The ability of TEST.BAS to work from tape has been removed
+
+  * Creation of new files
+
+      * Machines.txt
+      * Version_history.txt
 
 Version 1.0 (28 July 2017)
 
