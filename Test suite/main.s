@@ -7,16 +7,21 @@
 ; Written by Richard John Foster Cavell (c) 2017.
 ; Licensed to you under the MIT License.
 ;
-; If you are quite sure that the strings presented to strlen.s are valid
-; and will never wrap, you can delete the first INCLUDE and use the second.
+; If you are quite sure that the strings presented to the routine are valid
+; and will never wrap, change the next line to equal 1
+
+GUARANTEED_NO_ERROR EQU 0
 
   ORG $3000                 ; Change this if you have <16K RAM
 
 _main
 _start
 
-  INCLUDE "strlen.s"
-; INCLUDE "no_error_strlen.s"
+  IF (GUARANTEED_NO_ERROR==0)
+  INCLUDE "../strlen.s"
+  ELSE
+  INCLUDE "../no_error_strlen.s"
+  ENDIF
 
 _end
   END

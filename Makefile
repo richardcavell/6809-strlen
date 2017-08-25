@@ -3,15 +3,19 @@
 # Part of the 6809-strlen project
 # https://github.com/richardcavell/6809-strlen
 
-ASM = asm6809
+# Note that we build strlen.bin as a raw binary here
+
+ASM    = asm6809
+SOURCE = strlen.s
+BINARY = strlen.bin
 
 .DEFAULT: all
 .PHONY: all
 
-all: strlen.bin
+all: $(BINARY)
 
-strlen.bin: main.s strlen.s
+$(BINARY): $(SOURCE)
 	$(ASM) $< $(OUTPUT_OPTION)
 
 clean:
-	$(RM) strlen.bin
+	$(RM) $(BINARY)
