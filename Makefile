@@ -6,16 +6,21 @@
 # Note that we build strlen.bin as a raw binary here
 
 ASM    = asm6809
-SOURCE = strlen.s
-BINARY = strlen.bin
+SOURCE1 = strlen.s
+BINARY1 = strlen.bin
+SOURCE2 = no_error_strlen.s
+BINARY2 = no_error_strlen.bin
 
 .DEFAULT: all
 .PHONY: all
 
-all: $(BINARY)
+all: $(BINARY1) $(BINARY2)
 
-$(BINARY): $(SOURCE)
+$(BINARY1): $(SOURCE1)
+	$(ASM) $< $(OUTPUT_OPTION)
+
+$(BINARY2): $(SOURCE2)
 	$(ASM) $< $(OUTPUT_OPTION)
 
 clean:
-	$(RM) $(BINARY)
+	$(RM) $(BINARY1) $(BINARY2)
