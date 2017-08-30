@@ -34,12 +34,11 @@
 ; If you don't choose the inputs wisely, this routine can write over the top
 ;  of memory that you don't want it to.
 ; It is possible for the string to wrap (say from $FFFF to $0000).
-;  This code makes no attempt to detect this possibility, because the
-;  behaviour may be desirable.
+;  This code makes no attempt to detect this possibility.
 
   ORG $3180               ; Change all the locations if you have <16K RAM
 
-PS     EQU $3200          ; Pointer to where the string shall be constructed
+STRING EQU $3200          ; Pointer to where the string shall be constructed
 INTCNV EQU $B3ED          ; BASIC routine to get the passed value
 
 _helper2
@@ -48,7 +47,7 @@ _helper2_entry
 
   PSHS Y                          ; Preserve register Y
   JSR INTCNV                      ; D = Requested length (passed from BASIC)
-  LDX #PS                         ; X = Start of the string
+  LDX #STRING                     ; X = Start of the string
   PSHS B                          ; Store the LSB of the length
   ANDB #$fe                       ; Round down to an even number
   TFR D,Y                         ; Y = Length rounded down to an even number

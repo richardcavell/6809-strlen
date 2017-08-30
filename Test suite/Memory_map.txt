@@ -3,11 +3,15 @@ by Richard John Foster Cavell (c) 2017
 
 This is the memory map as used by our test suite:
 
-$3000-$30FF
-      strlen machine language object code
+$3000-$307F
+      main1.s (strlen) machine language object code
       Start address is $3000
 
-$3100-$3170 (USR1)
+$3080-$30FF
+      main2.s (no_error_strlen) machine language object code
+      Start address is $3080
+
+$3100-$317F (USR1)
       helper1 machine language object code
       Start address is $3100
 

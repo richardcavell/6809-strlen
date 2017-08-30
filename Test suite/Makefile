@@ -4,23 +4,29 @@
 
 # Note that we build the strlen routine as a DECB disk file here
 
-ASM        = asm6809
-AFLAGS     = -C
-DECBTOOL   = decb
-XROAR      = xroar
-MAME       = mame
-MAIN       = main.s
-STRLENBIN  = strlen.bin
-HELPER1BIN = helper1.bin
-HELPER2BIN = helper2.bin
-DSKIMG     = TSTSUITE.DSK
+ASM         = asm6809
+AFLAGS      = -C
+DECBTOOL    = decb
+XROAR       = xroar
+MAME        = mame
+MAIN1       = main1.s
+MAIN2       = main2.s
+STRLENBIN   = strlen.bin
+NESTRLENBIN = nestrlen.bin
+HELPER1BIN  = helper1.bin
+HELPER2BIN  = helper2.bin
+DSKIMG      = TSTSUITE.DSK
+TESTBAS     = TEST.BAS
 
 .DEFAULT: all
 .PHONY:   all
 
 all: $(STRLENBIN) $(HELPER1BIN) $(HELPER2BIN) $(DSKIMG)
 
-$(STRLENBIN): $(MAIN)
+$(STRLENBIN): $(MAIN1)
+	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
+
+$(NESTRLENBIN): $(MAIN2)
 	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
 
 $(HELPER1BIN): helper1.s
@@ -29,13 +35,14 @@ $(HELPER1BIN): helper1.s
 $(HELPER2BIN): helper2.s
 	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
 
-$(DSKIMG): $(HELPER1BIN) $(HELPER2BIN) $(STRLENBIN)
+$(DSKIMG): $(TESTBAS) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN)
 	$(RM) $@
 	$(DECBTOOL) dskini $@ -3
-	$(DECBTOOL) copy TEST.BAS  -0  -t $(DSKIMG),TEST.BAS
-	$(DECBTOOL) copy $(STRLENBIN)  -2 $(DSKIMG),STRLEN.BIN
-	$(DECBTOOL) copy $(HELPER1BIN) -2 $(DSKIMG),HELPER1.BIN
-	$(DECBTOOL) copy $(HELPER2BIN) -2 $(DSKIMG),HELPER2.BIN
+	$(DECBTOOL) copy $(TESTBAS)  -0  -t $(DSKIMG),TEST.BAS
+	$(DECBTOOL) copy $(STRLENBIN)    -2 $(DSKIMG),STRLEN.BIN
+	$(DECBTOOL) copy $(NESTRLENBIN)  -2 $(DSKIMG),NESTRLEN.BIN
+	$(DECBTOOL) copy $(HELPER1BIN)   -2 $(DSKIMG),HELPER1.BIN
+	$(DECBTOOL) copy $(HELPER2BIN)   -2 $(DSKIMG),HELPER2.BIN
 
 .PHONY: xroar
 
@@ -50,4 +57,4 @@ mame:
 	@$(MAME) coco2b -flop1 $(DSKIMG)
 
 clean:
-	$(RM) $(STRLENBIN) $(HELPER1BIN) $(HELPER2BIN) $(DSKIMG)
+	$(RM) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN) $(DSKIMG)
