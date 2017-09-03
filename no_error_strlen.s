@@ -44,18 +44,18 @@ _no_error_strlen
 _no_error_strlen_start
 _no_error_strlen_entry
 
-  PSHS X                    ; Remember the start of the string
+  PSHS X                     ; Remember the start of the string
 
 _no_error_strlen_loop
 
-  LDA ,X+                   ; Is X pointing to the terminating zero?
-  BNE _no_error_strlen_loop ; If no -> test the next byte
+  LDA ,X+                    ; Is X pointing to the terminating zero?
+  BNE _no_error_strlen_loop  ; If no -> test the next byte
 
 _no_error_strlen_loop_end
 
-  TFR X,D                   ; Get ready for pointer arithmetic
-  SUBD #1                   ; X went one byte too far
-  SUBD ,S                   ; Calculate the length (result is in D)
-  PULS X,PC                 ; Restore X and return
-                            ; The stack is left in a correct state
+  TFR X,D                    ; Get ready for pointer arithmetic
+  SUBD #1                    ; X went one byte too far
+  SUBD ,S                    ; Calculate the length (result is in D)
+  PULS X,PC                  ; Restore X and return
+                             ; The stack is left in a correct state
 _no_error_strlen_end
