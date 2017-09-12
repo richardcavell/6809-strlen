@@ -1,7 +1,7 @@
 6809-strlen Version_history.txt
 (c) 2017 by Richard Cavell
 
-Version 1.1 :
+Version 1.1 (24 August 2017)
 
   * Slight improvements to strlen.s
 
@@ -11,7 +11,7 @@ Version 1.1 :
           * PULS X, PC -> PULS X,PC  (removal of space)
       * Removal of the ORG command, for maximum portability to other
         projects
-      * To assemble a standalone routine or to incorporate it in the
+      * To assemble a standalone routine or to incorporate it into the
         test suite, you should now use main.s, which includes the ORG
         command and what remains of strlen.s
       * And more!
