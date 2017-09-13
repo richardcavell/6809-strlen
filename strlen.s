@@ -47,34 +47,34 @@ _strlen
 _strlen_start
 _strlen_entry
 
-  PSHS X                    ; Remember the start of the string
+  PSHS X                     ; Remember the start of the string
 
 _strlen_loop
 
-  LDA ,X+                   ; Is X pointing to the terminating zero?
-  BEQ _strlen_calc_length   ; If Yes -> calculate the length
+  LDA  ,X+                   ; Is X pointing to the terminating zero?
+  BEQ  _strlen_calc_length   ; If Yes -> calculate the length
 
-  LEAX ,X                   ; Has X wrapped around to $0000?
-  BNE  _strlen_loop         ; If No -> loop again
+  LEAX ,X                    ; Has X wrapped around to $0000?
+  BNE  _strlen_loop          ; If No -> loop again
 
 _strlen_loop_end
 
-  BRA _strlen_error_no_end  ; Handle the error
+  BRA  _strlen_error_no_end  ; Handle the error
 
 _strlen_calc_length
 
-  TFR X,D                   ; Get ready for pointer arithmetic
-  SUBD #1                   ; X went one byte too far
-  SUBD ,S                   ; Calculate the length (result is in D)
-  PULS X,PC                 ; Restore X and return
-                            ; The stack is left in a correct state
+  TFR  X,D                   ; Get ready for pointer arithmetic
+  SUBD #1                    ; X went one byte too far
+  SUBD ,S                    ; Calculate the length (result is in D)
+  PULS X,PC                  ; Restore X and return
+                             ; The stack is left in a correct state
 
 _strlen_error_no_end
 
-                            ; You can write your own error handling code
-                            ; in here
+                             ; You can write your own error handling code
+                             ; in here
 
-  LDD  #0xFFFF              ; Return maximum length
-  PULS X,PC                 ; Honour our calling convention
+  LDD  #0xFFFF               ; Return maximum length
+  PULS X,PC                  ; Honour our calling convention
 
 _strlen_end
