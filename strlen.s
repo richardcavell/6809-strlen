@@ -52,7 +52,7 @@ _strlen_entry
 _strlen_loop
 
   LDA ,X+                   ; Is X pointing to the terminating zero?
-  BEQ _strlen_calc_length   ; If Yes-> calculate the length
+  BEQ _strlen_calc_length   ; If Yes -> calculate the length
 
   LEAX ,X                   ; Has X wrapped around to $0000?
   BNE  _strlen_loop         ; If No -> loop again
