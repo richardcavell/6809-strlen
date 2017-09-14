@@ -20,6 +20,7 @@ Version 1.1 (24 August 2017)
 
       * TEST.BAS now calls the machine language routines using USRx()
         instead of EXEC, so parameters are handled more neatly
+      * Memory map has been greatly simplified
       * helper1.s and helper2.s now use the DECB (Disk Extended Color BASIC)
         calling conventions
       * helper2.s now constructs the test string 2 bytes at a time, so
@@ -29,11 +30,20 @@ Version 1.1 (24 August 2017)
           * Characters are now presented as 'A rather than 'A'
           * Strings are now presented as 'A * 256 + 'B  rather than "AB"
       * All magic numbers are now presented as symbols
-      * More helpful comments, where possible
       * And more!
+
+  * Improved code comments and Readme.txt
+
+      The following things are now explicitly documented:
+
+      * What a C-style string is
+      * The routine is position-independent and re-entrant
+      * Interrupts are allowed to occur during execution
+      * How many bytes of the stack are being used
 
   * We are now supporting only two platforms for the test suite
 
+      * Machines.txt identifies those machines (xroar coco2b and mame coco2b)
       * The ability of TEST.BAS to work from tape has been removed
 
   * Creation of new files
