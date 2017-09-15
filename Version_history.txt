@@ -39,7 +39,7 @@ Version 1.1 (24 August 2017)
       * What a C-style string is
       * The routine is position-independent and re-entrant
       * Interrupts are allowed to occur during execution
-      * How many bytes of the stack are being used
+      * 2 extra bytes of the S stack are being used
 
   * We are now supporting only two platforms for the test suite
 
