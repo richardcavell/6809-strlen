@@ -32,6 +32,11 @@ Version 1.1 (24 August 2017)
       * All magic numbers are now presented as symbols
       * And more!
 
+  * We are now supporting only two platforms for the test suite
+
+      * Machines.txt identifies those machines (xroar coco2b and mame coco2b)
+      * The ability of TEST.BAS to work from tape has been removed
+
   * Improved code comments and Readme.txt
 
       The following things are now explicitly documented:
@@ -40,11 +45,6 @@ Version 1.1 (24 August 2017)
       * The routine is position-independent and re-entrant
       * Interrupts are allowed to occur during execution
       * 2 extra bytes of the S stack are being used
-
-  * We are now supporting only two platforms for the test suite
-
-      * Machines.txt identifies those machines (xroar coco2b and mame coco2b)
-      * The ability of TEST.BAS to work from tape has been removed
 
   * Creation of new files
 
