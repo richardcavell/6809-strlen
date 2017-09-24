@@ -25,7 +25,7 @@ In order to build the test suite yourself, you will need to install both:
   1.  asm6809, by Ciaran Anscomb, located here:
                http://www.6809.org.uk/asm6809/
 
-  2.  decb, part of the Toolshed project located here:
+  2.  decb, part of the Toolshed project, located here:
             https://sourceforge.net/p/toolshed/wiki/Home/
 
 This test suite has been successfully tested with, and is only officially
