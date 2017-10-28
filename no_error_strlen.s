@@ -59,3 +59,11 @@ _no_error_strlen_loop_end
   PULS X,PC                   ; Restore X and return
                               ; The stack is left in a correct state
 _no_error_strlen_end
+
+_no_error_strlen_length EQU (_no_error_strlen_end - _no_error_strlen_start)
+
+  EXPORT _no_error_strlen
+  EXPORT _no_error_strlen_start
+  EXPORT _no_error_strlen_entry
+  EXPORT _no_error_strlen_end
+  EXPORT _no_error_strlen_length
