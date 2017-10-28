@@ -40,32 +40,32 @@
 ;     if you can be certain that the string given to the routine is valid and
 ;     will never wrap.
 
-  CODE
+    CODE
 
 _no_error_strlen
 _no_error_strlen_start
 _no_error_strlen_entry
 
-  PSHS X                      ; Remember the start of the string
+    PSHS X                      ; Remember the start of the string
 
 _no_error_strlen_loop
 
-  LDA  ,X+                    ; Is X pointing to the terminating zero?
-  BNE  _no_error_strlen_loop  ; If no -> test the next byte
+    LDA  ,X+                    ; Is X pointing to the terminating zero?
+    BNE  _no_error_strlen_loop  ; If no -> test the next byte
 
 _no_error_strlen_loop_end
 
-  TFR  X,D                    ; Get ready for pointer arithmetic
-  SUBD #1                     ; X went one byte too far
-  SUBD ,S                     ; Calculate the length (result is in D)
-  PULS X,PC                   ; Restore X and return
-                              ; The stack is left in a correct state
+    TFR  X,D                    ; Get ready for pointer arithmetic
+    SUBD #1                     ; X went one byte too far
+    SUBD ,S                     ; Calculate the length (result is in D)
+    PULS X,PC                   ; Restore X and return
+                                ; The stack is left in a correct state
 _no_error_strlen_end
 
 _no_error_strlen_length EQU (_no_error_strlen_end - _no_error_strlen_start)
 
-  EXPORT _no_error_strlen
-  EXPORT _no_error_strlen_start
-  EXPORT _no_error_strlen_entry
-  EXPORT _no_error_strlen_end
-  EXPORT _no_error_strlen_length
+    EXPORT _no_error_strlen
+    EXPORT _no_error_strlen_start
+    EXPORT _no_error_strlen_entry
+    EXPORT _no_error_strlen_end
+    EXPORT _no_error_strlen_length
