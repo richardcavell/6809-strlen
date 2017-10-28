@@ -40,6 +40,8 @@
 ;     if you can be certain that the string given to the routine is valid and
 ;     will never wrap.
 
+  CODE
+
 _no_error_strlen
 _no_error_strlen_start
 _no_error_strlen_entry
