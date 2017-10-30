@@ -11,8 +11,12 @@ XROAR       = xroar
 MAME        = mame
 MAIN1       = main1.s
 MAIN2       = main2.s
+SOURCE1     = ../strlen.s
+SOURCE2     = ../no_error_strlen.s
 STRLENBIN   = strlen.bin
 NESTRLENBIN = nestrlen.bin
+HELPER1SRC  = helper1.s
+HELPER2SRC  = helper2.s
 HELPER1BIN  = helper1.bin
 HELPER2BIN  = helper2.bin
 DSKIMG      = TSTSUITE.DSK
@@ -23,16 +27,16 @@ TESTBAS     = TEST.BAS
 
 all: $(STRLENBIN) $(HELPER1BIN) $(HELPER2BIN) $(DSKIMG)
 
-$(STRLENBIN): $(MAIN1)
+$(STRLENBIN): $(MAIN1) $(SOURCE1)
 	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
 
-$(NESTRLENBIN): $(MAIN2)
+$(NESTRLENBIN): $(MAIN2) $(SOURCE2)
 	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
 
-$(HELPER1BIN): helper1.s
+$(HELPER1BIN): $(HELPER1SRC)
 	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
 
-$(HELPER2BIN): helper2.s
+$(HELPER2BIN): $(HELPER2SRC)
 	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
 
 $(DSKIMG): $(TESTBAS) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN)
