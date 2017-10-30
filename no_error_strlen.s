@@ -21,7 +21,7 @@
 ; non-zero 8-bit bytes, followed by a zero byte. The sequence may have
 ; zero length.
 ;
-; The code is position-independent and re-entrant. Interrupts are allowed
+; This code is position-independent and re-entrant. Interrupts are allowed
 ; to occur during execution. It uses 2 bytes of the S stack, in addition
 ; to the 2 bytes used for the return PC value when calling this routine.
 ;
@@ -62,10 +62,11 @@ _no_error_strlen_loop_end
                                 ; The stack is left in a correct state
 _no_error_strlen_end
 
-_no_error_strlen_length EQU (_no_error_strlen_end - _no_error_strlen_start)
+no_error_strlen_length EQU (_no_error_strlen_end - _no_error_strlen_start)
 
     EXPORT _no_error_strlen
     EXPORT _no_error_strlen_start
     EXPORT _no_error_strlen_entry
     EXPORT _no_error_strlen_end
-    EXPORT _no_error_strlen_length
+
+    EXPORT no_error_strlen_length

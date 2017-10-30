@@ -22,7 +22,7 @@
 ; non-zero 8-bit bytes, followed by a zero byte. The sequence may have
 ; zero length.
 ;
-; The code is position-independent and re-entrant. Interrupts are allowed
+; This code is position-independent and re-entrant. Interrupts are allowed
 ; to occur during execution. It uses 2 bytes of the S stack, in addition
 ; to the 2 bytes used for the return PC value when calling this routine.
 ;
@@ -34,7 +34,7 @@
 ; Errors:
 ;
 ; A "no end" error occurs when the string appears to continue past memory
-; location $FFFF
+; location $FFFF.
 ;
 ; You can write your own error handler for this, below.
 ;
@@ -43,38 +43,49 @@
 ;   If there is no terminating null byte, the code might access forbidden
 ;     areas of the memory map.
 
+    CODE
+
 _strlen
 _strlen_start
 _strlen_entry
 
-  PSHS X                     ; Remember the start of the string
+    PSHS X                     ; Remember the start of the string
 
 _strlen_loop
 
-  LDA  ,X+                   ; Is X pointing to the terminating zero?
-  BEQ  _strlen_calc_length   ; If Yes -> calculate the length
+    LDA  ,X+                   ; Is X pointing to the terminating zero?
+    BEQ  _strlen_calc_length   ; If Yes -> calculate the length
 
-  LEAX ,X                    ; Has X wrapped around to $0000?
-  BNE  _strlen_loop          ; If No -> loop again
+    LEAX ,X                    ; Has X wrapped around to $0000?
+    BNE  _strlen_loop          ; If No -> loop again
 
 _strlen_loop_end
 
-  BRA  _strlen_error_no_end  ; Handle the error
+    BRA  _strlen_error_no_end  ; Handle the error
 
 _strlen_calc_length
 
-  TFR  X,D                   ; Get ready for pointer arithmetic
-  SUBD #1                    ; X went one byte too far
-  SUBD ,S                    ; Calculate the length (result is in D)
-  PULS X,PC                  ; Restore X and return
-                             ; The stack is left in a correct state
+    TFR  X,D                   ; Get ready for pointer arithmetic
+    SUBD #1                    ; X went one byte too far
+    SUBD ,S                    ; Calculate the length (result is in D)
+    PULS X,PC                  ; Restore X and return
+                               ; The stack is left in a correct state
 
 _strlen_error_no_end
 
-                             ; You can write your own error handling code
-                             ; in here
+                               ; You can write your own error handling code
+                               ; in here
 
-  LDD  #0xFFFF               ; Return maximum length
-  PULS X,PC                  ; Honour our calling convention
+    LDD  #0xFFFF               ; Return maximum length
+    PULS X,PC                  ; Honour our calling convention
 
 _strlen_end
+
+strlen_length EQU (_strlen_end - _strlen_start)
+
+    EXPORT _strlen
+    EXPORT _strlen_start
+    EXPORT _strlen_entry
+    EXPORT _strlen_end
+
+    EXPORT strlen_length
