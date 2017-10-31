@@ -16,6 +16,20 @@ Version 1.1 (24 August 2017)
         command and what remains of strlen.s
       * And more!
 
+  * Improved code comments and Readme.txt
+
+      The following things are now explicitly documented:
+
+      * The routine is position-independent and re-entrant
+      * Interrupts are allowed to occur during execution
+      * 2 extra bytes of the S stack are being used
+      * What a C-style string is
+
+  * Creation of new files
+
+      * Machines.txt         (in the Test Suite folder)
+      * Version_history.txt  (in the main folder)
+
   * Many significant improvements to the test suite
 
       * TEST.BAS now calls the machine language routines using USRx()
@@ -40,20 +54,6 @@ Version 1.1 (24 August 2017)
           * mame coco2b
 
       * The ability of TEST.BAS to work from tape has been removed
-
-  * Improved code comments and Readme.txt
-
-      The following things are now explicitly documented:
-
-      * The routine is position-independent and re-entrant
-      * Interrupts are allowed to occur during execution
-      * 2 extra bytes of the S stack are being used
-      * What a C-style string is
-
-  * Creation of new files
-
-      * Machines.txt         (in the Test Suite folder)
-      * Version_history.txt  (in the main folder)
 
 Version 1.0 (28 July 2017)
 
