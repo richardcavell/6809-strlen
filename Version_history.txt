@@ -34,7 +34,11 @@ Version 1.1 (24 August 2017)
 
   * We are now supporting only two platforms for the test suite
 
-      * Machines.txt identifies those machines (xroar coco2b and mame coco2b)
+      * Machines.txt identifies those targets. Both are emulated machines:
+
+          * xroar coco2b, and
+          * mame coco2b
+
       * The ability of TEST.BAS to work from tape has been removed
 
   * Improved code comments and Readme.txt
@@ -48,8 +52,8 @@ Version 1.1 (24 August 2017)
 
   * Creation of new files
 
-      * Machines.txt
-      * Version_history.txt
+      * Machines.txt         (in the Test Suite folder)
+      * Version_history.txt  (in the main folder)
 
 Version 1.0 (28 July 2017)
 
