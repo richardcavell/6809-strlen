@@ -26,7 +26,7 @@
 ; to occur during execution. It uses 2 bytes of the S stack, in addition
 ; to the 2 bytes used for the return PC value when calling this routine.
 ;
-; The routine assembles to 26 bytes of object code using asm6809.
+; This routine assembles to 21 bytes of object code using asm6809.
 ;
 ; There is a no_error_strlen.s version of this code, which does not detect
 ; the "no end" condition.
