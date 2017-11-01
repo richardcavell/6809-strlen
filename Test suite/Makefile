@@ -2,10 +2,11 @@
 # by Richard John Foster Cavell (c) 2017
 # Part of the 6809-strlen project
 
-# Note that we build the strlen routine as a DECB disk file here
+# Note that we build the strlen and no_error_strlen routines as
+# DECB disk files here
 
 ASM         = asm6809
-AFLAGS      = -C
+AFLAGS      = -C -8 --setdp -1
 DECBTOOL    = decb
 XROAR       = xroar
 MAME        = mame
@@ -19,13 +20,13 @@ HELPER1SRC  = helper1.s
 HELPER2SRC  = helper2.s
 HELPER1BIN  = helper1.bin
 HELPER2BIN  = helper2.bin
-DSKIMG      = TSTSUITE.DSK
 TESTBAS     = TEST.BAS
+DSKIMG      = TSTSUITE.DSK
 
 .DEFAULT: all
 .PHONY:   all
 
-all: $(STRLENBIN) $(HELPER1BIN) $(HELPER2BIN) $(DSKIMG)
+all: $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN) $(DSKIMG)
 
 $(STRLENBIN): $(MAIN1) $(SOURCE1)
 	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
