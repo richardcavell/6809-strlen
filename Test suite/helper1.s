@@ -15,7 +15,7 @@
 ;          1 (use no_error_strlen)
 ;
 ; Outputs:
-;   Length of the string (0 to 0xffff)
+;   Length of the string (0 to 0xFFFF)
 ;
 ; This routine adheres to the Disk Extended Color BASIC USRx()
 ; calling conventions.
@@ -24,12 +24,17 @@
 ; memory location $3000 and the no_error_strlen routine must be loaded to
 ; memory location $3080.
 ;
+; If there is a valid string starting at location $3200, its length will
+; be returned. If there is no valid string there, it is possible for the
+; CPU to read disallowed areas of the memory map, or for a "no end" error
+; to occur.
+;
 ; This code may be placed anywhere in memory, so it is position-independent.
 ; It is re-entrant. But the memory locations $3000, $3080 and $3200 are
 ; hard-coded below. Interrupts are allowed to occur during execution.
 ;
-; It uses 2 bytes of the System stack, in addition to the 2 bytes used
-; for the return address.
+; The System stack must have enough room to accommodate the calls to the
+; BASIC interpreter, and the strlen/no_error_strlen routine.
 ;
 ; Issues:
 ; If memory location $3000 is not the start of the strlen routine, the
@@ -43,7 +48,7 @@
 ;   It is possible for X to wrap (from $FFFF to $0000). Only the regular
 ;     strlen routine detects this possibility (and returns $FFFF).
 
-  ORG $3100   ; Change all the locations if you have <16K RAM
+    ORG $3100   ; Change all the locations if you have <16K RAM
 
 STRLEN   EQU $3000                 ; This must be loaded here first
 NESTRLEN EQU $3080                 ; This also must be loaded here first
@@ -55,19 +60,19 @@ _helper1
 _helper1_start
 _helper1_entry
 
-  JSR INTCNV      ; Get the parameter from BASIC
-  LDX #STRING     ; Load the address of the string into X
-  SUBD #0
-  BNE _helper1_use_no_error_strlen
+    JSR INTCNV      ; Get the parameter from BASIC
+    LDX #STRING     ; Load the address of the string into X
+    SUBD #0         ; Does D equal 0 or 1?
+    BNE _helper1_use_no_error_strlen
 
 _helper1_use_strlen
 
-  JSR STRLEN      ; Execute strlen -> result will be in D
-  JMP GIVABF      ; Return the result in D to BASIC
+    JSR STRLEN      ; Execute strlen -> result will be in D
+    JMP GIVABF      ; Return the result in D to BASIC
 
 _helper1_use_no_error_strlen
 
-  JSR NESTRLEN    ; Execute no_error_strlen -> result will be in D
-  JMP GIVABF      ; Return the result in D to BASIC
+    JSR NESTRLEN    ; Execute no_error_strlen -> result will be in D
+    JMP GIVABF      ; Return the result in D to BASIC
 
 _helper1_end
