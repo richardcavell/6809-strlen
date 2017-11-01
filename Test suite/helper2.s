@@ -8,7 +8,7 @@
 ; Licensed to you under the MIT License.
 ;
 ; Inputs:
-;   Length of the string (0 to 0xffff)
+;   Length of the string (0 to 0xFFFF)
 ;
 ; Outputs:
 ;   Garbage is returned as the value of the USRx() call
@@ -24,15 +24,16 @@
 ; It is re-entrant.  Interrupts are allowed to occur during execution.
 ; This routine assumes that your assembler uses ASCII.
 ;
-; But the memory location $3200 is hard-coded below.
+; The memory location $3200 is hard-coded below.
 ;
 ; This routine could be made to run faster, but clarity is the goal here.
 ;
 ; Issues:
 ; This code must be assembled with an assembler that substitutes ASCII
 ;  codes for the characters given in the code.
-; If you don't choose the inputs wisely, this routine can write over the top
-;  of memory that you don't want it to.
+; This routine can write into memory locations that have no RAM (in a machine
+;  with less than 64K RAM).
+; This routine can write into memory that you don't want it to.
 ; It is possible for the string to wrap (say from $FFFF to $0000).
 ;  This code makes no attempt to detect this possibility.
 
@@ -45,59 +46,59 @@ _helper2
 _helper2_start
 _helper2_entry
 
-  PSHS Y                          ; Preserve register Y
-  JSR INTCNV                      ; D = Requested length (passed from BASIC)
-  LDX #STRING                     ; X = Start of the string
-  PSHS B                          ; Store the LSB of the length
-  ANDB #$fe                       ; Round down to an even number
-  TFR D,Y                         ; Y = Length rounded down to an even number
+    PSHS Y                          ; Preserve register Y
+    JSR INTCNV                      ; D = Requested length (passed from BASIC)
+    LDX #STRING                     ; X = Start of the string
+    PSHS B                          ; Store the LSB of the length
+    ANDB #$fe                       ; Round down to an even number
+    TFR D,Y                         ; Y = Length rounded down to an even number
 
-  LDD #'A*256+'B                  ; String will start with "AB"
+    LDD #'A*256+'B                  ; String will start with "AB"
 
-  LEAY ,Y                         ; Test length
-  BEQ _helper2_terminate_string   ; If length is 0 or 1, don't loop
+    LEAY ,Y                         ; Test length
+    BEQ _helper2_terminate_string   ; If length is 0 or 1, don't loop
 
 _helper2_copy_loop
 
-  STD ,X++                        ; Store the next two characters
-                                  ; and increment X by 2
-  CMPB #'Z                        ; Have we reached the letter Z?
-  BEQ _helper2_start_digits       ; If yes, start with the digits
+    STD ,X++                        ; Store the next two characters
+                                    ; and increment X by 2
+    CMPB #'Z                        ; Have we reached the letter Z?
+    BEQ _helper2_start_digits       ; If yes, start with the digits
 
-  CMPB #'9                        ; Have we reached the digit 9?
-  BEQ  _helper2_start_alphabet    ; If yes, start with the alphabet
+    CMPB #'9                        ; Have we reached the digit 9?
+    BEQ  _helper2_start_alphabet    ; If yes, start with the alphabet
 
-  ADDD #$0202                     ; Alter the characters that we're storing
+    ADDD #$0202                     ; Alter the characters that we're storing
 
 _helper2_count_and_loop
 
-  LEAY -2,Y                       ; Y is our counter
-  BNE _helper2_copy_loop          ; If more chars are needed, loop
+    LEAY -2,Y                       ; Y is our counter
+    BNE _helper2_copy_loop          ; If more chars are needed, loop
 
 _helper2_terminate_string
 
-  PULS B                          ; B = The LSB of the length
-  ANDB #$1                        ; Is the length an odd number?
-  BEQ _helper2_even_count         ; If no, skip the next instruction
+    PULS B                          ; B = The LSB of the length
+    ANDB #$1                        ; Is the length an odd number?
+    BEQ _helper2_even_count         ; If no, skip the next instruction
 
-  STA ,X+                         ; Store one last character
+    STA ,X+                         ; Store one last character
 
 _helper2_even_count
 
-  CLR ,X                          ; Add the terminating zero
-  PULS Y,PC                       ; Restore register Y
-                                  ; and return to BASIC
+    CLR ,X                          ; Add the terminating zero
+    PULS Y,PC                       ; Restore register Y
+                                    ; and return to BASIC
 
 ; Subroutines
 
 _helper2_start_digits
 
-  LDD #'0*256+'1                  ; Start with the digits
-  BRA _helper2_count_and_loop
+    LDD #'0*256+'1                  ; Start with the digits
+    BRA _helper2_count_and_loop
 
 _helper2_start_alphabet
 
-  LDD #'A*256+'B                  ; Start with the alphabet (again)
-  BRA _helper2_count_and_loop
+    LDD #'A*256+'B                  ; Start with the alphabet (again)
+    BRA _helper2_count_and_loop
 
 _helper2_end
