@@ -6,7 +6,7 @@
 INTCNV          EQU $B3ED       ; Get the parameter from BASIC
 GIVABF          EQU $B4F4       ; Give the result to BASIC
 
-; Symbols for calling helper1 from TEST.BAS
+; Symbols for calling helper1
 
 USE_STRLEN      EQU  0
 USE_NESTRLEN    EQU  1
