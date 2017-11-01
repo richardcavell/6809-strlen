@@ -40,6 +40,14 @@ Version 1.2 (1 November 2017)
         Make command
       * And more!
 
+  * Removal of certain files in the "Test suite" folder:
+
+      * Machines.txt
+      * Technical_info.txt
+
+      Their contents are now incorporated into the test suite
+      Readme.txt
+
 Version 1.1 (24 August 2017)
 
   * Slight improvements to strlen.s
