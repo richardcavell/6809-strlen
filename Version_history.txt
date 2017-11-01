@@ -1,6 +1,45 @@
 6809-strlen Version_history.txt
 (c) 2017 by Richard Cavell
 
+Version 1.2 (1 November 2017)
+
+  * The routine now comes in two versions:
+
+      * strlen.s
+      * no_error_strlen.s
+
+      * strlen.s now identifies the "no end" error, which occurs when the
+        string is read up to memory location $FFFF without finding a
+        terminating zero
+      * no_error_strlen.s is for when you are sure that this error
+        will not be encountered
+
+      * Both versions are, and will be, actively maintained
+      * The test suite now tests both versions
+      * The object code assembles with asm6809 into:
+
+          * strlen.bin - 15 bytes
+          * no_error_strlen.bin - 21 bytes
+
+  * The code has been improved
+
+      * Slight savings in speed have been achieved
+      * The CODE pseudo-op is used at the start of the code
+      * All symbols that might be useful are now exported
+      * The object code length is calculated and exported
+      * We now use 4-space indents
+
+  * The test suite has been improved
+
+      * We now use the decb utility from the Toolshed
+        (https://sourceforge.net/projects/toolshed/) to automatically
+        build the test suite disk, making things much easier
+      * The test suite now builds its own versions of strlen.bin and
+        no_error_strlen.bin, as DECB executable files rather than raw binaries
+      * You can now build the test suite and run XRoar or MAME from a single
+        Make command
+      * And more!
+
 Version 1.1 (24 August 2017)
 
   * Slight improvements to strlen.s
