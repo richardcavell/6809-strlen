@@ -7,12 +7,12 @@
 ; Written by Richard John Foster Cavell (c) 2017.
 ; Licensed to you under the MIT License.
 
-  ORG $3000                 ; Change this if you have <16K RAM
+    ORG $3000                 ; Change this if you have <16K RAM
 
-_main1
 _start
+_main1
 
-  INCLUDE "../strlen.s"
+    INCLUDE "../strlen.s"
 
 _end
-  END
+    END
