@@ -7,13 +7,13 @@
 # as raw binaries here. The Test Suite builds
 # its own versions of the routines, differently.
 
-ASM     = asm6809
+ASM       = asm6809
 
-SOURCE1 = strlen.s
-SOURCE2 = no_error_strlen.s
+SOURCE1   = strlen.s
+SOURCE2   = no_error_strlen.s
 
-BINARY1 = strlen.bin
-BINARY2 = no_error_strlen.bin
+BINARY1   = strlen.bin
+BINARY2   = no_error_strlen.bin
 
 .DEFAULT: all
 .PHONY:   all

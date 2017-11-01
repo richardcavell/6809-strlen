@@ -14,7 +14,7 @@
 ; Outputs:
 ;
 ;   D = Length of the string.
-;   (A value of 0xFFFF means there was a "no end" error)
+;   (A value of NE_ERROR means there was a "no end" error)
 ;
 ;   All other registers, including X, are preserved.
 ;
@@ -66,7 +66,7 @@ _strlen_loop_end
                                ; You can write your own error handling code
                                ; in here
 
-    LDD  #0xFFFF               ; Return maximum length
+    LDD  #0xFFFF               ; Return error
     PULS X,PC                  ; Honour our calling convention
 
 _strlen_calc_length

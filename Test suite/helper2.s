@@ -12,7 +12,7 @@
 ;
 ; Outputs:
 ;   Garbage is returned as the value of the USRx() call
-;   Beginning at the memory location $3200, a string of the length
+;   Beginning at the memory location STRING, a string of the length
 ;     requested, null-terminated
 ;
 ; The DECB calling conventions are honoured.
@@ -23,8 +23,6 @@
 ; This code may be placed anywhere in memory, so it is position-independent.
 ; It is re-entrant.  Interrupts are allowed to occur during execution.
 ; This routine assumes that your assembler uses ASCII.
-;
-; The memory location $3200 is hard-coded below.
 ;
 ; This routine could be made to run faster, but clarity is the goal here.
 ;
@@ -37,10 +35,9 @@
 ; It is possible for the string to wrap (say from $FFFF to $0000).
 ;  This code makes no attempt to detect this possibility.
 
-  ORG $3180               ; Change all the locations if you have <16K RAM
+    INCLUDE "Symbols.inc"
 
-STRING EQU $3200          ; Pointer to where the string shall be constructed
-INTCNV EQU $B3ED          ; BASIC routine to get the passed value
+    ORG HELPER2
 
 _helper2
 _helper2_start
@@ -102,3 +99,9 @@ _helper2_start_alphabet
     BRA _helper2_count_and_loop
 
 _helper2_end
+
+    IF    (_helper2_end > HELPER2_LIMIT)
+    ERROR "Helper2 object code does not fit into the space allocated"
+    ENDIF
+
+    END

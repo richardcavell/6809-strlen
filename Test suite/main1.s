@@ -7,7 +7,9 @@
 ; Written by Richard John Foster Cavell (c) 2017.
 ; Licensed to you under the MIT License.
 
-    ORG $3000                 ; Change this if you have <16K RAM
+    INCLUDE "Symbols.inc"
+
+    ORG  STRLEN
 
 _start
 _main1
@@ -15,4 +17,9 @@ _main1
     INCLUDE "../strlen.s"
 
 _end
+
+    IF    (_end > STRLEN_LIMIT)
+    ERROR "Strlen object code does not fit into the space allocated"
+    ENDIF
+
     END

@@ -8,7 +8,9 @@
 ; Written by Richard John Foster Cavell (c) 2017.
 ; Licensed to you under the MIT License.
 
-    ORG $3080                 ; Change this if you have <16K RAM
+    INCLUDE "Symbols.inc"
+
+    ORG  NESTRLEN
 
 _start
 _main2
@@ -16,4 +18,9 @@ _main2
     INCLUDE "../no_error_strlen.s"
 
 _end
+
+    IF    (_end > NESTRLEN_LIMIT)
+    ERROR "Nestrlen object code does not fit into the space allocated"
+    ENDIF
+
     END
