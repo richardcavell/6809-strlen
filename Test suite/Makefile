@@ -64,5 +64,7 @@ mame:   $(DISKIMG)
 	@echo "Type : RUN \"TEST\""
 	@$(MAME) coco2b -flop1 $(DSKIMG)
 
+.PHONY: clean
+
 clean:
 	$(RM) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN) $(DSKIMG)
