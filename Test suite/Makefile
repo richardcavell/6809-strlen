@@ -61,8 +61,7 @@ xroar:  $(DISKIMG)
 
 mame:   $(DISKIMG)
 	@echo "Launching MAME"
-	@echo "Type : RUN \"TEST\""
-	@$(MAME) coco2b -flop1 $(DSKIMG)
+	@$(MAME) coco2b -flop1 $(DSKIMG) -autoboot_command "RUN \"TEST\"\n"\ -autoboot_delay 2
 
 .PHONY: clean
 
