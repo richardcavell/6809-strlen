@@ -53,15 +53,14 @@ $(DSKIMG): $(TESTBAS) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN)
 .PHONY: xroar
 
 xroar:  $(DISKIMG)
-	@echo "Launching XRoar"
-	@echo "Type : RUN \"TEST\""
-	@$(XROAR) -machine coco2b -load $(DSKIMG) -q 2> /dev/null
+	@echo "Launching XRoar..."
+	@$(XROAR) -machine coco2b -load $(DSKIMG) -type 'RUN "TEST"\r' -q 2> /dev/null
 
 .PHONY: mame
 
 mame:   $(DISKIMG)
-	@echo "Launching MAME"
-	@$(MAME) coco2b -flop1 $(DSKIMG) -autoboot_command "RUN \"TEST\"\n"\ -autoboot_delay 2
+	@echo "Launching MAME..."
+	@$(MAME) coco2b -flop1 $(DSKIMG) -autoboot_command "RUN \"TEST\"\n" -autoboot_delay 2
 
 .PHONY: clean
 
