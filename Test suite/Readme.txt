@@ -6,12 +6,10 @@ https://github.com/richardcavell/6809-strlen
 To use the test suite on XRoar:
 
   1.  Type "make xroar" on your computer
-  2.  Type RUN "TEST"   on the emulated Coco computer
 
 To use the test suite on MAME:
 
   1.  Type "make mame"  on your computer
-  2.  Type RUN "TEST"   on the emulated Coco computer
 
 In order to use the test suite, you will need one of:
 
