@@ -27,7 +27,9 @@ DSKIMG      = TSTSUITE.DSK
 .DEFAULT: all
 .PHONY:   all
 
-all: $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN) $(DSKIMG)
+all: $(STRLENBIN) $(NESTRLENBIN)
+all: $(HELPER1BIN) $(HELPER2BIN)
+all: $(DSKIMG)
 
 $(STRLENBIN): $(MAIN1) $(SOURCE1) $(SYMBOLS)
 	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
@@ -41,7 +43,9 @@ $(HELPER1BIN): $(HELPER1SRC) $(SYMBOLS)
 $(HELPER2BIN): $(HELPER2SRC) $(SYMBOLS)
 	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
 
-$(DSKIMG): $(TESTBAS) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN)
+$(DSKIMG): $(TESTBAS)
+$(DSKIMG): $(STRLENBIN) $(NESTRLENBIN)
+$(DSKIMG): $(HELPER1BIN) $(HELPER2BIN)
 	$(RM) $@
 	$(DECBTOOL) dskini $@ -3
 	$(DECBTOOL) copy $(TESTBAS)  -0  -t $(DSKIMG),TEST.BAS
@@ -54,15 +58,18 @@ $(DSKIMG): $(TESTBAS) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN)
 
 xroar:  $(DSKIMG)
 	@echo "Launching XRoar..."
-	@$(XROAR) -machine coco2b -load $(DSKIMG) -type 'RUN "TEST"\r' -q 2> /dev/null
+	@$(XROAR) -machine coco2b -load $(DSKIMG)\
+          -type 'RUN "TEST"\r' -q 2> /dev/null
 
 .PHONY: mame
 
 mame:   $(DSKIMG)
 	@echo "Launching MAME..."
-	@$(MAME) coco2b -flop1 $(DSKIMG) -autoboot_command "RUN \"TEST\"\n" -autoboot_delay 2
+	@$(MAME) coco2b -flop1 $(DSKIMG)\
+          -autoboot_command "RUN \"TEST\"\n" -autoboot_delay 2
 
 .PHONY: clean
 
 clean:
-	$(RM) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN) $(DSKIMG)
+	$(RM) $(STRLENBIN) $(NESTRLENBIN)\
+          $(HELPER1BIN) $(HELPER2BIN) $(DSKIMG)
