@@ -3,7 +3,7 @@ by Richard John Foster Cavell (c) 2017
 Version 1.2 (1 November 2017)
 https://github.com/richardcavell/6809-strlen
 
-A 6809 assembly routine to find the length of a C-style string.
+A 6809 assembly language routine to find the length of a C-style string.
 
 Inputs:
 
@@ -25,10 +25,10 @@ A "no end" error can occur if the string continues past memory location
 check for this. You can also write your own error handler.
 
 The code is position-independent and re-entrant. Interrupts are allowed
-to occur during execution. It uses 2 bytes of the S stack, in addition
+to occur during execution. The code uses 2 bytes of the S stack, in addition
 to the 2 bytes used for the return PC value when calling this routine.
 
-It assembles to 21 bytes (0x15 bytes) of object code using asm6809.
+The code assembles to 21 bytes of object code using asm6809.
 
 Issues:
  If X does not point to a valid string, the behaviour is undefined.
@@ -39,7 +39,7 @@ The folder "Test suite" contains a method of testing this routine to be
 sure that it works.
 
 Another version of the routine is included, called "no_error_strlen.s". This
-routine is smaller in code size. It assembles to 15 bytes of object code
+routine is smaller in code size. It assembles to 15 bytes of object code 
 and will complete faster in most cases. It does not detect the "no end"
 condition and will simply wrap from 0xFFFF to 0x0000 while searching for
 the end of the string.

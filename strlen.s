@@ -2,7 +2,7 @@
 ; Version 1.2 (1 November 2017)
 ; https://github.com/richardcavell/6809-strlen
 ;
-; A 6809 assembly routine to find the length of a C-style string.
+; A 6809 assembly language routine to find the length of a C-style string.
 ;
 ; Written by Richard John Foster Cavell (c) 2017.
 ; Licensed to you under the MIT License.
@@ -14,7 +14,7 @@
 ; Outputs:
 ;
 ;   D = Length of the string.
-;   (A value of NE_ERROR means there was a "no end" error)
+;   (A value of 0xFFFF means there was a "no end" error)
 ;
 ;   All other registers, including X, are preserved.
 ;
@@ -23,8 +23,9 @@
 ; zero length.
 ;
 ; This code is position-independent and re-entrant. Interrupts are allowed
-; to occur during execution. It uses 2 bytes of the S stack, in addition
-; to the 2 bytes used for the return PC value when calling this routine.
+; to occur during execution. The code uses 2 bytes of the S stack, in
+; addition to the 2 bytes used for the return PC value when calling this
+; routine.
 ;
 ; This routine assembles to 21 bytes of object code using asm6809.
 ;
