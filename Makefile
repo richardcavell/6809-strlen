@@ -4,7 +4,7 @@
 # https://github.com/richardcavell/6809-strlen
 
 # We build strlen.bin and no_error_strlen.bin
-# as raw binaries here. The Test Suite builds
+# as raw binaries here. The test suite builds
 # its own versions of the routines, differently.
 
 ASM       = asm6809
