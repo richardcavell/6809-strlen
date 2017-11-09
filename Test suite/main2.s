@@ -3,7 +3,7 @@
 ; https://github.com/richardcavell/6809-strlen
 ;
 ; A very short file to assist in assembling no_error_strlen.s
-; for the test suite
+; for the test suite.
 ;
 ; Written by Richard John Foster Cavell (c) 2017.
 ; Licensed to you under the MIT License.
