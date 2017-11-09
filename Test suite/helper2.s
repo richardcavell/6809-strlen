@@ -11,9 +11,10 @@
 ;   Length of the string (0 to 0xFFFF)
 ;
 ; Outputs:
-;   Garbage is returned as the value of the USRx() call
+;   Ignore the result of the USRx() call. Nothing meaningful is passed
+;     back.
 ;   Beginning at the memory location STRING, a string of the length
-;     requested, null-terminated
+;     requested, null-terminated, is created.
 ;
 ; The DECB calling conventions are honoured.
 ;
@@ -29,8 +30,8 @@
 ; Issues:
 ; This code must be assembled with an assembler that substitutes ASCII
 ;  codes for the characters given in the code.
-; This routine can write into memory locations that have no RAM (in a machine
-;  with less than 64K RAM).
+; This routine can write into memory locations that have no RAM (in a
+;  machine with less than 64K installed RAM).
 ; This routine can write into memory that you don't want it to.
 ; It is possible for the string to wrap (say from $FFFF to $0000).
 ;  This code makes no attempt to detect this possibility.
@@ -44,12 +45,13 @@ _helper2_start
 _helper2_entry
 
     PSHS Y                          ; Preserve register Y
-    JSR INTCNV                      ; D = Requested length (passed from BASIC)
+    JSR INTCNV                      ; D = Requested length
+                                    ;     (passed from BASIC)
     LDX #STRING                     ; X = Start of the string
     PSHS B                          ; Store the LSB of the length
     ANDB #$fe                       ; Round down to an even number
-    TFR D,Y                         ; Y = Length rounded down to an even number
-
+    TFR D,Y                         ; Y = Length, rounded down to
+                                    ;             an even number
     LDD #'A*256+'B                  ; String will start with "AB"
 
     LEAY ,Y                         ; Test length
@@ -65,7 +67,8 @@ _helper2_copy_loop
     CMPB #'9                        ; Have we reached the digit 9?
     BEQ  _helper2_start_alphabet    ; If yes, start with the alphabet
 
-    ADDD #$0202                     ; Alter the characters that we're storing
+    ADDD #$0202                     ; Alter the characters that
+                                    ;   we're storing
 
 _helper2_count_and_loop
 
