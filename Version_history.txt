@@ -38,6 +38,7 @@ Version 1.2 (1 November 2017)
         no_error_strlen.bin, as DECB executable files rather than raw binaries
       * You can now build the test suite and run XRoar or MAME from a single
         Make command
+      * helper1.bin now takes a parameter, for which routine you want to use
       * And more!
 
   * Removal of certain files in the "Test suite" folder:
