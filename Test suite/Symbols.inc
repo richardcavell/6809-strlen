@@ -1,5 +1,6 @@
 ; Symbols.inc
 ; by Richard John Foster Cavell (c) 2017
+; https://github.com/richardcavell/6809-strlen
 
 ; DECB routines
 
