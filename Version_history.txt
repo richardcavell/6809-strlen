@@ -1,6 +1,35 @@
 6809-strlen Version_history.txt
 (c) 2017 by Richard Cavell
 
+Version 1.3 (23 November 2017)
+
+  * The test suite has been improved
+
+      * Translation into German, French and Spanish
+      * Now requires 32K minimum RAM
+      * Now always measures the length of the string
+        manually using BASIC
+      * Can simulate errors to assist with testing
+      * Less code duplication
+      * Automation of testing using XRoar and MAME:
+
+        * make xroar
+        * make mame
+
+  * Tiny cosmetic changes to the non-test suite portions of the
+    project
+
+  * New file:
+
+      * Symbols.inc
+
+        This allows for calculation of the memory map by the assembler
+        and ensuring that the object code fits within the allocated space
+
+  * Removal of file:
+
+      * Memory_map.txt
+
 Version 1.2 (1 November 2017)
 
   * The routine now comes in two versions:

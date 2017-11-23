@@ -1,6 +1,6 @@
 6809 Assembly Language C-Style String Length Calculation Routine
 by Richard John Foster Cavell (c) 2017
-Version 1.2 (1 November 2017)
+Version 1.3 (23 November 2017)
 https://github.com/richardcavell/6809-strlen
 
 A 6809 assembly language routine to find the length of a C-style string.
@@ -39,7 +39,7 @@ The folder "Test suite" contains a method of testing this routine to be
 sure that it works.
 
 Another version of the routine is included, called "no_error_strlen.s". This
-routine is smaller in code size. It assembles to 15 bytes of object code 
+routine is smaller in code size. It assembles to 15 bytes of object code
 and will complete faster in most cases. It does not detect the "no end"
 condition and will simply wrap from 0xFFFF to 0x0000 while searching for
 the end of the string.
