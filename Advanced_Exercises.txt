@@ -1,0 +1,30 @@
+Advanced_Exercises.txt
+Part of 6809-strlen by Richard Cavell (c) 2017
+https://github.com/richardcavell/6809-strlen
+
+Once you have fully understood the project, including the test suite,
+the aspiring programmer is invited to try the following exercises:
+
+1. Modify either strlen.s or no_error_strlen.s to give an incorrect result,
+   and demonstrate this with the test suite.
+
+2. Modify strlen.s to change every character of the string to uppercase
+   while it reads the string.
+
+   Under what circumstances will this code fail?
+
+3. Change the calling convention for the strlen.s and no_error_strlen.s
+   routines to something that you think is more suitable.
+
+   Then amend the test suite to correctly test your new code.
+
+4. Modify the test suite to profile the assembly portion (ie time how long it
+   takes) and print a comparison between the BASIC and assembly method, in
+   terms of their speed.
+
+5. Demonstrate that the BASIC portion of the routine might fail if the
+   string is not placed in a suitable portion of the memory map.
+
+I hope you enjoy tinkering!
+
+Richard Cavell

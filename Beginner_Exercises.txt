@@ -1,0 +1,29 @@
+Beginner_Exercises.txt
+Part of 6809-strlen by Richard Cavell (c) 2017
+https://github.com/richardcavell/6809-strlen
+
+For the beginner, I suggest learning about the project by doing the following:
+
+1.  Change strlen.s so that it uses register B instead of A to test for
+    the terminating zero.
+
+2.  Change the result that is returned in the event of a "no end" error.
+
+    Remember to change the test suite if you want it to correctly interface
+    with your modification.
+
+3.  Use line 820 of the test suite program to simulate errors in the
+    assembly language routines.  Make sure that you understand what is
+    being tested for, and how it might fail.
+
+4.  Change the memory map so that the machine language routines and the
+    string to be tested start at 0x5000 instead of 0x6000.
+
+    Remember to change the test suite as well.
+
+5.  Translate the test suite into your favourite language.
+
+I hope that you enjoy learning!
+
+Richard Cavell
+
