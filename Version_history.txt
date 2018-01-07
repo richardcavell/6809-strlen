@@ -1,6 +1,22 @@
 6809-strlen Version_history.txt
 (c) 2017 by Richard Cavell
 
+Version 1.4 (7 January 2018)
+
+  * Addition of two new files:
+
+      * Beginner_exercises.txt
+      * Advanced_exercises.txt
+
+    These contain all of my remaining ideas for how this project might be
+    further improved - I'm going to leave it to you, the student.
+
+  * This is the final version of BASICloader
+
+    (At least for now)
+
+    The original specification and mission are fulfilled.
+
 Version 1.3 (23 November 2017)
 
   * The test suite has been improved

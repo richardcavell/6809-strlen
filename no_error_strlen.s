@@ -1,5 +1,5 @@
 ; no_error_strlen.s
-; Version 1.3 (23 November 2017)
+; Version 1.4 (7 January 2018)
 ; https://github.com/richardcavell/6809-strlen
 ;
 ; A 6809 assembly language routine to find the length of a C-style string.
