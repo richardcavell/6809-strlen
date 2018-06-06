@@ -1,5 +1,5 @@
 6809-strlen Version_history.txt
-(c) 2017 by Richard Cavell
+(c) 2017, 2018 by Richard Cavell
 
 Version 1.4 (7 January 2018)
 
@@ -9,9 +9,10 @@ Version 1.4 (7 January 2018)
       * Advanced_exercises.txt
 
     These contain all of my remaining ideas for how this project might be
-    further improved - I'm going to leave it to you, the student.
+    further improved - I'm going to leave it to you, the student, to
+    implement these ideas.
 
-  * This is the final version of BASICloader
+  * This is the final version of 6809-strlen
 
     (At least for now)
 
@@ -81,8 +82,9 @@ Version 1.2 (1 November 2017)
         build the test suite disk, making things much easier
       * The test suite now builds its own versions of strlen.bin and
         no_error_strlen.bin, as DECB executable files rather than raw binaries
+        (DECB means Disk Extended Color BASIC)
       * You can now build the test suite and run XRoar or MAME from a single
-        Make command
+        make command
       * helper1.bin now takes a parameter, for which routine you want to use
       * And more!
 
