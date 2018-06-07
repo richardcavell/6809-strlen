@@ -145,7 +145,7 @@ Version 1.1 (24 August 2017)
 
       * Machines.txt identifies those targets. Both are emulated machines:
 
-          * xroar coco2b, and
+          * xroar coco2b
           * mame coco2b
 
       * The ability of TEST.BAS to work from tape has been removed
