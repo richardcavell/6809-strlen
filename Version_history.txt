@@ -91,7 +91,8 @@ Version 1.2 (1 November 2017)
         (DECB means Disk Extended Color BASIC)
       * You can now build the test suite and run XRoar or MAME from a single
         make command
-      * helper1.bin now takes a parameter, for which routine you want to use
+      * helper1.bin now takes a parameter, to indicate which routine you
+        want to use
       * And more!
 
   * Removal of certain files in the "Test suite" folder:
