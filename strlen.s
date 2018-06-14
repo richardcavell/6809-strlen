@@ -9,12 +9,12 @@
 ;
 ; Inputs:
 ;
-;   X = Pointer to the string.
+;   register X = (unsigned 16-bit) pointer to the string.
 ;
 ; Outputs:
 ;
-;   D = Length of the string.
-;   (A value of 0xFFFF means there was a "no end" error)
+;   register D = (unsigned 16-bit) length of the string.
+;                (A value of 0xFFFF means there was a "no end" error)
 ;
 ;   All other registers, including X, are preserved.
 ;
@@ -23,9 +23,8 @@
 ; zero length.
 ;
 ; This code is position-independent and re-entrant. Interrupts are allowed
-; to occur during execution. The code uses 2 bytes of the S stack, in
-; addition to the 2 bytes used for the return PC value when calling this
-; routine.
+; to occur during execution. 2 bytes of the S stack are used, in addition
+; to the 2 bytes used for the return PC value when calling this routine.
 ;
 ; This routine assembles to 21 bytes of object code using asm6809.
 ;
