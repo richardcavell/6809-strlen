@@ -36,7 +36,8 @@
 ; A "no end" error occurs when the string appears to continue past memory
 ; location $FFFF.
 ;
-; You can write your own error handler for this, below.
+; You can write your own error handler for this, below. Insert the relevant
+; code under the label "_strlen_no_end_error_handler".
 ;
 ; Issues:
 ; If X does not point to a valid string, the behaviour is undefined.
@@ -61,6 +62,7 @@ _strlen_loop
 
 _strlen_loop_end
 
+_strlen_no_end_error_handler
                                ; A "no end" error has occurred
 
                                ; You can write your own error handling code
