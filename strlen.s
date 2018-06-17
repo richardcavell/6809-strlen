@@ -55,7 +55,7 @@ _strlen_entry
 _strlen_loop
 
     LDA  ,X                    ; Is X pointing to the terminating zero?
-    BEQ  _strlen_calc_length   ; If Yes -> calculate the length
+    BEQ  _strlen_normal_finish ; If Yes -> calculate the length
 
     LEAX 1,X                   ; Has X wrapped around to $0000?
     BNE  _strlen_loop          ; If No -> loop again
@@ -71,7 +71,7 @@ _strlen_no_end_error_handler
     LDD  #0xFFFF               ; Return error
     PULS X,PC                  ; Honour our calling convention
 
-_strlen_calc_length
+_strlen_normal_finish
 
     TFR  X,D                   ; Get ready for pointer arithmetic
     SUBD ,S                    ; Calculate the length (result is in D)
@@ -80,11 +80,15 @@ _strlen_calc_length
 
 _strlen_end
 
-strlen_length EQU (_strlen_end - _strlen_start)
+; Symbols that represent addresses
 
     EXPORT _strlen
     EXPORT _strlen_start
     EXPORT _strlen_entry
     EXPORT _strlen_end
+
+; A symbol that represents the size of this code
+
+strlen_length EQU (_strlen_end - _strlen_start)
 
     EXPORT strlen_length
