@@ -40,7 +40,9 @@
 ; code under the label "_strlen_no_end_error_handler".
 ;
 ; Issues:
+;
 ; If X does not point to a valid string, the behaviour is undefined.
+;
 ;   If there is no terminating null byte, the code might access forbidden
 ;     areas of the memory map.
 
