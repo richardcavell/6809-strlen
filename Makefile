@@ -10,9 +10,9 @@
 ASM       = asm6809
 
 SOURCE1   = strlen.s
-SOURCE2   = no_error_strlen.s
-
 BINARY1   = strlen.bin
+
+SOURCE2   = no_error_strlen.s
 BINARY2   = no_error_strlen.bin
 
 .DEFAULT: all
