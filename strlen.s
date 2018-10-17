@@ -7,6 +7,8 @@
 ; Written by Richard John Foster Cavell (c) 2017, 2018.
 ; Licensed to you under the MIT License.
 ;
+; ($FFFF means hexadecimal FFFF)
+;
 ; Inputs:
 ;
 ;   register X = (unsigned 16-bit) pointer to the string.
@@ -14,7 +16,7 @@
 ; Outputs:
 ;
 ;   register D = (unsigned 16-bit) length of the string.
-;                (A value of 0xFFFF means there was a "no end" error)
+;                (A value of $FFFF means there was a "no end" error)
 ;
 ;   All other registers, including X, are preserved.
 ;

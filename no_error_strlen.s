@@ -31,6 +31,8 @@
 ; exists when the routine reaches location $FFFF without encountering
 ; the end of string.
 ;
+; ($FFFF means hexadecimal FFFF)
+;
 ; Issues:
 ; If X does not point to a valid string, the behaviour is undefined.
 ;   If there is no terminating null byte, the code might access forbidden
