@@ -4,16 +4,16 @@
 ;
 ; A 6809 assembly language routine to find the length of a C-style string.
 ;
-; Written by Richard John Foster Cavell (c) 2017.
+; Written by Richard John Foster Cavell (c) 2017, 2018.
 ; Licensed to you under the MIT License.
 ;
 ; Inputs:
 ;
-;   X = Pointer to the string.
+;   register X = (unsigned 16-bit) pointer to the string.
 ;
 ; Outputs:
 ;
-;   D = Length of the string.
+;   register D = (unsigned 16-bit) length of the string.
 ;
 ;   All other registers, including X, are preserved.
 ;
@@ -25,10 +25,10 @@
 ; to occur during execution. The code uses 2 bytes of the S stack, in addition
 ; to the 2 bytes used for the return PC value when calling this routine.
 ;
-; The routine assembles to 15 bytes of object code using asm6809.
+; This routine assembles to 15 bytes of object code using asm6809.
 ;
 ; There is another version of this routine which detects the situation that
-; exists when the routine reaches location 0xFFFF without encountering
+; exists when the routine reaches location $FFFF without encountering
 ; the end of string.
 ;
 ; Issues:
@@ -60,6 +60,7 @@ _no_error_strlen_loop_end
     SUBD ,S                     ; Calculate the length (result is in D)
     PULS X,PC                   ; Restore X and return
                                 ; The stack is left in a correct state
+
 _no_error_strlen_end
 
 no_error_strlen_length EQU (_no_error_strlen_end - _no_error_strlen_start)
