@@ -1,5 +1,5 @@
 Beginner_Exercises.txt
-Part of 6809-strlen by Richard Cavell (c) 2017
+Part of 6809-strlen by Richard Cavell (c) 2017, 2018
 https://github.com/richardcavell/6809-strlen
 
 For the beginner, I suggest learning about the project by doing the following:
@@ -17,11 +17,11 @@ For the beginner, I suggest learning about the project by doing the following:
     being tested for, and how it might fail.
 
 4.  Change the memory map so that the machine language routines and the
-    string to be tested start at 0x5000 instead of 0x6000.
+    string to be tested start at $6100 instead of $6000.
 
     Remember to change the test suite as well.
 
-5.  Translate the test suite into your favourite language.
+5.  Translate the test suite into your favourite language other than English.
 
 I hope that you enjoy learning!
 
