@@ -11,11 +11,11 @@ $FFFF means hexadecimal FFFF.
 
 Inputs:
 
-    register X = (16-bit unsigned) pointer to the string.
+    register X = (unsigned 16-bit) pointer to the string.
 
 Outputs:
 
-    register D = (16-bit unsigned) length of the string.
+    register D = (unsigned 16-bit) length of the string.
     (A value of $FFFF means there was a "no end" error)
 
     All other registers, including X, are preserved.
