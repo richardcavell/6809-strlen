@@ -1,20 +1,22 @@
 6809 Assembly Language C-Style String Length Calculation Routine
-by Richard John Foster Cavell (c) 2017
+by Richard John Foster Cavell (c) 2017, 2018
 Version 1.4 (7 January 2018)
 https://github.com/richardcavell/6809-strlen
 
+A 6809 assembly language routine to find the length of a C-style string.
+
 This project is intended only for serious students of computer programming.
 
-A 6809 assembly language routine to find the length of a C-style string.
+$FFFF means hexadecimal FFFF.
 
 Inputs:
 
-    X = Pointer to the string.
+    register X = (16-bit unsigned) pointer to the string.
 
 Outputs:
 
-    D = Length of the string.
-    (A value of 0xFFFF means there was a "no end" error)
+    register D = (16-bit unsigned) length of the string.
+    (A value of $FFFF means there was a "no end" error)
 
     All other registers, including X, are preserved.
 
@@ -23,7 +25,7 @@ non-zero 8-bit bytes, followed by a zero byte. The sequence may have
 zero length.
 
 A "no end" error can occur if the string continues past memory location
-0xFFFF. The default error handler returns a length of 0xFFFF. You should
+$FFFF. The default error handler returns a length of $FFFF. You should
 check for this. You can also write your own error handler.
 
 The code is position-independent and re-entrant. Interrupts are allowed
@@ -43,7 +45,7 @@ sure that it works.
 Another version of the routine is included, called "no_error_strlen.s". This
 routine is smaller in code size. It assembles to 15 bytes of object code
 and will complete faster in most cases. It does not detect the "no end"
-condition and will simply wrap from 0xFFFF to 0x0000 while searching for
+condition and will simply wrap from $FFFF to $0000 while searching for
 the end of the string.
 
 You should only use no_error_strlen.s if you want extra performance or
