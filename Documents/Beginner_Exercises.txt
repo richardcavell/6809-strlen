@@ -2,28 +2,30 @@ Beginner_Exercises.txt
 Part of 6809-strlen by Richard Cavell (c) 2017, 2018
 https://github.com/richardcavell/6809-strlen
 
-For the beginner, I suggest learning about the project by doing the following:
+For the beginner, I suggest learning about strlen.s by doing the following:
 
 1.  Change strlen.s so that it uses register B instead of A to test for
     the terminating zero.
 
-2.  Change the result that is returned in the event of a "no end" error.
+2.  Change the PSHS X instruction into a different instruction which has the
+    same effect.
 
-    Remember to change the test suite if you want it to correctly interface
-    with your modification.
+3.  Change the PULS X,PC instruction into PULS X and then add another
+    instruction which has the same effect as PULS PC.
 
-3.  Use line 820 of the test suite program to simulate errors in the
-    assembly language routines.  Make sure that you understand what is
-    being tested for, and how it might fail.
+4.  Change strlen.s so that it uses register Y instead of X as the pointer
+    variable.
 
-4.  Change the memory map so that the machine language routines and the
-    string to be tested start at $6100 instead of $6000.
+5.  Reorder the instructions so that _strlen_normal_finish immediately
+    follows _strlen_loop_end, and the error handler routine is below the
+    normal exit point.
 
-    Remember to change the test suite as well.
+    Be careful to modify the assembly instructions so that the program
+    flows to the correct place in each case.
 
-5.  Translate the test suite into your favourite language other than English.
+For all exercises, use the test suite to prove that the new code works
+perfectly.
 
 I hope that you enjoy learning!
 
 Richard Cavell
-

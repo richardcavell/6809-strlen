@@ -1,0 +1,27 @@
+Intermediate_Exercises.txt
+Part of 6809-strlen by Richard Cavell (c) 2017, 2018
+https://github.com/richardcavell/6809-strlen
+
+Once you have understood the basics of the project, including the test suite,
+the aspiring programmer is invited to try the following exercises:
+
+1.  Modify either strlen.s or no_error_strlen.s to give an incorrect result,
+    and demonstrate this with the test suite.
+
+2.  Use line 820 of the test suite program to simulate errors in the
+    assembly language routines.  Make sure that you understand what is
+    being tested for, and how the test might fail.
+
+3.  Change the memory map so that the machine language routines and the
+    string to be tested start at $6100 instead of $6000.
+
+    Remember to change the test suite as well.
+
+4.  Demonstrate that the BASIC portion of the routine might fail if the
+    string is not placed in a suitable portion of the memory map.
+
+5.  Translate the test suite into your favourite language other than English.
+
+I hope that you enjoy tinkering!
+
+Richard Cavell

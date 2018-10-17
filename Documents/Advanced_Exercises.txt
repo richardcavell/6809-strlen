@@ -2,16 +2,14 @@ Advanced_Exercises.txt
 Part of 6809-strlen by Richard Cavell (c) 2017, 2018
 https://github.com/richardcavell/6809-strlen
 
-Once you have fully understood the project, including the test suite,
-the aspiring programmer is invited to try the following exercises:
-
-1. Modify either strlen.s or no_error_strlen.s to give an incorrect result,
-   and demonstrate this with the test suite.
-
-2. Modify strlen.s to change every character of the string to uppercase
+1. Modify strlen.s to change every character of the string to uppercase
    while it reads the string.
 
-   Under what circumstances will this code fail?
+2. Modify strlen.s to search for the character "Q" in the string, and
+   return its distance from the start of the string.
+
+   You will need to modify lines 1300 to 1450 of the test suite to ensure
+   that there is a "Q" in every test string.
 
 3. Change the calling convention for the strlen.s and no_error_strlen.s
    routines to something that you think is more suitable.
@@ -22,9 +20,13 @@ the aspiring programmer is invited to try the following exercises:
    takes) and print a comparison between the BASIC and assembly method, in
    terms of their speed.
 
-5. Demonstrate that the BASIC portion of the routine might fail if the
-   string is not placed in a suitable portion of the memory map.
+5. Write an additional assembly routine that copies a string from one memory
+   location to another, and call it 6809-strcpy.  Add code to the test suite
+   to prove that it works with all of the strings.
 
-I hope you enjoy tinkering!
+   The test suite might only be able to test this new routine with a computer
+   that has 64K of RAM.  Why?
+
+I hope that you enjoy programming!
 
 Richard Cavell
