@@ -1,0 +1,30 @@
+Assembly_Questions.txt
+Part of 6809-strlen by Richard Cavell (c) 2017, 2018
+https://github.com/richardcavell/6809-strlen
+
+1.  What is the value $FFFF in decimal?
+
+2.  In assembly, what does the instruction BEQ actually test for?
+
+3.  Why is it necessary to have a label such as _strlen_loop in the
+    middle of the assembly language source code?
+
+4.  What does the instruction LEAX 1,X do to the value of X?
+
+5.  Why do we perform PULS X,PC as one operation rather than two?
+
+6.  Why do we test for the terminating zero using LDA ,X instead of TST ,X ?
+
+7.  Why do we use the value $FFFF to indicate an error instead of, say,
+    returning the value 0 ?
+
+8.  Why do we use a 16 bit register to represent the length of the string
+    instead of an 8 bit register?
+
+9.  What is the value of creating and exporting a symbol such as
+    _no_error_strlen_start, when it could be kept track of within the mind
+    of the programmer?
+
+10. If an interrupt occurs during execution of the inner loop of one of the
+    main routines, and the interrupt handler saves registers on the System
+    stack, will that corrupt the values saved by our routines?
