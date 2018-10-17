@@ -17,8 +17,8 @@ the aspiring programmer is invited to try the following exercises:
 
     Remember to change the test suite as well.
 
-4.  Demonstrate that the BASIC portion of the routine might fail if the
-    string is not placed in a suitable portion of the memory map.
+4.  Demonstrate that the BASIC portion of the project might fail if the
+    string is placed in an unsuitable portion of the memory map.
 
 5.  Translate the test suite into your favourite language other than English.
 
