@@ -144,7 +144,7 @@ Version 1.1 (24 August 2017)
       * Both assembly files have been modified for maximum portability
         to other assemblers
           * Characters are now presented as 'A rather than 'A'
-          * Strings are now presented as 'A * 256 + 'B  rather than "AB"
+          * Two chars are now presented as 'A * 256 + 'B  rather than "AB"
       * All magic numbers are now presented as symbols
       * And more!
 
