@@ -1,0 +1,11 @@
+In order to fully understand 6809-strlen, I recommend the following books:
+
+MC6809-MC6809E 8-Bit Microprocessor Programming Manual
+by Motorola (1981)
+
+TRS-80 Color Computer Assembly Language Programming
+by William Barden, Jr. (1983)
+Published by Radio Shack
+
+Getting Started with Extended Color BASIC
+by Tandy (1984)
