@@ -4,15 +4,14 @@
 ;
 ; A 6809 assembly routine to help with the testing of strlen.s
 ;
-; Written by Richard John Foster Cavell (c) 2017.
+; Written by Richard John Foster Cavell (c) 2017, 2018.
 ; Licensed to you under the MIT License.
 ;
 ; Inputs:
-;   Length of the string (0 to 0xFFFF)
+;   Length of the string (0 to $FFFF)
 ;
 ; Outputs:
-;   Ignore the result of the USRx() call. Nothing meaningful is passed
-;     back.
+;   Nothing meaningful is passed back.
 ;   Beginning at the memory location STRING, a string of the length
 ;     requested, null-terminated, is created.
 ;
@@ -23,7 +22,9 @@
 ;
 ; This code may be placed anywhere in memory, so it is position-independent.
 ; It is re-entrant.  Interrupts are allowed to occur during execution.
-; This routine assumes that your assembler uses ASCII.
+; This routine assumes that your assembler uses the same character codes
+; as the Color Computer. (Which overlaps with ASCII for all the characters
+; produced by this routine).
 ;
 ; This routine could be made to run faster, but clarity is the goal here.
 ;
