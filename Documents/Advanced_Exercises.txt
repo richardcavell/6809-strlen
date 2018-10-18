@@ -25,9 +25,6 @@ https://github.com/richardcavell/6809-strlen
    location to another, and call it 6809-strcpy.  Add code to the test suite
    to prove that it works with all of the strings.
 
-   The test suite might have difficulty fully testing this new routine with
-   all of the test strings, on a machine that has only 32K of RAM.  Why?
-
 I hope that you enjoy programming!
 
 Richard Cavell
