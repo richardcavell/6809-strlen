@@ -1,10 +1,10 @@
 ; main1.s
-; Version 1.4 (7 January 2018)
+; Version 1.5 (19 October 2018)
 ; https://github.com/richardcavell/6809-strlen
 ;
 ; A very short file to assist in assembling strlen.s for the test suite.
 ;
-; Written by Richard John Foster Cavell (c) 2017.
+; Written by Richard John Foster Cavell (c) 2017, 2018.
 ; Licensed to you under the MIT License.
 
     INCLUDE "Symbols.inc"

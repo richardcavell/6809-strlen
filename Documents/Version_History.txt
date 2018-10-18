@@ -1,6 +1,26 @@
 6809-strlen Version_history.txt
 (c) 2017, 2018 by Richard Cavell
 
+Version 1.5 (19 October 2018)
+
+  * New documents:
+
+      * Assembly_Questions.txt
+      * BASIC_Questions.txt
+      * BASIC_Program.txt
+      * Book_Recommendations.txt
+      * Intermediate_Exercises.txt
+
+      There is now much more material, and material for a wider range of
+      skill levels.
+
+  * Simulation of error conditions is now performed within helper1.s
+
+      The test suite can handle a no-end error condition without halting
+      execution.
+
+  * Numerous other minor changes to source code and documentation
+
 Version 1.4 (7 January 2018)
 
   * This is the final version of 6809-strlen (probably)

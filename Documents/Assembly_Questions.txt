@@ -21,10 +21,14 @@ https://github.com/richardcavell/6809-strlen
 8.  Why do we use a 16 bit register to store the length of the string
     instead of an 8 bit register?
 
-9.  What is the value of creating and exporting a symbol such as
-    _no_error_strlen_start, when it could be kept track of within the mind
-    of the programmer?
+9.  Why do we use BRA instead of JMP ?
 
 10. If an interrupt occurs during execution of the inner loop of one of the
     main routines, and the interrupt handler saves registers on the System
     stack, will that corrupt the values saved by our routines?
+
+Bonus Question:
+
+    What is the value of creating and exporting a symbol such as
+    _no_error_strlen_start, when it could be kept track of within the mind
+    of the programmer?
