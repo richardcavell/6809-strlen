@@ -8,7 +8,7 @@ the aspiring programmer is invited to try the following exercises:
 1.  Modify either strlen.s or no_error_strlen.s to give an incorrect result,
     and demonstrate this with the test suite.
 
-2.  Use line 820 of the test suite program to simulate errors in the
+2.  Use line 900 of the test suite program to simulate errors in the
     assembly language routines.  Make sure that you understand what is
     being tested for, and how the test might fail.
 
