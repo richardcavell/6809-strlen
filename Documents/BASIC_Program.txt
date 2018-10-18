@@ -1,0 +1,15 @@
+TEST.BAS
+A program to test 6809-strlen
+by Richard John Foster Cavell (c) 2017, 2018
+https://github.com/richardcavell/6809-strlen
+
+This program is for an emulated TRS-80 Color Computer 2 with Disk Extended
+Color BASIC, running in XRoar or MAME.  It needs at least 32K of RAM, and a
+disk drive.
+
+1. You can change the default language by editing line 810
+
+2. You can simulate errors in the assembly language routines by editing
+   line 900
+
+Richard Cavell
