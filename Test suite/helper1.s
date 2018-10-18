@@ -10,13 +10,19 @@
 ; This routine is designed to be used with Disk Extended Color BASIC.
 ;
 ; Inputs:
-;   A 16 bit integer which equals either:
+;   A 16 bit integer. The low byte equals either:
 ;          0 (use strlen), or
 ;          1 (use no_error_strlen)
+;
+;   The high byte equals one of:
+;          0 (normal operation)
+;          1 (simulate off-by-1 error)
+;          2 (simulate no-end error)
 ;
 ; Outputs:
 ;   Length of the string (0 to $FFFF)
 ;   OR $FFFF if no_error_strlen is used and there was a "no end" error
+;   (The output will be incorrect if an error simulation is requested)
 ;
 ; This routine adheres to the Disk Extended Color BASIC USRx()
 ; calling conventions.
@@ -56,20 +62,49 @@ _helper1
 _helper1_start
 _helper1_entry
 
-    JSR INTCNV        ; Get the parameter from BASIC
-    LDX #STRING       ; Load the address of the string into X
-    SUBD #USE_STRLEN  ; Does D equal USE_STRLEN or not?
-    BNE _helper1_use_no_error_strlen  ; If not, then use the no_error version
+    JSR  INTCNV            ; Get the parameter from BASIC
+    PSHS A                 ; Save the error request byte
+    LDX  #STRING           ; Load the address of the string into X
+    SUBB #USE_STRLEN       ; Does the low byte equal USE_STRLEN or not?
+    BNE  _helper1_use_no_error_strlen  ; If not, then use the no_error version
 
 _helper1_use_strlen
 
-    JSR STRLEN        ; Execute strlen -> result will be in D
-    JMP GIVABF        ; Return the result in D to BASIC
+    JSR  STRLEN            ; Execute strlen -> result will be in D
+    BRA  _helper1_error_simulation     ; Jump over the next instruction
 
 _helper1_use_no_error_strlen
 
-    JSR NESTRLEN      ; Execute no_error_strlen -> result will be in D
-    JMP GIVABF        ; Return the result in D to BASIC
+    JSR NESTRLEN           ; Execute no_error_strlen -> result will be in D
+
+_helper1_error_simulation
+
+    PSHS D                 ; Save our result on the S stack
+    LDA  2,S               ; Restore the error request byte into A
+    BEQ _helper1_normal_operation  ; If no error is requested
+    SUBA #ERROR_OFFBY1     ; Is off-by-one error requested?
+    BEQ _helper1_offby1    ; Yes, so do that
+
+_helper1_noend
+
+    LEAS 2,S               ; Jump over the saved result, and ignore it
+    LDD  #$FFFF            ; Indicate no-end error
+    BRA _helper1_finalise
+
+_helper1_offby1
+
+    PULS D                 ; Restore the correct result in D
+    ADDD #1                ; Now add 1 to it
+    BRA  _helper1_finalise ; Now finalize
+
+_helper1_normal_operation
+
+    PULS D                 ; Restore the correct result in D
+
+_helper1_finalise
+
+    LEAS 1,S               ; Jump over that saved error request byte
+    JMP  GIVABF            ; Return the result in D to BASIC
 
 _helper1_end
 

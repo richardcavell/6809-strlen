@@ -19,6 +19,9 @@ GIVABF          EQU $B4F4       ; Give the result to BASIC
 USE_STRLEN      EQU  0
 USE_NESTRLEN    EQU  1
 
+ERROR_OFFBY1    EQU  1
+ERROR_NOEND     EQU  2
+
 ; User-supplied routines
 ;
 ;   main1.s (strlen) machine language object code
