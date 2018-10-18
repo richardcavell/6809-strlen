@@ -6,7 +6,7 @@
 # DECB disk files here
 
 ASM         = asm6809
-AFLAGS      = -C -8 --setdp -1
+AFLAGS      = -C -8 --setdp=-1
 DECBTOOL    = decb
 XROAR       = xroar
 MAME        = mame

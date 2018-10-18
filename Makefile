@@ -8,6 +8,7 @@
 # its own versions of the routines, differently.
 
 ASM       = asm6809
+AFLAGS    = -B -8 --setdp=-1
 
 SOURCE1   = strlen.s
 BINARY1   = strlen.bin
@@ -21,10 +22,10 @@ BINARY2   = no_error_strlen.bin
 all:    $(BINARY1) $(BINARY2)
 
 $(BINARY1): $(SOURCE1)
-	$(ASM) $< $(OUTPUT_OPTION)
+	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
 
 $(BINARY2): $(SOURCE2)
-	$(ASM) $< $(OUTPUT_OPTION)
+	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
 
 .PHONY: clean
 
