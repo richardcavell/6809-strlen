@@ -24,4 +24,9 @@ https://github.com/richardcavell/6809-strlen
 
 10. Why does line 12320 compare L to -1 instead of &HFFFF ?
 
+Bonus question:
+
+11. The test suite does not intentionally test for the no-end condition.
+    Why not?
+
 Richard Cavell
