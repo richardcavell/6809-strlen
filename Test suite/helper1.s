@@ -4,7 +4,7 @@
 ;
 ; A 6809 assembly routine to help with the testing of strlen.s
 ;
-; Written by Richard John Foster Cavell (c) 2017.
+; Written by Richard John Foster Cavell (c) 2017, 2018.
 ; Licensed to you under the MIT License.
 ;
 ; This routine is designed to be used with Disk Extended Color BASIC.
@@ -15,15 +15,15 @@
 ;          1 (use no_error_strlen)
 ;
 ; Outputs:
-;   Length of the string (0 to 0xFFFF)
-;   OR 0xFFFF if no_error_strlen is used and there was a "no end" error
+;   Length of the string (0 to $FFFF)
+;   OR $FFFF if no_error_strlen is used and there was a "no end" error
 ;
 ; This routine adheres to the Disk Extended Color BASIC USRx()
 ; calling conventions.
 ;
 ; For this routine to work correctly, the strlen routine must be loaded to
 ; memory location STRLEN and the no_error_strlen routine must be loaded to
-; memory location NESTRLEN.
+; memory location NESTRLEN. (As defined in Symbols.inc)
 ;
 ; If there is a valid string starting at location STRING, its length will
 ; be returned. If there is no valid string there, it is possible for the
@@ -39,14 +39,14 @@
 ; Issues:
 ; If memory location STRLEN is not the start of the strlen routine, the
 ;   behaviour is undefined.
-; If memory location NESTRLEN is not the start of no_error_strlen routine,
+; If memory location NESTRLEN is not the start of the no_error_strlen routine,
 ;   the behaviour is undefined.
 ; If memory location STRING is not the start of a valid string, the
 ;   behaviour is undefined.
 ;   If there is no terminating null byte, the code might access forbidden
 ;     areas of the memory map.
 ;   It is possible for X to wrap (from $FFFF to $0000). Only the regular
-;     strlen routine detects this possibility (and returns 0xFFFF).
+;     strlen routine detects this possibility (and returns $FFFF).
 
     INCLUDE "Symbols.inc"
 
