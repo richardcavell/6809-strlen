@@ -14,8 +14,6 @@ https://github.com/richardcavell/6809-strlen
 3. Change the calling convention for the strlen and no_error_strlen
    routines to something that you think is more suitable.
 
-   Then amend the test suite to correctly test your new code.
-
 4. Modify the test suite to profile the assembly portion (ie time how long it
    takes) and print a comparison between the BASIC and assembly method, in
    terms of their speed.

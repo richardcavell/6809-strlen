@@ -6,10 +6,10 @@ https://github.com/richardcavell/6809-strlen
 
 2.  In assembly, what does the instruction BEQ actually test for?
 
-3.  Why is it necessary to have a label such as _strlen_loop in the
-    middle of the assembly language source code?
+3.  What does the instruction LEAX 1,X do to the value of X?
 
-4.  What does the instruction LEAX 1,X do to the value of X?
+4.  Why is it necessary to have a label such as _strlen_loop amongst the
+    assembly language instructions?
 
 5.  Why do we perform PULS X,PC as one operation rather than two?
 
@@ -18,7 +18,7 @@ https://github.com/richardcavell/6809-strlen
 7.  Why do we use the value $FFFF to indicate an error instead of, say,
     returning the value 0 ?
 
-8.  Why do we use a 16 bit register to represent the length of the string
+8.  Why do we use a 16 bit register to store the length of the string
     instead of an 8 bit register?
 
 9.  What is the value of creating and exporting a symbol such as
