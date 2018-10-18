@@ -13,9 +13,9 @@ MAME        = mame
 SYMBOLS     = Symbols.inc
 MAIN1       = main1.s
 MAIN2       = main2.s
-SOURCE1     = ../strlen.s
-SOURCE2     = ../no_error_strlen.s
+STRLENSRC   = ../strlen.s
 STRLENBIN   = strlen.bin
+NESTRLENSRC = ../no_error_strlen.s
 NESTRLENBIN = nestrlen.bin
 HELPER1SRC  = helper1.s
 HELPER2SRC  = helper2.s
@@ -31,10 +31,10 @@ all: $(STRLENBIN) $(NESTRLENBIN)
 all: $(HELPER1BIN) $(HELPER2BIN)
 all: $(DSKIMG)
 
-$(STRLENBIN): $(MAIN1) $(SOURCE1) $(SYMBOLS)
+$(STRLENBIN): $(MAIN1) $(STRLENSRC) $(SYMBOLS)
 	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
 
-$(NESTRLENBIN): $(MAIN2) $(SOURCE2) $(SYMBOLS)
+$(NESTRLENBIN): $(MAIN2) $(NESTRLENSRC) $(SYMBOLS)
 	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
 
 $(HELPER1BIN): $(HELPER1SRC) $(SYMBOLS)
@@ -48,24 +48,24 @@ $(DSKIMG): $(STRLENBIN) $(NESTRLENBIN)
 $(DSKIMG): $(HELPER1BIN) $(HELPER2BIN)
 	$(RM) $@
 	$(DECBTOOL) dskini $@ -3
-	$(DECBTOOL) copy $(TESTBAS)  -0  -t $(DSKIMG),TEST.BAS
-	$(DECBTOOL) copy $(STRLENBIN)    -2 $(DSKIMG),STRLEN.BIN
-	$(DECBTOOL) copy $(NESTRLENBIN)  -2 $(DSKIMG),NESTRLEN.BIN
-	$(DECBTOOL) copy $(HELPER1BIN)   -2 $(DSKIMG),HELPER1.BIN
-	$(DECBTOOL) copy $(HELPER2BIN)   -2 $(DSKIMG),HELPER2.BIN
+	$(DECBTOOL) copy $(TESTBAS)     -0 -t $(DSKIMG),TEST.BAS
+	$(DECBTOOL) copy $(STRLENBIN)   -2    $(DSKIMG),STRLEN.BIN
+	$(DECBTOOL) copy $(NESTRLENBIN) -2    $(DSKIMG),NESTRLEN.BIN
+	$(DECBTOOL) copy $(HELPER1BIN)  -2    $(DSKIMG),HELPER1.BIN
+	$(DECBTOOL) copy $(HELPER2BIN)  -2    $(DSKIMG),HELPER2.BIN
 
 .PHONY: xroar
 
 xroar:  $(DSKIMG)
 	@echo "Launching XRoar..."
-	@$(XROAR) -machine coco2b -load $(DSKIMG)\
+	$(XROAR) -machine coco2b -load $(DSKIMG)\
           -type 'RUN "TEST"\r' -q 2> /dev/null
 
 .PHONY: mame
 
 mame:   $(DSKIMG)
 	@echo "Launching MAME..."
-	@$(MAME) coco2b -flop1 $(DSKIMG)\
+	$(MAME) coco2b -flop1 $(DSKIMG)\
           -autoboot_command "RUN \"TEST\"\n" -autoboot_delay 2
 
 .PHONY: clean
