@@ -5,7 +5,8 @@ https://github.com/richardcavell/6809-strlen
 
 A 6809 assembly language routine to find the length of a C-style string.
 
-This project is intended only for serious students of computer programming.
+The 6809 is an 8-bit CPU originally manufactured by Motorola. This project
+is intended only for serious students of computer programming.
 
 $FFFF means hexadecimal FFFF.
 
