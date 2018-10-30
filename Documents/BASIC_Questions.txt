@@ -2,13 +2,13 @@ BASIC_Questions.txt
 Part of 6809-strlen by Richard Cavell (c) 2017, 2018
 https://github.com/richardcavell/6809-strlen
 
-1. What is the purpose of line 10950 ?
+1. What is the difference between line 26200 and line 27200 ?
 
-2. What is the difference between line 26200 and line 27200 ?
+2. Why are time-critical subroutines placed at the start of the program ?
 
-3. Why is line 41400 a GOTO instead of a GOSUB ?
+3. What is the purpose of line 10950 ?
 
-4. Why are time-critical subroutines placed at the start of the program ?
+4. Why is line 41400 a GOTO instead of a GOSUB ?
 
 5. Why aren't the very long strings for test 7 and test 8 stored in a BASIC
    string variable ?
@@ -17,10 +17,10 @@ https://github.com/richardcavell/6809-strlen
 
 7. What is the point of multiplying EA by 256 in line 45100 ?
 
-8. Look at the subroutine that starts at line 20000. Is it a good thing to
+8. Look at the subroutine that starts at line 22000. Is it a good thing to
    have such simple code pieces as subroutines ?
 
-9. What is the net effect of lines 10300 and 10310 ?
+9. What is the net effect of line 10300 ?
 
 10. Why does line 12320 compare L to -1 instead of &HFFFF ?
 
