@@ -8,7 +8,7 @@ https://github.com/richardcavell/6809-strlen
 
 3. What is the purpose of line 10950 ?
 
-4. Why is line 41400 a GOTO instead of a GOSUB ?
+4. Why is line 41400 a GOTO instead of GOSUB : RETURN ?
 
 5. Why aren't the very long strings for test 7 and test 8 stored in a BASIC
    string variable ?
