@@ -53,21 +53,21 @@ help:
 	@echo "make clean"
 
 $(BINARY1): $(SOURCE1)
-	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
-
 $(BINARY2): $(SOURCE2)
+
+%.bin:
 	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
 
 $(LISTING1): $(SOURCE1)
-	$(ASM) $(AFLAGS) $(LSTFLAGS) $@ $<
-
 $(LISTING2): $(SOURCE2)
+
+%.lst:
 	$(ASM) $(AFLAGS) $(LSTFLAGS) $@ $<
 
 $(SYMBOL1): $(SOURCE1)
-	$(ASM) $(AFLAGS) $(SYMFLAGS) $@ $<
-
 $(SYMBOL2): $(SOURCE2)
+
+%.sym:
 	$(ASM) $(AFLAGS) $(SYMFLAGS) $@ $<
 
 .PHONY: clean
