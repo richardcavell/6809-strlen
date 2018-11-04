@@ -33,6 +33,8 @@ SORT      = sort -V
 .PHONY:     binaries
 .PHONY:     listings
 .PHONY:     symbols
+.PHONY:     help
+.PHONY:     clean
 
 all:        binaries
 everything: binaries listings symbols
@@ -43,23 +45,22 @@ symbols:    $(SYMBOL1) $(SYMBOL2)
 $(BINARY1): $(SOURCE1)
 $(BINARY2): $(SOURCE2)
 
-%.bin:
-	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
-
 $(LISTING1): $(SOURCE1)
 $(LISTING2): $(SOURCE2)
 
-%.lst:
-	$(ASM) $(AFLAGS) $(LSTFLAGS) $@ $<
-
 $(SYMBOL1): $(SOURCE1)
 $(SYMBOL2): $(SOURCE2)
+
+%.bin:
+	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
+
+%.lst:
+	$(ASM) $(AFLAGS) $(LSTFLAGS) $@ $<
 
 %.sym:
 	$(ASM) $(AFLAGS) $(SYMFLAGS) $@ $<
 	$(SORT) $@ $(OUTPUT_OPTION)
 
-.PHONY:   help
 help:
 	@echo "The valid targets for this makefile:"
 	@echo "make all         # this builds only the binaries"
@@ -75,6 +76,5 @@ help:
 	@echo "make help"
 	@echo "make clean"
 
-.PHONY: clean
 clean:
 	$(RM) $(BINARY1) $(LISTING1) $(SYMBOL1) $(BINARY2) $(LISTING2) $(SYMBOL2)
