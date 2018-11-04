@@ -49,9 +49,11 @@ and will complete faster in most cases. It does not detect the "no end"
 condition and will simply wrap from $FFFF to $0000 while searching for
 the end of the string.
 
-You should only use no_error_strlen.s if you want extra performance or
-reduced code size and can be quite sure that the string passed into the
-routine is valid, and that the "no end" condition will never occur.
+You should only use no_error_strlen.s if:
+  * you want extra performance or
+  * you want reduced code size, and
+  * you can be quite sure that the string passed into the routine is valid, and
+  * that the "no end" condition will never occur.
 
 All of this is licensed to you under the MIT License.
 
