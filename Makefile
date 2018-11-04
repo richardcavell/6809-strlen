@@ -23,34 +23,22 @@ BINARY2   = no_error_strlen.bin
 LISTING2  = no_error_strlen.lst
 SYMBOL2   = no_error_strlen.sym
 
-.DEFAULT: all
-.PHONY:   all
-all:    $(BINARY1) $(BINARY2)
+# This gives the desired result but it's not the intended use of -V
+SORT      = sort -V
 
-.PHONY:   everything
-everything: $(BINARY1) $(LISTING1) $(SYMBOL1) $(BINARY2) $(LISTING2) $(SYMBOL2)
+.DEFAULT:   all
 
-.PHONY:   listings
-listings: $(LISTING1) $(LISTING2)
+.PHONY:     all
+.PHONY:     everything
+.PHONY:     binaries
+.PHONY:     listings
+.PHONY:     symbols
 
-.PHONY:   symbols
-symbols: $(SYMBOL1) $(SYMBOL2)
-
-.PHONY:   help
-help:
-	@echo "The valid targets for this makefile:"
-	@echo "make all         # this builds only the binaries"
-	@echo "make everything  # this builds absolutely everything"
-	@echo "make listings"
-	@echo "make symbols"
-	@echo "make" $(BINARY1)
-	@echo "make" $(LISTING1)
-	@echo "make" $(SYMBOL1)
-	@echo "make" $(BINARY2)
-	@echo "make" $(LISTING2)
-	@echo "make" $(SYMBOL2)
-	@echo "make help"
-	@echo "make clean"
+all:        binaries
+everything: binaries listings symbols
+binaries:   $(BINARY1) $(BINARY2)
+listings:   $(LISTING1) $(LISTING2)
+symbols:    $(SYMBOL1) $(SYMBOL2)
 
 $(BINARY1): $(SOURCE1)
 $(BINARY2): $(SOURCE2)
@@ -69,6 +57,23 @@ $(SYMBOL2): $(SOURCE2)
 
 %.sym:
 	$(ASM) $(AFLAGS) $(SYMFLAGS) $@ $<
+	$(SORT) $@ $(OUTPUT_OPTION)
+
+.PHONY:   help
+help:
+	@echo "The valid targets for this makefile:"
+	@echo "make all         # this builds only the binaries"
+	@echo "make everything  # this builds absolutely everything"
+	@echo "make listings"
+	@echo "make symbols"
+	@echo "make" $(BINARY1)
+	@echo "make" $(LISTING1)
+	@echo "make" $(SYMBOL1)
+	@echo "make" $(BINARY2)
+	@echo "make" $(LISTING2)
+	@echo "make" $(SYMBOL2)
+	@echo "make help"
+	@echo "make clean"
 
 .PHONY: clean
 clean:
