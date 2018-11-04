@@ -16,8 +16,8 @@ Version 1.5 (19 October 2018)
 
   * Simulation of error conditions is now performed within helper1.s
 
-      The test suite can handle a no-end error condition without halting
-      execution.
+  * The test suite can handle a no-end error condition without halting
+    execution.
 
   * Numerous other minor changes to source code and documentation
 
