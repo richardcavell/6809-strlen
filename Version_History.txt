@@ -6,8 +6,8 @@ Version 1.5 (19 October 2018)
   * New documents:
 
       * Assembly_Questions.txt
-      * BASIC_Questions.txt
       * BASIC_Program.txt
+      * BASIC_Questions.txt
       * Book_Recommendations.txt
       * Intermediate_Exercises.txt
 
