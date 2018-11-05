@@ -9,11 +9,17 @@ https://github.com/richardcavell/6809-strlen
    Note that the version of BASIC provided with the Color Computer provides
    a variable called TIMER, which increments every one-sixtieth of a second.
 
-2. Change the calling convention for the strlen and no_error_strlen
+2. Use an ASCII chart or write a BASIC program, and identify which character
+   codes are non-printing (ie they do not produce an identifiable glyph on
+   the screen).
+
+   Modify strlen so that it does not count these.
+
+3. Change the calling convention for the strlen and no_error_strlen
    routines to pass the address of the string to be searched on the
    system stack.
 
-3. Write a routine that searches a string for a particular character, and
+4. Write a routine that searches a string for a particular character, and
    returns a pointer to it, or $0000 if the character does not exist in
    the string.
 
@@ -22,10 +28,11 @@ https://github.com/richardcavell/6809-strlen
    to the routine.  Make sure the test suite and helper1 routine can achieve
    this.
 
-4. Write a routine that searches for the substring "SENTINEL" within any
-   given string
+5. Write a routine that searches a given string for the text "SENTINEL"
 
-5. Write an additional assembly routine that copies a string from one memory
+And bonus exercise:
+
+   Write an additional assembly routine that copies a string from one memory
    location to another, and call it 6809-strcpy.  Add code to the test suite
    to prove that it works with all of the strings.
 
