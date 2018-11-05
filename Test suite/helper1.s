@@ -112,4 +112,13 @@ _helper1_end
     ERROR "Helper1 object code does not fit into the space allocated"
     ENDIF
 
+    EXPORT _helper1
+    EXPORT _helper1_start
+    EXPORT _helper1_entry
+    EXPORT _helper1_end
+
+helper1_length EQU (_helper1_end - _helper1_start)
+
+    EXPORT helper1_length
+
     END
