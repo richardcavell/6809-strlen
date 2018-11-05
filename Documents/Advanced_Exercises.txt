@@ -2,28 +2,26 @@ Advanced_Exercises.txt
 Part of 6809-strlen by Richard Cavell (c) 2017, 2018
 https://github.com/richardcavell/6809-strlen
 
-1. Modify strlen.s to change every character of the string to uppercase
-   while it reads the string.
-
-2. Modify strlen.s to search for the character "Q" instead of the end of
+1. Modify strlen to search for the character "Q" instead of the end of
    the string.
 
    You will need to decide what happens if there is no "Q" in the string
    being tested.
 
-3. Change the calling convention for the strlen and no_error_strlen
-   routines to something that you think is more suitable.
+2. Modify strlen so that it skips over blank spaces without counting them.
 
-4. Modify the test suite to profile the assembly portion (ie time how long it
-   takes) and print a comparison between the BASIC and assembly method, in
-   terms of their speed.
+3. The ASCII code for backspace is 8. Have the strlen routine correctly
+   reduce the length count when it encounters backspace characters.
 
-   Note that the version of BASIC provided with the Color Computer provides
-   a variable called TIMER, which increments every one-sixtieth of a second.
+   Be careful not to let the length drop below zero.
 
-5. Write an additional assembly routine that copies a string from one memory
-   location to another, and call it 6809-strcpy.  Add code to the test suite
-   to prove that it works with all of the strings.
+4. Modify strlen to change every character of the string to uppercase
+   while it reads the string.
+
+5. In most 6809-based systems, the IRQ vectors are placed in locations
+   $FFFx, so it is difficult or impossible to store a string in those
+   locations.  Adjust strlen.s so that it returns "no end" before it gets
+   to the IRQ vectors.
 
 I hope that you enjoy programming!
 
