@@ -7,14 +7,14 @@ For the beginner, I suggest learning about strlen.s by doing the following:
 1.  Change strlen.s so that it uses register B instead of A to test for
     the terminating zero.
 
-2.  Change the PSHS X instruction into a different instruction which has the
+2.  Change strlen.s so that it uses register Y instead of X as the pointer
+    variable.
+
+3.  Change the PSHS X instruction into a different instruction which has the
     same effect.
 
-3.  Change the PULS X,PC instruction into PULS X and then add another
+4.  Change the PULS X,PC instruction into PULS X and then add another
     instruction which has the same effect as PULS PC.
-
-4.  Change strlen.s so that it uses register Y instead of X as the pointer
-    variable.
 
 5.  Reorder the instructions so that _strlen_normal_finish immediately
     follows _strlen_loop_end, and the error handler routine is below the
