@@ -16,12 +16,8 @@ For the beginner, I suggest learning about strlen.s by doing the following:
 4.  Change the PULS X,PC instruction into PULS X and then add another
     instruction which has the same effect as PULS PC.
 
-5.  Reorder the instructions so that _strlen_normal_finish immediately
-    follows _strlen_loop_end, and the error handler routine is below the
-    normal exit point.
-
-    Be careful to modify the assembly instructions so that the program
-    flows to the correct place in each case.
+5.  Modify either strlen.s or no_error_strlen.s to give an incorrect result,
+    and demonstrate this with the test suite.
 
 For all exercises, use the test suite to prove that the new code works
 perfectly.
