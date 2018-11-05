@@ -7,7 +7,9 @@ https://github.com/richardcavell/6809-strlen
    terms of their speed.
 
    Note that the version of BASIC provided with the Color Computer provides
-   a variable called TIMER, which increments every one-sixtieth of a second.
+   a variable called TIMER, which increments either every one-fiftieth or
+   every one-sixtieth of a second.  Write a program to test how fast
+   TIMER increments on your machine.
 
 2. Use an ASCII chart or write a BASIC program, and identify which character
    codes are non-printing (ie they do not produce an identifiable glyph on
