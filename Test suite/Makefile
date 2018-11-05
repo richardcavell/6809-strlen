@@ -7,6 +7,8 @@
 
 ASM         = asm6809
 AFLAGS      = -C -8 --setdp=-1 -v
+LSTFLAGS    = -l
+SYMFLAGS    = -s
 DECBTOOL    = decb
 XROAR       = xroar
 MAME        = mame
@@ -15,19 +17,45 @@ MAIN1       = main1.s
 MAIN2       = main2.s
 STRLENSRC   = ../strlen.s
 STRLENBIN   = strlen.bin
+STRLENLST   = strlen.lst
+STRLENSYM   = strlen.sym
 NESTRLENSRC = ../no_error_strlen.s
 NESTRLENBIN = nestrlen.bin
+NESTRLENLST = nestrlen.lst
+NESTRLENSYM = nestrlen.sym
 HELPER1SRC  = helper1.s
-HELPER2SRC  = helper2.s
 HELPER1BIN  = helper1.bin
+HELPER1LST  = helper1.lst
+HELPER1SYM  = helper1.sym
+HELPER2SRC  = helper2.s
 HELPER2BIN  = helper2.bin
+HELPER2LST  = helper2.lst
+HELPER2SYM  = helper2.sym
 TESTBAS     = TEST.BAS
 DSKIMG      = TSTSUITE.DSK
 
-.DEFAULT: all
-.PHONY:   all
+# This is not the intended use of -V but it works for our purposes
+SORT        = sort -V
 
-all: $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN) $(DSKIMG)
+.DEFAULT: all
+
+.PHONY:   all
+.PHONY:   everything
+.PHONY:   binaries
+.PHONY:   listings
+.PHONY:   symbols
+.PHONY:   disk
+.PHONY:   xroar
+.PHONY:   mame
+.PHONY:   help
+.PHONY:   clean
+
+all:        binaries disk
+everything: binaries listings symbols disk
+binaries:   $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN)
+listings:   $(STRLENLST) $(NESTRLENLST) $(HELPER1LST) $(HELPER2LST)
+symbols:    $(STRLENSYM) $(NESTRLENSYM) $(HELPER1SYM) $(HELPER2SYM)
+disk:       $(DSKIMG)
 
 $(STRLENBIN):   $(MAIN1) $(STRLENSRC) $(SYMBOLS)
 $(NESTRLENBIN): $(MAIN2) $(NESTRLENSRC) $(SYMBOLS)
@@ -36,6 +64,23 @@ $(HELPER2BIN):  $(HELPER2SRC) $(SYMBOLS)
 
 %.bin:
 	$(ASM) $(AFLAGS) $< $(OUTPUT_OPTION)
+
+$(STRLENLST):   $(MAIN1) $(STRLENSRC) $(SYMBOLS)
+$(NESTRLENLST): $(MAIN2) $(NESTRLENSRC) $(SYMBOLS)
+$(HELPER1LST):  $(HELPER1SRC) $(SYMBOLS)
+$(HELPER2LST):  $(HELPER2SRC) $(SYMBOLS)
+
+%.lst:
+	$(ASM) $(AFLAGS) $(LSTFLAGS) $@ $<
+
+$(STRLENSYM):   $(MAIN1) $(STRLENSRC) $(SYMBOLS)
+$(NESTRLENSYM): $(MAIN2) $(NESTRLENSRC) $(SYMBOLS)
+$(HELPER1SYM):  $(HELPER1SRC) $(SYMBOLS)
+$(HELPER2SYM):  $(HELPER2SRC) $(SYMBOLS)
+
+%.sym:
+	$(ASM) $(AFLAGS) $(SYMFLAGS) $@ $<
+	$(SORT) $@ -o $@
 
 $(DSKIMG): $(TESTBAS) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN)
 	$(RM) $@
@@ -46,19 +91,26 @@ $(DSKIMG): $(TESTBAS) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN)
 	$(DECBTOOL) copy $(HELPER1BIN)  -2    $(DSKIMG),HELPER1.BIN
 	$(DECBTOOL) copy $(HELPER2BIN)  -2    $(DSKIMG),HELPER2.BIN
 
-.PHONY: xroar
-
 xroar:  $(DSKIMG)
 	@echo "Launching XRoar..."
 	$(XROAR) -machine coco2b -load $(DSKIMG) -type 'RUN "TEST"\r' -q 2> /dev/null
-
-.PHONY: mame
 
 mame:   $(DSKIMG)
 	@echo "Launching MAME..."
 	$(MAME) coco2b -flop1 $(DSKIMG) -autoboot_command "RUN \"TEST\"\n" -autoboot_delay 2
 
-.PHONY: clean
+help:
+	@echo "Some valid targets for this makefile:"
+	@echo "make all         # this builds the binaries and disk"
+	@echo "make everything  # this builds absolutely everything"
+	@echo "make binaries"
+	@echo "make listings"
+	@echo "make symbols"
+	@echo "make disk"
+	@echo "make xroar"
+	@echo "make mame"
+	@echo "make help"
+	@echo "make clean"
 
 clean:
-	$(RM) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN) $(DSKIMG)
+	$(RM) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN) $(STRLENLST) $(NESTRLENLST) $(HELPER1LST) $(HELPER2LST) $(STRLENSYM) $(NESTRLENSYM) $(HELPER1SYM) $(HELPER2SYM) $(DSKIMG)

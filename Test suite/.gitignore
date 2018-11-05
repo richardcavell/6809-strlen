@@ -1,5 +1,13 @@
-helper1.bin
-helper2.bin
 strlen.bin
+strlen.lst
+strlen.sym
 nestrlen.bin
+nestrlen.lst
+nestrlen.sym
+helper1.bin
+helper1.lst
+helper1.sym
+helper2.bin
+helper2.lst
+helper2.sym
 history
