@@ -9,20 +9,16 @@ the aspiring programmer is invited to try the following exercises:
     assembly language routines.  Make sure that you understand what is
     being tested for, and how the test might fail.
 
-2.  Reorder the instructions so that _strlen_normal_finish immediately
-    follows _strlen_loop_end, and the error handler routine is below the
-    normal exit point.
+2.  Modify strlen to search for the character "Q" instead of the end of
+    the string.
 
-    Be careful to modify the assembly instructions so that the program
-    flows to the correct place in each case.
+    You will need to decide what happens if there is no "Q" in the string
+    being tested.
 
-3.  Change the memory map so that the machine language routines and the
-    string to be tested start at $6100 instead of $6000.
-
-    Remember to change the test suite as well.
-
-4.  Demonstrate that the BASIC portion of the project might fail if the
+3.  Demonstrate that the BASIC portion of the project might fail if the
     string is placed in an unsuitable portion of the memory map.
+
+4.  Modify strlen so that it skips over blank spaces without counting them.
 
 5.  In most 6809-based systems, the IRQ vectors are placed in locations
     $FFFx, so it is difficult or impossible to store a string in those

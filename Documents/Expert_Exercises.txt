@@ -17,8 +17,11 @@ https://github.com/richardcavell/6809-strlen
 
     Modify strlen so that it does not count these.
 
-3.  Translate the test suite into your favourite language, and remove
-    unwanted languages.
+3.  The ASCII code for backspace is 8. Have the strlen routine correctly
+    reduce, instead of increase, the length count when it encounters 
+    backspace characters.
+
+    Be careful not to let the length drop below zero.
 
 4.  Change the calling convention for the strlen and no_error_strlen
     routines to pass the address of the string to be searched on the

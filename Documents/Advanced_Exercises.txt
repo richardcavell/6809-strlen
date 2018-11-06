@@ -2,23 +2,25 @@ Advanced_Exercises.txt
 Part of 6809-strlen by Richard Cavell (c) 2017, 2018
 https://github.com/richardcavell/6809-strlen
 
-1.  Modify strlen to search for the character "Q" instead of the end of
-    the string.
+1.  Translate the test suite into your favourite language, and remove
+    unwanted languages.
 
-    You will need to decide what happens if there is no "Q" in the string
-    being tested.
+2.  Have strlen delete characters as it reads them, for security purposes.
 
-2.  Modify strlen so that it skips over blank spaces without counting them.
-
-3.  The ASCII code for backspace is 8. Have the strlen routine correctly
-    reduce the length count when it encounters backspace characters.
-
-    Be careful not to let the length drop below zero.
-
-4.  Have strlen delete characters as it reads them, for security purposes.
-
-5.  Modify strlen to change every character of the string to uppercase
+3.  Modify strlen to change every character of the string to uppercase
     while it reads the string.
+
+4.  Reorder the instructions so that _strlen_normal_finish immediately
+    follows _strlen_loop_end, and the error handler routine is below the
+    normal exit point.
+
+    Be careful to modify the assembly instructions so that the program
+    flows to the correct place in each case.
+
+5.  Change the memory map so that the machine language routines and the
+    string to be tested start at $6100 instead of $6000.
+
+    Remember to change the test suite as well.
 
 I hope that you enjoy programming!
 
