@@ -18,7 +18,7 @@ the aspiring programmer is invited to try the following exercises:
 3.  Demonstrate that the BASIC portion of the project might fail if the
     string is placed in an unsuitable portion of the memory map.
 
-4.  Modify strlen so that it skips over blank spaces without counting them.
+4.  Have strlen delete characters as it reads them, for security purposes.
 
 5.  In most 6809-based systems, the IRQ vectors are placed in locations
     $FFFx, so it is difficult or impossible to store a string in those
