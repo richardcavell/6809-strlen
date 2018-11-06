@@ -22,7 +22,7 @@
 ; Outputs:
 ;   Length of the string (0 to $FFFF)
 ;   OR $FFFF if no_error_strlen is used and there was a "no end" error
-;   (The output will be incorrect if an error simulation is requested)
+;   OR if an error simulation is requested, an incorrect result
 ;
 ; This routine adheres to the Disk Extended Color BASIC USRx()
 ; calling conventions.
