@@ -48,6 +48,7 @@ SORT        = sort -V
 .PHONY:   disk
 .PHONY:   xroar
 .PHONY:   mame
+.PHONY:   mame-debug
 .PHONY:   info
 .PHONY:   version
 .PHONY:   help
@@ -101,6 +102,10 @@ xroar:  $(DSKIMG)
 mame:   $(DSKIMG)
 	@echo "Launching MAME..."
 	$(MAME) coco2b -flop1 $(DSKIMG) -autoboot_command "RUN \"TEST\"\n" -autoboot_delay 2
+
+mame-debug:   $(DSKIMG)
+	@echo "Launching MAME..."
+	$(MAME) coco2b -flop1 $(DSKIMG) -autoboot_command "RUN \"TEST\"\n" -autoboot_delay 2 -debug
 
 info:
 	@echo "6809-strlen version" $(VERSION) "by Richard Cavell"
