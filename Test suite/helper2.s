@@ -1,5 +1,5 @@
 ; helper2.s
-; Version 1.5
+; Version 1.6
 ; https://github.com/richardcavell/6809-strlen
 ;
 ; A 6809 assembly routine to help with the testing of strlen.s

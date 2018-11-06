@@ -26,6 +26,8 @@ SYMBOL2   = no_error_strlen.sym
 # This gives the desired result but it's not the intended use of -V
 SORT      = sort -V
 
+VERSION   = 1.6
+
 .DEFAULT:   all
 
 .PHONY:     all
@@ -33,6 +35,8 @@ SORT      = sort -V
 .PHONY:     binaries
 .PHONY:     listings
 .PHONY:     symbols
+.PHONY:     info
+.PHONY:     version
 .PHONY:     help
 .PHONY:     clean
 
@@ -61,10 +65,17 @@ $(SYMBOL2): $(SOURCE2)
 	$(ASM) $(AFLAGS) $(SYMFLAGS) $@ $<
 	$(SORT) $@ $(OUTPUT_OPTION)
 
+info:
+	@echo "6809-strlen version" $(VERSION) "by Richard Cavell"
+
+version:
+	@echo $(VERSION)
+
 help:
 	@echo "The valid targets for this makefile:"
 	@echo "make all         # this builds only the binaries"
 	@echo "make everything  # this builds absolutely everything"
+	@echo "make binaries"
 	@echo "make listings"
 	@echo "make symbols"
 	@echo "make" $(BINARY1)
@@ -73,6 +84,8 @@ help:
 	@echo "make" $(BINARY2)
 	@echo "make" $(LISTING2)
 	@echo "make" $(SYMBOL2)
+	@echo "make info"
+	@echo "make version"
 	@echo "make help"
 	@echo "make clean"
 

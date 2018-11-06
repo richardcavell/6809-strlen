@@ -1,6 +1,24 @@
 6809-strlen Version_history.txt
 (c) 2017, 2018 by Richard Cavell
 
+Version 1.6 (6 November 2018)
+
+  * Many more exercises have been added to the Documents folder
+
+      * The exercises are now called "Level_One.txt" to "Level_Seven.txt"
+      * Exercises have been shuffled and are roughly grouped by difficulty
+        and theme
+
+  * All assembly source files now export their symbols
+
+  * The makefile now has many more targets, and can produce listings
+    and symbols
+
+  * The test suite can now handle a no-end error without halting
+
+  * The test suite program is now significantly smaller (simply by removing
+    spaces, using multiple statements on one line, etc)
+
 Version 1.5 (19 October 2018)
 
   * New documents:

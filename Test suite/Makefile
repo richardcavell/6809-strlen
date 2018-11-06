@@ -33,6 +33,7 @@ HELPER2LST  = helper2.lst
 HELPER2SYM  = helper2.sym
 TESTBAS     = TEST.BAS
 DSKIMG      = TSTSUITE.DSK
+VERSION     = 1.6
 
 # This is not the intended use of -V but it works for our purposes
 SORT        = sort -V
@@ -47,6 +48,8 @@ SORT        = sort -V
 .PHONY:   disk
 .PHONY:   xroar
 .PHONY:   mame
+.PHONY:   info
+.PHONY:   version
 .PHONY:   help
 .PHONY:   clean
 
@@ -99,6 +102,12 @@ mame:   $(DSKIMG)
 	@echo "Launching MAME..."
 	$(MAME) coco2b -flop1 $(DSKIMG) -autoboot_command "RUN \"TEST\"\n" -autoboot_delay 2
 
+info:
+	@echo "6809-strlen version" $(VERSION) "by Richard Cavell"
+
+version:
+	@echo $(VERSION)
+
 help:
 	@echo "Some valid targets for this makefile:"
 	@echo "make all         # this builds the binaries and disk"
@@ -109,6 +118,8 @@ help:
 	@echo "make disk"
 	@echo "make xroar"
 	@echo "make mame"
+	@echo "make info"
+	@echo "make version"
 	@echo "make help"
 	@echo "make clean"
 
