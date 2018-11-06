@@ -11,7 +11,7 @@ Version 1.6 (6 November 2018)
 
   * All assembly source files now export their symbols
 
-  * The makefile now has many more targets, and can produce listings
+  * The makefiles now have many more targets, and can produce listings
     and symbols
 
   * The test suite can now handle a no-end error without halting
