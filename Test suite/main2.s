@@ -23,4 +23,8 @@ _end
     ERROR "Nestrlen object code does not fit into the space allocated"
     ENDIF
 
+    EXPORT _start
+    EXPORT _main2
+    EXPORT _end
+
     END

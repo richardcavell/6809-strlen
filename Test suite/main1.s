@@ -22,4 +22,8 @@ _end
     ERROR "Strlen object code does not fit into the space allocated"
     ENDIF
 
+    EXPORT _start
+    EXPORT _main1
+    EXPORT _end
+
     END
