@@ -19,6 +19,8 @@ In order to use the test suite, you will need one of:
   2.  MAME, located here:
             http://mamedev.org/
 
+      You will also need the relevant ROM sets
+
 In order to build the test suite yourself, you will need to install both:
 
   1.  asm6809, by Ciaran Anscomb, located here:
@@ -41,7 +43,7 @@ mame coco2b
 
   (with coco2b.zip in ~/.mame/roms)
 
-It probably works with other machines as well, but I do not desire to
-provide official support to other configurations.
+It probably works with other machines as well, but no official support is
+provided to other configurations.
 
 Richard Cavell
