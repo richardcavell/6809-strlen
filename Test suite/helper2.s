@@ -32,7 +32,7 @@
 ; This code must be assembled with an assembler that substitutes ASCII
 ;  codes for the characters given in the code.
 ; This routine can write into memory locations that have no RAM (in a
-;  machine with less than 64K installed RAM).
+;  machine with less than 64K installed).
 ; This routine can write into memory that you don't want it to.
 ; It is possible for the string to wrap (say from $FFFF to $0000).
 ;  This code makes no attempt to detect this possibility.
