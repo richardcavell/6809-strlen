@@ -13,13 +13,12 @@ For the beginner, I suggest learning about strlen.s by doing the following:
 3.  Change the PSHS X instruction into a different instruction which has the
     same effect.
 
-4.  Change the PULS X,PC instruction into PULS X and then add another
-    instruction which has the same effect as PULS PC.
+4.  Change the PULS X,PC instruction into two instructions that have the
+    same effect.
 
-5.  Modify either strlen.s or no_error_strlen.s to give an incorrect result,
-    and demonstrate this with the test suite.
+5.  Delete some of the comments. Comments start with a semicolon.
 
-For all exercises, use the test suite to prove that the new code works
+For all exercises, use the test suite to prove that the modified code works
 perfectly.
 
 I hope that you enjoy learning!

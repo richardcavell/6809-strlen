@@ -2,23 +2,21 @@ Level_Two.txt
 Part of 6809-strlen by Richard Cavell (c) 2017, 2018
 https://github.com/richardcavell/6809-strlen
 
-Once you have understood the basics of the project, including the test suite,
-the aspiring programmer is invited to try the following exercises:
+Once you have understood the basics of the assembly language portion of the
+project, you are invited to try the following exercises:
 
 1.  Use line 800 of the test suite to change the default language of the
     test suite.
 
-2.  Translate the test suite into your favourite language, or remove
-    unwanted languages.
+2.  Place a text file on the test suite disk, which indicates the default
+    language for the text suite.  Replace line 800 of TEST.BAS with a
+    routine that reads this file to determine the default language.
 
-3.  Determine the default language for the test suite by placing a text
-    file on the test suite disk, which consists of a single letter: E, D,
-    F, or S.  Replace line 800 of TEST.BAS with a routine that reads this
-    file to choose the default language.
-
-4.  Use line 900 of the test suite program to simulate errors in the
+3.  Use line 900 of the test suite program to simulate errors in the
     assembly language routines.  Make sure that you understand what is
     being tested for, and how the test might fail.
+
+4.  Add sound to the test suite.
 
 5.  Demonstrate that the BASIC portion of the project might fail if the
     string is placed in an unsuitable portion of the memory map.
