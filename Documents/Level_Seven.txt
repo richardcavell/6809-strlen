@@ -1,0 +1,21 @@
+Level_Seven.txt
+Part of 6809-strlen by Richard Cavell (c) 2017, 2018
+https://github.com/richardcavell/6809-strlen
+
+1.  Remove the SUBD #1 in nestrlen.s
+    (This is called an off-by-one error)
+
+2.  Change the BNE in nestrlen.s to a BRA
+    (This is called an infinite loop)
+
+3.  Add a clear-screen routine to helper1 and use this instead of CLS to
+    clear the screen in TEST.BAS.
+
+4.  Translate the test suite into your favourite language, and remove
+    unwanted languages.
+
+5.  Modify TEST.BAS so that the user can select auto-run at any stage.
+
+I hope that you enjoy even more programming!
+
+Richard Cavell
