@@ -18,8 +18,7 @@ project, you are invited to try the following exercises:
 
 4.  Add sound to the test suite.
 
-5.  Demonstrate that the BASIC portion of the project might fail if the
-    string is placed in an unsuitable portion of the memory map.
+5.  Modify TEST.BAS so that the user can select auto-run at any stage.
 
 I hope that you enjoy learning more!
 

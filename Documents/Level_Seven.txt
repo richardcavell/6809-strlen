@@ -14,7 +14,8 @@ https://github.com/richardcavell/6809-strlen
 4.  Translate the test suite into your favourite language, and remove
     unwanted languages.
 
-5.  Modify TEST.BAS so that the user can select auto-run at any stage.
+5.  Demonstrate that the BASIC portion of the project will crash if the
+    string is placed in an unsuitable portion of the memory map.
 
 I hope that you enjoy even more programming!
 
