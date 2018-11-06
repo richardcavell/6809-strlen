@@ -1,0 +1,25 @@
+Level_Three.txt
+Part of 6809-strlen by Richard Cavell (c) 2017, 2018
+https://github.com/richardcavell/6809-strlen
+
+Once you have begun to really understand the basics of the project,
+try these exercises:
+
+1.  In most 6809-based systems, the IRQ vectors are placed in locations
+    $FFFx, so it is difficult or impossible to store a string in those
+    locations.  Adjust strlen.s so that it returns "no end" before it gets
+    to the IRQ vectors.
+
+2.  Have strlen delete characters as it reads them, for security purposes.
+
+3.  Modify the BASIC program so that when it is counting the string's
+    length manually, there is a visual indication of activity.
+
+4.  Modify strlen and nestrlen so that they give the same visual indicator
+    of activity.
+
+5.  Change strlen to require TWO zeroes to end the string.
+
+I hope that you enjoy learning even more!
+
+Richard Cavell

@@ -1,4 +1,4 @@
-More_Expert_Exercises.txt
+Level_Six.txt
 Part of 6809-strlen by Richard Cavell (c) 2017, 2018
 https://github.com/richardcavell/6809-strlen
 
@@ -18,6 +18,6 @@ https://github.com/richardcavell/6809-strlen
     location to another, and call it 6809-strcpy.  Add code to the test suite
     to prove that it works with all of the strings.
 
-I hope that you enjoy programming!
+I hope that you enjoy even more programming!
 
 Richard Cavell

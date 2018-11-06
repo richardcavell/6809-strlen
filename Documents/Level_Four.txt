@@ -1,9 +1,12 @@
-Advanced_Exercises.txt
+Level_Four.txt
 Part of 6809-strlen by Richard Cavell (c) 2017, 2018
 https://github.com/richardcavell/6809-strlen
 
-1.  Translate the test suite into your favourite language, and remove
-    unwanted languages.
+1.  Modify strlen to search for the character "Q" instead of the end of
+    the string.
+
+    You will need to decide what happens if there is no "Q" in the string
+    being tested.
 
 2.  Change the calling convention for the strlen and no_error_strlen
     routines to pass the address of the string to be searched on the
