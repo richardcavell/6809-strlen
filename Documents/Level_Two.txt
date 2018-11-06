@@ -2,7 +2,7 @@ Level_Two.txt
 Part of 6809-strlen by Richard Cavell (c) 2017, 2018
 https://github.com/richardcavell/6809-strlen
 
-Once you have understood the basics of the assembly language portion of the
+Once you understand the basics of the assembly language portion of the
 project, you are invited to try the following exercises:
 
 1.  Use line 800 of the test suite to change the default language of the
