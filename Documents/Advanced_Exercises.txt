@@ -5,7 +5,9 @@ https://github.com/richardcavell/6809-strlen
 1.  Translate the test suite into your favourite language, and remove
     unwanted languages.
 
-2.  Modify strlen so that it skips over blank spaces without counting them.
+2.  Change the calling convention for the strlen and no_error_strlen
+    routines to pass the address of the string to be searched on the
+    system stack.
 
 3.  Modify strlen to change every character of the string to uppercase
     while it reads the string.

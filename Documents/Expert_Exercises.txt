@@ -11,21 +11,19 @@ https://github.com/richardcavell/6809-strlen
     every one-sixtieth of a second.  Write a program to test how fast
     TIMER increments on your machine.
 
-2.  Use an ASCII chart or write a BASIC program, and identify which character
+2.  Modify strlen so that it skips over blank spaces without counting them.
+
+3.  Use an ASCII chart or write a BASIC program, and identify which character
     codes are non-printing (ie they do not produce an identifiable glyph on
     the screen).
 
     Modify strlen so that it does not count these.
 
-3.  The ASCII code for backspace is 8. Have the strlen routine correctly
+4.  The ASCII code for backspace is 8. Have the strlen routine correctly
     reduce, instead of increase, the length count when it encounters 
     backspace characters.
 
     Be careful not to let the length drop below zero.
-
-4.  Change the calling convention for the strlen and no_error_strlen
-    routines to pass the address of the string to be searched on the
-    system stack.
 
 5.  Write a routine that searches a string for a given character, and
     returns a pointer to it, or $0000 if the character does not exist in
