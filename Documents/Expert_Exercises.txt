@@ -2,33 +2,31 @@ Expert_Exercises.txt
 Part of 6809-strlen by Richard Cavell (c) 2017, 2018
 https://github.com/richardcavell/6809-strlen
 
-1. Modify the test suite to profile the assembly portion (ie time how long it
-   takes) and print a comparison between the BASIC and assembly method, in
-   terms of their speed.
+1.  Modify the test suite to profile the assembly portion (ie time how long it
+    takes) and print a comparison between the BASIC and assembly method, in
+    terms of their speed.
 
-   Note that the version of BASIC provided with the Color Computer provides
-   a variable called TIMER, which increments either every one-fiftieth or
-   every one-sixtieth of a second.  Write a program to test how fast
-   TIMER increments on your machine.
+    Note that the version of BASIC provided with the Color Computer provides
+    a variable called TIMER, which increments either every one-fiftieth or
+    every one-sixtieth of a second.  Write a program to test how fast
+    TIMER increments on your machine.
 
-2. Use an ASCII chart or write a BASIC program, and identify which character
-   codes are non-printing (ie they do not produce an identifiable glyph on
-   the screen).
+2.  Use an ASCII chart or write a BASIC program, and identify which character
+    codes are non-printing (ie they do not produce an identifiable glyph on
+    the screen).
 
-   Modify strlen so that it does not count these.
+    Modify strlen so that it does not count these.
 
-3. In most 6809-based systems, the IRQ vectors are placed in locations
-   $FFFx, so it is difficult or impossible to store a string in those
-   locations.  Adjust strlen.s so that it returns "no end" before it gets
-   to the IRQ vectors.
+3.  Translate the test suite into your favourite language, and remove
+    unwanted languages.
 
-4. Change the calling convention for the strlen and no_error_strlen
-   routines to pass the address of the string to be searched on the
-   system stack.
+4.  Change the calling convention for the strlen and no_error_strlen
+    routines to pass the address of the string to be searched on the
+    system stack.
 
-5. Write a routine that searches a string for a given character, and
-   returns a pointer to it, or $0000 if the character does not exist in
-   the string.
+5.  Write a routine that searches a string for a given character, and
+    returns a pointer to it, or $0000 if the character does not exist in
+    the string.
 
 I hope that you enjoy programming!
 

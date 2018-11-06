@@ -24,7 +24,10 @@ the aspiring programmer is invited to try the following exercises:
 4.  Demonstrate that the BASIC portion of the project might fail if the
     string is placed in an unsuitable portion of the memory map.
 
-5.  Translate the test suite into your favourite language other than English.
+5.  In most 6809-based systems, the IRQ vectors are placed in locations
+    $FFFx, so it is difficult or impossible to store a string in those
+    locations.  Adjust strlen.s so that it returns "no end" before it gets
+    to the IRQ vectors.
 
 I hope that you enjoy tinkering!
 

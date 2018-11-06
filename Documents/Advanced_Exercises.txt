@@ -2,23 +2,23 @@ Advanced_Exercises.txt
 Part of 6809-strlen by Richard Cavell (c) 2017, 2018
 https://github.com/richardcavell/6809-strlen
 
-1. Modify strlen to search for the character "Q" instead of the end of
-   the string.
+1.  Modify strlen to search for the character "Q" instead of the end of
+    the string.
 
-   You will need to decide what happens if there is no "Q" in the string
-   being tested.
+    You will need to decide what happens if there is no "Q" in the string
+    being tested.
 
-2. Modify strlen so that it skips over blank spaces without counting them.
+2.  Modify strlen so that it skips over blank spaces without counting them.
 
-3. The ASCII code for backspace is 8. Have the strlen routine correctly
-   reduce the length count when it encounters backspace characters.
+3.  The ASCII code for backspace is 8. Have the strlen routine correctly
+    reduce the length count when it encounters backspace characters.
 
-   Be careful not to let the length drop below zero.
+    Be careful not to let the length drop below zero.
 
-4. Have strlen delete characters as it reads them, for security purposes
+4.  Have strlen delete characters as it reads them, for security purposes
 
-5. Modify strlen to change every character of the string to uppercase
-   while it reads the string.
+5.  Modify strlen to change every character of the string to uppercase
+    while it reads the string.
 
 I hope that you enjoy programming!
 
