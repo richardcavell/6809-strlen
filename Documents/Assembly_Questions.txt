@@ -29,7 +29,7 @@ https://github.com/richardcavell/6809-strlen
 
 Bonus Question:
 
-    What is the value of creating and exporting a symbol such as
+11. What is the value of creating and exporting a symbol such as
     _no_error_strlen_start, when it could be kept track of within the mind
     of the programmer?
 
