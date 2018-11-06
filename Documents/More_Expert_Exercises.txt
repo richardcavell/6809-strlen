@@ -1,0 +1,23 @@
+More_Expert_Exercises.txt
+Part of 6809-strlen by Richard Cavell (c) 2017, 2018
+https://github.com/richardcavell/6809-strlen
+
+1. Have the caller pass a second address, and make strlen return a
+   no-end error if a string appears not to end before that address is
+   reached.
+
+2. Write a routine that ensures that all the characters in the string
+   are unique.
+
+3. Combine helper1 and helper2 into one helper function.
+
+4. Compress the memory map so that the test suite and all the routines
+   are squeezed into the smallest possible space.
+
+5. Write an additional assembly routine that copies a string from one memory
+   location to another, and call it 6809-strcpy.  Add code to the test suite
+   to prove that it works with all of the strings.
+
+I hope that you enjoy programming!
+
+Richard Cavell

@@ -15,13 +15,10 @@ https://github.com/richardcavell/6809-strlen
 
    Be careful not to let the length drop below zero.
 
-4. Modify strlen to change every character of the string to uppercase
-   while it reads the string.
+4. Have strlen delete characters as it reads them, for security purposes
 
-5. In most 6809-based systems, the IRQ vectors are placed in locations
-   $FFFx, so it is difficult or impossible to store a string in those
-   locations.  Adjust strlen.s so that it returns "no end" before it gets
-   to the IRQ vectors.
+5. Modify strlen to change every character of the string to uppercase
+   while it reads the string.
 
 I hope that you enjoy programming!
 

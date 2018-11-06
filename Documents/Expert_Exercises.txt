@@ -17,26 +17,18 @@ https://github.com/richardcavell/6809-strlen
 
    Modify strlen so that it does not count these.
 
-3. Change the calling convention for the strlen and no_error_strlen
+3. In most 6809-based systems, the IRQ vectors are placed in locations
+   $FFFx, so it is difficult or impossible to store a string in those
+   locations.  Adjust strlen.s so that it returns "no end" before it gets
+   to the IRQ vectors.
+
+4. Change the calling convention for the strlen and no_error_strlen
    routines to pass the address of the string to be searched on the
    system stack.
 
-4. Write a routine that searches a string for a particular character, and
+5. Write a routine that searches a string for a given character, and
    returns a pointer to it, or $0000 if the character does not exist in
    the string.
-
-   You will need to establish a calling convention - a way of passing both
-   the pointer to the string to be searched, and the character to search for,
-   to the routine.  Make sure the test suite and helper1 routine can achieve
-   this.
-
-5. Write a routine that searches a given string for the text "SENTINEL"
-
-And bonus exercise:
-
-   Write an additional assembly routine that copies a string from one memory
-   location to another, and call it 6809-strcpy.  Add code to the test suite
-   to prove that it works with all of the strings.
 
 I hope that you enjoy programming!
 
