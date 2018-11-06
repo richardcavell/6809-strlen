@@ -15,7 +15,7 @@ https://github.com/richardcavell/6809-strlen
 
     Be careful not to let the length drop below zero.
 
-4.  Have strlen delete characters as it reads them, for security purposes
+4.  Have strlen delete characters as it reads them, for security purposes.
 
 5.  Modify strlen to change every character of the string to uppercase
     while it reads the string.
