@@ -5,16 +5,16 @@ https://github.com/richardcavell/6809-strlen
 Once you have understood the basics of the project, including the test suite,
 the aspiring programmer is invited to try the following exercises:
 
-1.  Reorder the instructions so that _strlen_normal_finish immediately
+1.  Use line 900 of the test suite program to simulate errors in the
+    assembly language routines.  Make sure that you understand what is
+    being tested for, and how the test might fail.
+
+2.  Reorder the instructions so that _strlen_normal_finish immediately
     follows _strlen_loop_end, and the error handler routine is below the
     normal exit point.
 
     Be careful to modify the assembly instructions so that the program
     flows to the correct place in each case.
-
-2.  Use line 900 of the test suite program to simulate errors in the
-    assembly language routines.  Make sure that you understand what is
-    being tested for, and how the test might fail.
 
 3.  Change the memory map so that the machine language routines and the
     string to be tested start at $6100 instead of $6000.
