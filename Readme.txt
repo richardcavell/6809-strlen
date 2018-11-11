@@ -58,3 +58,6 @@ You should only use no_error_strlen.s if:
 All of this is licensed to you under the MIT License.
 
 Published and maintained at: https://github.com/richardcavell/6809-strlen
+
+This project is complete, and is actively maintained by me. The last review
+was in November 2018.
