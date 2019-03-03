@@ -25,8 +25,8 @@ A C-style string, for the purposes of this routine, is a sequence of
 non-zero 8-bit bytes, followed by a zero byte. The sequence may have
 zero length.
 
-A "no end" error can occur if the string continues past memory location
-$FFFF. The default error handler returns a length of $FFFF. You should
+A "no end" error will occur if the string continues past memory location
+$FFFF. The default error handler returns a value of $FFFF. You should
 check for this. You can also write your own error handler.
 
 The code is position-independent and re-entrant. Interrupts are allowed
@@ -50,10 +50,15 @@ condition and will simply wrap from $FFFF to $0000 while searching for
 the end of the string.
 
 You should only use no_error_strlen.s if:
-  * you want extra performance or
-  * you want reduced code size, and
-  * you can be quite sure that the string passed into the routine is valid, and
-  * that the "no end" condition will never occur.
+
+  * you can be quite sure that the string passed into the routine is valid,
+    and:
+  * that the "no end" condition will never occur
+
+As a benefit, it will give you:
+
+  * reduced code size, and
+  * (under some circumstances) extra performance
 
 All of this is licensed to you under the MIT License.
 
