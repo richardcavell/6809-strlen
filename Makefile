@@ -1,5 +1,5 @@
 # Makefile
-# by Richard John Foster Cavell (c) 2017, 2018
+# by Richard John Foster Cavell (c) 2017, 2018, 2019
 # Part of the 6809-strlen project
 # https://github.com/richardcavell/6809-strlen
 

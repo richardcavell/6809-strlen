@@ -1,5 +1,5 @@
 6809-strlen Version_history.txt
-(c) 2017, 2018 by Richard Cavell
+(c) 2017, 2018, 2019 by Richard Cavell
 
 Version 1.6 (6 November 2018)
 

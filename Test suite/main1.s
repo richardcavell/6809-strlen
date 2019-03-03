@@ -4,7 +4,7 @@
 ;
 ; A very short file to assist in assembling strlen.s for the test suite.
 ;
-; Written by Richard John Foster Cavell (c) 2017, 2018.
+; Written by Richard John Foster Cavell (c) 2017, 2018, 2019.
 ; Licensed to you under the MIT License.
 
     INCLUDE "Symbols.inc"

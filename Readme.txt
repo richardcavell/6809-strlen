@@ -1,5 +1,5 @@
 6809 Assembly Language C-Style String Length Calculation Routine
-by Richard John Foster Cavell (c) 2017, 2018
+by Richard John Foster Cavell (c) 2017, 2018, 2019
 Version 1.6 (6 November 2018)
 https://github.com/richardcavell/6809-strlen
 

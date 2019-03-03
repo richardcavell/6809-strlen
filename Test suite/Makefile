@@ -1,5 +1,5 @@
 # Makefile
-# by Richard John Foster Cavell (c) 2017, 2018
+# by Richard John Foster Cavell (c) 2017, 2018, 2019
 # Part of the 6809-strlen project
 
 # Note that we build the strlen and no_error_strlen routines as
