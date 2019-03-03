@@ -51,8 +51,10 @@ the end of the string.
 
 You should only use no_error_strlen.s if:
 
-  * you can be quite sure that the string passed into the routine is valid,
-    and:
+  * you can be quite sure that the string passed into the routine is valid
+
+        and:
+
   * that the "no end" condition will never occur
 
 As a benefit, it will give you:
