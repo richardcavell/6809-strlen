@@ -35,10 +35,9 @@ VERSION   = 1.6
 .PHONY:     binaries
 .PHONY:     listings
 .PHONY:     symbols
-.PHONY:     info
-.PHONY:     version
-.PHONY:     help
-.PHONY:     clean
+
+# make all          makes just the binaries
+# make everything   makes the binaries, and the listings and symbols
 
 all:        binaries
 everything: binaries listings symbols
@@ -64,6 +63,11 @@ $(SYMBOL2): $(SOURCE2)
 %.sym:
 	$(ASM) $(AFLAGS) $(SYMFLAGS) $@ $<
 	$(SORT) $@ $(OUTPUT_OPTION)
+
+.PHONY:     info
+.PHONY:     version
+.PHONY:     help
+.PHONY:     clean
 
 info:
 	@echo "6809-strlen version" $(VERSION) "by Richard Cavell"
