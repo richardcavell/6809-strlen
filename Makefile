@@ -62,7 +62,8 @@ $(SYMBOL2): $(SOURCE2)
 
 %.sym:
 	$(ASM) $(AFLAGS) $(SYMFLAGS) $@ $<
-	$(SORT) $@ $(OUTPUT_OPTION)
+	$(SORT) $@ -o $@.sorted
+	mv $@.sorted $@
 
 .PHONY:     info
 .PHONY:     version
