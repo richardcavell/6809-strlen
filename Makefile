@@ -95,4 +95,4 @@ help:
 	@echo "make clean"
 
 clean:
-	$(RM) $(BINARY1) $(LISTING1) $(SYMBOL1) $(BINARY2) $(LISTING2) $(SYMBOL2)
+	$(RM) $(BINARY1) $(LISTING1) $(SYMBOL1) $(SYMBOL1).sorted $(BINARY2) $(LISTING2) $(SYMBOL2) $(SYMBOL2).sorted
