@@ -41,6 +41,8 @@
 ;     no attempt to detect this possibility. You should only use this code
 ;     if you can be certain that the string given to the routine is valid and
 ;     will never wrap.
+;
+; This is designed to assemble correctly with asm6809 by Ciaran Anscomb.
 
     CODE
 

@@ -47,6 +47,8 @@
 ;
 ;   If there is no terminating null byte, the code might access forbidden
 ;     areas of the memory map.
+;
+; This is designed to assemble correctly with asm6809 by Ciaran Anscomb.
 
     CODE
 
