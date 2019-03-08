@@ -41,26 +41,18 @@ Version 1.5 (19 October 2018)
 
 Version 1.4 (7 January 2018)
 
-  * This is the final version of 6809-strlen (probably)
+  * This is the first version of 6809-strlen that incorporates
+    all of the original ideas for the project.
 
-    The original specification and mission are fulfilled.
+    The original specification and mission are now fulfilled.
+
+    Many of my original ideas have been presented as exercises for the
+    student.
 
   * Addition of two new files:
 
       * Beginner_exercises.txt
       * Advanced_exercises.txt
-
-    All of the ideas that I have ever had that would improve this project
-    have now been implemented. I cannot think of any modification that would
-    clearly improve the project any further.
-
-    I have had a number of ideas over my time developing this project, where
-    I'm not sure that implementing them would improve the project. Sometimes
-    it feels as though I am just fiddling with it instead of improving it.
-
-    I have taken all of my remaining ideas and given them to you, the student,
-    as training exercises. You can decide whether their implementation would
-    improve the project.
 
 Version 1.3 (23 November 2017)
 
