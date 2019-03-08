@@ -22,7 +22,7 @@
 ;
 ; A C-style string, for the purposes of this routine, is a sequence of
 ; non-zero 8-bit bytes, followed by a zero byte. The sequence may have
-; zero length.
+; zero length, in which case there is just a zero byte.
 ;
 ; This code is position-independent and re-entrant. Interrupts are allowed
 ; to occur during execution. The code uses 2 bytes of the S stack, in addition
