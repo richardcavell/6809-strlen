@@ -13,8 +13,11 @@ https://github.com/richardcavell/6809-strlen
     routines to pass the address of the string to be searched on the
     system stack.
 
-3.  Modify strlen to change every character of the string to uppercase
+3.  Modify strlen to change every character of the string to lowercase
     while it reads the string.
+
+    Note that on some Color Computer machines, lowercase letters will
+    appear as reversed text.
 
 4.  Reorder the instructions so that _strlen_normal_finish immediately
     follows _strlen_loop_end, and the error handler routine is below the
