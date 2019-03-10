@@ -2,45 +2,46 @@ strlen.s listing
 Version 1.6 (6 November 2018)
 https://github.com/richardcavell/6809-strlen
 
-In these 4 columns are the hexadecimal offset for the label or
-||||             machine-language object code being considered
-||||
-||||  In these columns are the hexadecimal bytes of object code
-||||  ||||                 (produced by the assembler)
-||||  ||||
-||||  ||||            Labels start in this column. They all start
-||||  ||||            |        with an underline (and represent an address)
-||||  ||||            |
-||||  ||||            |   Assembly language instructions start here
-||||  ||||            |   |
-VVVV  VVVV            V   V
+In these 2 columns are the hexadecimal offset for the label or
+||               machine-language object code being considered
+||
+||  In these columns are the hexadecimal bytes of object code
+||  ||||||    (produced by the assembler) (between 1 and 3 bytes)
+||  ||||||
+||  ||||||    Number of CPU cycles taken by the instruction
+||  ||||||    |
+||  ||||||    |     Labels start in this column. They all start
+||  ||||||    |     |     with an underline (and represent an address)
+||  ||||||    |     |
+||  ||||||    |     |     Assembly language instructions start here
+||  ||||||    |     |     |
+VV  VVVVVV    V     V     V
 
-0000                  _strlen
-0000                  _strlen_start
-0000                  _strlen_entry
-                      
-0000  3410                PSHS X
-                      
-0002                  _strlen_loop
-                      
-0002  A684                LDA  ,X
-0004  2709                BEQ  _strlen_normal_finish
-                      
-0006  3001                LEAX 1,X
-0008  26F8                BNE  _strlen_loop
-                      
-000A                  _strlen_loop_end
-                      
-000A                  _strlen_no_end_error_handler
-                      
-000A  CCFFFF              LDD  #0xFFFF
-000D  3590                PULS X,PC
-                      
-000F                  _strlen_normal_finish
-                      
-000F  1F10                TFR  X,D
-0011  A3E4                SUBD ,S
-0013  3590                PULS X,PC
-                      
-0015                  _strlen_end
-                     
+00                  _strlen
+00                  _strlen_start
+00                  _strlen_entry
+
+00  3410      6           PSHS X
+
+02                  _strlen_loop
+
+02  A684      4           LDA  ,X
+04  2709      3           BEQ  _strlen_normal_finish
+
+06  3001      5           LEAX 1,X
+08  26F8      3           BNE  _strlen_loop
+
+0A                  _strlen_loop_end
+
+0A                  _strlen_no_end_error_handler
+
+0A  CCFFFF    3           LDD  #0xFFFF
+0D  3590      8           PULS X,PC
+
+0F                  _strlen_normal_finish
+
+0F  1F10      4           TFR  X,D
+11  A3E4      5           SUBD ,S
+13  3590      8           PULS X,PC
+
+15                  _strlen_end

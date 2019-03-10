@@ -2,35 +2,37 @@ no_error_strlen.s listing
 Version 1.6 (6 November 2018)
 https://github.com/richardcavell/6809-strlen
 
-In these 4 columns are the hexadecimal offset for the label or
-||||             machine-language object code being considered
-||||
-||||  In these columns are the hexadecimal bytes of object code
-||||  ||||                 (produced by the assembler)
-||||  ||||
-||||  ||||            Labels start in this column. They all start
-||||  ||||            |        with an underline (and represent an address)
-||||  ||||            |
-||||  ||||            |   Assembly language instructions start here
-||||  ||||            |   |
-VVVV  VVVV            V   V
+In these 2 columns are the hexadecimal offset for the label or
+||               machine-language object code being considered
+||
+||  In these columns are the hexadecimal bytes of object code
+||  ||||||    (produced by the assembler) (between 1 and 3 bytes)
+||  ||||||
+||  ||||||    Number of CPU cycles taken by the instruction
+||  ||||||    |
+||  ||||||    |     Labels start in this column. They all start
+||  ||||||    |     |     with an underline (and represent an address)
+||  ||||||    |     |
+||  ||||||    |     |     Assembly language instructions start here
+||  ||||||    |     |     |
+VV  VVVVVV    V     V     V
 
-0000                  _no_error_strlen
-0000                  _no_error_strlen_start
-0000                  _no_error_strlen_entry
-                      
-0000  3410                PSHS X
-                      
-0002                  _no_error_strlen_loop
-                      
-0002  A680                LDA  ,X+
-0004  26FC                BNE  _no_error_strlen_loop
-                      
-0006                  _no_error_strlen_loop_end
-                      
-0006  1F10                TFR  X,D
-0008  830001              SUBD #1
-000B  A3E4                SUBD ,S
-000D  3590                PULS X,PC
-                      
-000F                  _no_error_strlen_end
+00                  _no_error_strlen
+00                  _no_error_strlen_start
+00                  _no_error_strlen_entry
+
+00  3410      6           PSHS X
+
+02                  _no_error_strlen_loop
+
+02  A680      5           LDA  ,X+
+04  26FC      3           BNE  _no_error_strlen_loop
+
+06                  _no_error_strlen_loop_end
+
+06  1F10      4           TFR  X,D
+08  830001    3           SUBD #1
+0B  A3E4      5           SUBD ,S
+0D  3590      8           PULS X,PC
+
+0F                  _no_error_strlen_end
