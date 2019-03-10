@@ -1,0 +1,36 @@
+no_error_strlen.s listing
+Version 1.6 (6 November 2018)
+https://github.com/richardcavell/6809-strlen
+
+In these 4 columns are the hexadecimal offset for the label or
+||||             machine-language object code being considered
+||||
+||||  In these columns are the hexadecimal bytes of object code
+||||  ||||                 (produced by the assembler)
+||||  ||||
+||||  ||||            Labels start in this column. They all start
+||||  ||||            |        with an underline (and represent an address)
+||||  ||||            |
+||||  ||||            |   Assembly language instructions start here
+||||  ||||            |   |
+VVVV  VVVV            V   V
+
+0000                  _no_error_strlen
+0000                  _no_error_strlen_start
+0000                  _no_error_strlen_entry
+                      
+0000  3410                PSHS X
+                      
+0002                  _no_error_strlen_loop
+                      
+0002  A680                LDA  ,X+
+0004  26FC                BNE  _no_error_strlen_loop
+                      
+0006                  _no_error_strlen_loop_end
+                      
+0006  1F10                TFR  X,D
+0008  830001              SUBD #1
+000B  A3E4                SUBD ,S
+000D  3590                PULS X,PC
+                      
+000F                  _no_error_strlen_end
