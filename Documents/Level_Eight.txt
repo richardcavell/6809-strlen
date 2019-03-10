@@ -1,0 +1,22 @@
+Level_Eight.txt
+Level Eight Exercises
+Part of 6809-strlen by Richard Cavell (c) 2017, 2018, 2019
+https://github.com/richardcavell/6809-strlen
+
+I hope that you enjoy even more programming!
+
+1.  Make TEST.BAS issue progress reports while writing the string to memory.
+
+2.  Use SWI (software interrupt) to call the string-length routines.  You
+    will need to install a SWI handler.
+
+3.  Modify strlen.s and no_error_strlen.s so that if the string is
+    "SECRET PASSWORD" the computer will crash.
+
+4.  Modify the test suite so that it loads the machine language routines
+    from tape.
+
+5.  Look at instruction timings for each of the instructions in the machine
+    language routines - is it possible to save time anywhere?
+
+Richard Cavell
