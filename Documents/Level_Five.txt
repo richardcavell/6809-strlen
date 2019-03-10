@@ -3,9 +3,9 @@ Level Five Exercises
 Part of 6809-strlen by Richard Cavell (c) 2017, 2018, 2019
 https://github.com/richardcavell/6809-strlen
 
-1.  Modify the test suite to profile the assembly portion (ie time how long it
-    takes) and print a comparison between the BASIC and assembly method, in
-    terms of their speed.
+1.  Modify the test suite to profile the assembly portion (ie time how long
+    it takes) and print a comparison between the BASIC and assembly method,
+    in terms of their speed.
 
     Note that the version of BASIC provided with the Color Computer provides
     a variable called TIMER, which increments either every one-fiftieth or
