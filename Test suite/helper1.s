@@ -85,7 +85,7 @@ _helper1_error_simulation
     LDA  2,S               ; Restore the error request byte into A
     BEQ  _helper1_normal_operation  ; If no error is requested
     SUBA #ERROR_OFFBY1     ; Is off-by-one error requested?
-    BEQ  _helper1_offby1    ; Yes, so do that
+    BEQ  _helper1_offby1   ; Yes, so do that
 
 _helper1_noend
 
