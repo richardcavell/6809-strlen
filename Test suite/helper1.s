@@ -77,21 +77,21 @@ _helper1_use_strlen
 
 _helper1_use_no_error_strlen
 
-    JSR NESTRLEN           ; Execute no_error_strlen -> result will be in D
+    JSR  NESTRLEN           ; Execute no_error_strlen -> result will be in D
 
 _helper1_error_simulation
 
     PSHS D                 ; Save our result on the S stack
     LDA  2,S               ; Restore the error request byte into A
-    BEQ _helper1_normal_operation  ; If no error is requested
+    BEQ  _helper1_normal_operation  ; If no error is requested
     SUBA #ERROR_OFFBY1     ; Is off-by-one error requested?
-    BEQ _helper1_offby1    ; Yes, so do that
+    BEQ  _helper1_offby1    ; Yes, so do that
 
 _helper1_noend
 
     LEAS 2,S               ; Jump over the saved result, and ignore it
     LDD  #$FFFF            ; Indicate no-end error
-    BRA _helper1_finalise
+    BRA  _helper1_finalise
 
 _helper1_offby1
 
