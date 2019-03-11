@@ -9,6 +9,8 @@
 ;
 ; This routine is designed to be used with Disk Extended Color BASIC.
 ;
+; ($FFFF means hexadecimal FFFF)
+;
 ; Inputs:
 ;   A 16 bit integer. The low byte equals either:
 ;          0 (use strlen), or
@@ -29,12 +31,12 @@
 ;
 ; For this routine to work correctly, the strlen routine must be loaded to
 ; memory location STRLEN and the no_error_strlen routine must be loaded to
-; memory location NESTRLEN. (As defined in Symbols.inc)
+; memory location NESTRLEN (as defined in Symbols.inc)
 ;
-; If there is a valid string starting at location STRING, its length will
-; be returned. If there is no valid string there, it is possible for the
-; CPU to read disallowed areas of the memory map, or for a "no end" error
-; to occur.
+; If there is a valid string starting at location STRING (as defined in
+; Symbols.inc), its length will be returned. If there is no valid string
+; there, it is possible for the CPU to read disallowed areas of the memory
+; map, or for a "no end" error to occur.
 ;
 ; This code may be placed anywhere in memory, so it is position-independent.
 ; It is re-entrant. Interrupts are allowed to occur during execution.
