@@ -77,7 +77,7 @@ _helper1_use_strlen
 
 _helper1_use_no_error_strlen
 
-    JSR  NESTRLEN           ; Execute no_error_strlen -> result will be in D
+    JSR  NESTRLEN          ; Execute no_error_strlen -> result will be in D
 
 _helper1_error_simulation
 
