@@ -47,7 +47,6 @@ _helper2
 _helper2_start
 _helper2_entry
 
-    PSHS Y                          ; Preserve register Y
     JSR  INTCNV                     ; D = Requested length
                                     ;     (passed from BASIC)
     LDX  #STRING                    ; X = Start of the string
@@ -89,8 +88,7 @@ _helper2_terminate_string
 _helper2_even_count
 
     CLR  ,X                         ; Add the terminating zero
-    PULS Y,PC                       ; Restore register Y
-                                    ; and return to BASIC
+    RTS                             ; and return to BASIC
 
 ; Subroutines
 
