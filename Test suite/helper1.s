@@ -65,7 +65,7 @@ _helper1_start
 _helper1_entry
 
     JSR  INTCNV            ; Get the parameter from BASIC
-    PSHS A                 ; Save the error request byte
+    PSHS A                 ; Save the error request byte (high byte of D)
     LDX  #STRING           ; Load the address of the string into X
     SUBB #USE_STRLEN       ; Does the low byte equal USE_STRLEN or not?
     BNE  _helper1_use_no_error_strlen  ; If not, then use the no_error version
