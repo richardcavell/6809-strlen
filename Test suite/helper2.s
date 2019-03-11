@@ -7,6 +7,8 @@
 ; Written by Richard John Foster Cavell (c) 2017, 2018, 2019.
 ; Licensed to you under the MIT License.
 ;
+; ($FFFF means hexadecimal FFFF)
+;
 ; Inputs:
 ;   Length of the string (0 to $FFFF)
 ;
