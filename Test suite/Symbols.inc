@@ -6,6 +6,8 @@
 ; language routines and the constructed strings go
 ;
 ; If you have less than 32K RAM, you need to re-work the memory map
+;
+; This is designed to assemble correctly with asm6809 by Ciaran Anscomb.
 
 USER_ML_AREA    EQU $6000
 

@@ -7,6 +7,8 @@
 ;
 ; Written by Richard John Foster Cavell (c) 2017, 2018, 2019.
 ; Licensed to you under the MIT License.
+;
+; This is designed to assemble correctly with asm6809 by Ciaran Anscomb.
 
     INCLUDE "Symbols.inc"
 
