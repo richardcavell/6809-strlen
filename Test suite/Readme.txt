@@ -5,11 +5,17 @@ https://github.com/richardcavell/6809-strlen
 
 To use the test suite on XRoar:
 
-  1.  Type "make xroar" on your computer
+  1.  If you have Linux, install make and xroar
+  2.  Open a terminal
+  3.  Go to the "Test suite" directory
+  4.  Type "make xroar"
 
 To use the test suite on MAME:
 
-  1.  Type "make mame"  on your computer
+  1.  If you have Linux, install make and mame
+  2.  Open a terminal
+  3.  Go to the "Test suite" directory
+  4.  Type "make mame"
 
 In order to use the test suite, you will need one of:
 
@@ -19,7 +25,8 @@ In order to use the test suite, you will need one of:
   2.  MAME, located here:
             http://mamedev.org/
 
-      You will also need the relevant ROM sets
+      You will also need the relevant ROM sets to run a Coco 2 PAL machine
+      (known as coco2b by both XRoar and MAME)
 
 In order to build the test suite yourself, you will need to install both:
 
