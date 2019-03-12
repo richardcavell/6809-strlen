@@ -3,6 +3,9 @@ by Richard John Foster Cavell
 (c) 2017, 2018, 2019 (Licensed to you under the MIT License)
 https://github.com/richardcavell/6809-strlen
 
+Note: It is not within the scope of this project to teach you how to use
+      Linux, XRoar or MAME.
+
 To use the test suite on XRoar:
 
   1.  If you have Linux, install make and xroar
