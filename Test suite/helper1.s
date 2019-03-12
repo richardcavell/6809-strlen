@@ -55,6 +55,8 @@
 ;     areas of the memory map.
 ;   It is possible for X to wrap (from $FFFF to $0000). Only the regular
 ;     strlen routine detects this possibility (and returns $FFFF).
+;
+; This is designed to assemble correctly with asm6809 by Ciaran Anscomb.
 
     INCLUDE "Symbols.inc"
 

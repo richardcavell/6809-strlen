@@ -38,6 +38,8 @@
 ; This routine can write into memory that you don't want it to.
 ; It is possible for the string to wrap (say from $FFFF to $0000).
 ;  This code makes no attempt to detect this possibility.
+;
+; This is designed to assemble correctly with asm6809 by Ciaran Anscomb.
 
     INCLUDE "Symbols.inc"
 
