@@ -110,8 +110,8 @@ _helper1_finalise
     LEAS 1,S               ; Jump over that saved error request byte
     JMP  GIVABF            ; Return the result in D to BASIC
                            ; Note that BASIC will interpret anything > 32767
-                             as a negative number. You can correct this
-                             by IF X < 0 THEN X = X + 32768
+                           ; as a negative number. You can correct this
+                           ; by IF X < 0 THEN X = X + 32768
 _helper1_end
 
     IF    (_helper1_end > HELPER1_LIMIT)
