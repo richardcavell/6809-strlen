@@ -124,6 +124,7 @@ help:
 	@echo "make disk"
 	@echo "make xroar"
 	@echo "make mame"
+	@echo "make mame-debug"
 	@echo "make info"
 	@echo "make version"
 	@echo "make help"
