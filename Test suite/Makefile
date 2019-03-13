@@ -84,7 +84,8 @@ $(HELPER2SYM):  $(HELPER2SRC) $(SYMBOLS)
 
 %.sym:
 	$(ASM) $(AFLAGS) $(SYMFLAGS) $@ $<
-	$(SORT) $@ -o $@
+	$(SORT) $@ -o $@.sorted
+	mv $@.sorted $@
 
 $(DSKIMG): $(TESTBAS) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN)
 	$(RM) $@
