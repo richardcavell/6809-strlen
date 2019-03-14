@@ -1,13 +1,13 @@
 ; Symbols.inc
 ; by Richard John Foster Cavell (c) 2017, 2018, 2019
 ; https://github.com/richardcavell/6809-strlen
-
-; This is the base pointer for our 4K RAM area, where the machine
-; language routines and the constructed strings go
 ;
 ; If you have less than 32K RAM, you need to re-work the memory map
 ;
-; This is designed to assemble correctly with asm6809 by Ciaran Anscomb.
+; This is designed to assemble correctly with asm6809 by Ciaran Anscomb
+;
+; USER_ML_AREA is the base pointer for our 4K RAM area, where the machine
+; language routines and the constructed strings go
 
 USER_ML_AREA    EQU $6000
 
