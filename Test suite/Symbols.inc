@@ -4,6 +4,8 @@
 ;
 ; If you have less than 32K RAM, you need to re-work the memory map
 ;
+; If you change anything here, you need to also change TEST.BAS
+;
 ; This is designed to assemble correctly with asm6809 by Ciaran Anscomb
 ;
 ; USER_ML_AREA is the base pointer for our 4K RAM area, where the machine
