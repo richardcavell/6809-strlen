@@ -10,7 +10,7 @@ disk drive.
 1. You can change the default language by editing line 100
 
 2. You can simulate errors in the assembly language routines by editing
-   line 125
+   line 110
 
 Richard Cavell
 

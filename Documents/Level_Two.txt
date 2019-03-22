@@ -13,7 +13,7 @@ project, you are invited to try the following exercises:
     language for the text suite.  Replace line 100 of TEST.BAS with a
     routine that reads this file to determine the default language.
 
-3.  Use line 125 of the test suite program to simulate errors in the
+3.  Use line 110 of the test suite program to simulate errors in the
     assembly language routines.  Make sure that you understand what is
     being tested for, and how the test might fail.
 
