@@ -33,7 +33,7 @@ HELPER2LST  = helper2.lst
 HELPER2SYM  = helper2.sym
 TESTBAS     = TEST.BAS
 DSKIMG      = TSTSUITE.DSK
-VERSION     = 1.6
+VERSION     = 1.7
 
 # This is not the intended use of -V but it works for our purposes
 SORT        = sort -V

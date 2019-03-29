@@ -26,7 +26,7 @@ SYMBOL2   = no_error_strlen.sym
 # This gives the desired result but it's not the intended use of -V
 SORT      = sort -V
 
-VERSION   = 1.6
+VERSION   = 1.7
 
 .DEFAULT:   all
 

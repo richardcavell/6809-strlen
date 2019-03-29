@@ -1,5 +1,5 @@
 strlen.s listing
-Version 1.6 (6 November 2018)
+Version 1.7 (30 March 2019)
 https://github.com/richardcavell/6809-strlen
 
 In these 2 columns are the hexadecimal offset for the label or

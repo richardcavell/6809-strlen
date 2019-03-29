@@ -1,5 +1,5 @@
 ; main1.s
-; Version 1.6 (6 November 2018)
+; Version 1.7 (30 March 2019)
 ; https://github.com/richardcavell/6809-strlen
 ;
 ; A very short file to assist in assembling strlen.s for the test suite.
