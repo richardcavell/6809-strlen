@@ -1,10 +1,10 @@
 ; strlen.s
-; Version 1.7 (30 March 2019)
+; Version 1.8 (31 May 2025)
 ; https://github.com/richardcavell/6809-strlen
 ;
 ; A 6809 assembly language routine to find the length of a C-style string.
 ;
-; Written by Richard John Foster Cavell (c) 2017, 2018, 2019.
+; Written by Richard John Foster Cavell (c) 2017, 2018, 2019, 2025.
 ; Licensed to you under the MIT License.
 ;
 ; ($FFFF means hexadecimal FFFF)

@@ -1,6 +1,6 @@
 6809 Assembly Language C-Style String Length Calculation Routine
-by Richard John Foster Cavell (c) 2017, 2018, 2019
-Version 1.7 (30 March 2019)
+by Richard John Foster Cavell (c) 2017, 2018, 2019, 2025
+Version 1.8 (31 May 2025)
 https://github.com/richardcavell/6809-strlen
 
 A 6809 assembly language routine to find the length of a C-style string.
@@ -67,4 +67,4 @@ All of this is licensed to you under the MIT License.
 Published and maintained at: https://github.com/richardcavell/6809-strlen
 
 This project is complete, and is actively maintained by me. The last review
-was in March 2019.
+was in May 2025.

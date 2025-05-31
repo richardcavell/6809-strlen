@@ -1,19 +1,19 @@
 Level_Two.txt
 Level Two Exercises
-Part of 6809-strlen by Richard Cavell (c) 2017, 2018, 2019
+Part of 6809-strlen by Richard Cavell (c) 2017, 2018, 2019, 2025
 https://github.com/richardcavell/6809-strlen
 
 Once you understand the basics of the assembly language portion of the
 project, you are invited to try the following exercises:
 
-1.  Use line 100 of the test suite to change the default language of the
+1.  Use line 1000 of the test suite to change the default language of the
     test suite.
 
 2.  Place a text file on the test suite disk, which indicates the default
-    language for the text suite.  Replace line 100 of TEST.BAS with a
+    language for the text suite.  Replace line 1000 of TEST.BAS with a
     routine that reads this file to determine the default language.
 
-3.  Use line 110 of the test suite program to simulate errors in the
+3.  Use line 1100 of the test suite program to simulate errors in the
     assembly language routines.  Make sure that you understand what is
     being tested for, and how the test might fail.
 

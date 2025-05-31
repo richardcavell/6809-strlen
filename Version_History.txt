@@ -1,6 +1,13 @@
 6809-strlen Version_history.txt
 (c) 2017, 2018, 2019 by Richard Cavell
 
+Version 1.8 (31 May 2025)
+
+  * Changes to the test suite
+
+    * All BASIC line numbers are now multiplied by 10 to allow
+      intervening extra lines
+
 Version 1.7 (30 March 2019)
 
   * New documents:

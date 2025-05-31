@@ -1,5 +1,5 @@
 # Makefile
-# by Richard John Foster Cavell (c) 2017, 2018, 2019
+# by Richard John Foster Cavell (c) 2017, 2018, 2019, 2025
 # Part of the 6809-strlen project
 # https://github.com/richardcavell/6809-strlen
 
@@ -7,6 +7,7 @@
 # as raw binaries here. The test suite builds
 # its own versions of the routines, differently.
 
+#The asm6809 assembler was created by Ciaran Anscomb
 ASM       = asm6809
 AFLAGS    = -B -8 --setdp=-1 -v
 
@@ -26,7 +27,7 @@ SYMBOL2   = no_error_strlen.sym
 # This gives the desired result but it's not the intended use of -V
 SORT      = sort -V
 
-VERSION   = 1.7
+VERSION   = 1.8
 
 .DEFAULT:   all
 
