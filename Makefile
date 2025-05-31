@@ -24,6 +24,9 @@ BINARY2   = no_error_strlen.bin
 LISTING2  = no_error_strlen.lst
 SYMBOL2   = no_error_strlen.sym
 
+EVERYTHING  = $(BINARY1) $(LISTING1) $(SYMBOL1) $(SYMBOL1).sorted
+EVERYTHING += $(BINARY2) $(LISTING2) $(SYMBOL2) $(SYMBOL2).sorted
+
 # This gives the desired result but it's not the intended use of -V
 SORT      = sort -V
 
@@ -96,4 +99,4 @@ help:
 	@echo "make clean"
 
 clean:
-	$(RM) $(BINARY1) $(LISTING1) $(SYMBOL1) $(SYMBOL1).sorted $(BINARY2) $(LISTING2) $(SYMBOL2) $(SYMBOL2).sorted
+	$(RM) $(EVERYTHING)
