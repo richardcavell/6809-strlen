@@ -1,0 +1,7 @@
+6809-strlen is a project for learning 6809 assembly and Disk Extended Color
+BASIC, and how to interface between them.
+
+The author of the project is Richard John Foster Cavell, an Australian-
+British fan of the TRS-80 Color Computer.
+
+You can contact him at richardcavell@mail.com
