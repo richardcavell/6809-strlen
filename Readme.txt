@@ -67,4 +67,4 @@ All of this is licensed to you under the MIT License.
 Published and maintained at: https://github.com/richardcavell/6809-strlen
 
 This project is complete, and is actively maintained by me. The last review
-was in May 2025.
+was in June 2025.
