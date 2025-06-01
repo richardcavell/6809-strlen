@@ -1,10 +1,10 @@
 ; helper1.s
-; Version 1.7
+; Version 1.8
 ; https://github.com/richardcavell/6809-strlen
 ;
 ; A 6809 assembly routine to help with the testing of strlen.s
 ;
-; Written by Richard John Foster Cavell (c) 2017, 2018, 2019.
+; Written by Richard John Foster Cavell (c) 2017, 2018, 2019, 2025.
 ; Licensed to you under the MIT License.
 ;
 ; This routine is designed to be used with Disk Extended Color BASIC.

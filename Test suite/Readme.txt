@@ -1,6 +1,6 @@
 6809-strlen Test suite Readme.txt
 by Richard John Foster Cavell
-(c) 2017, 2018, 2019 (Licensed to you under the MIT License)
+(c) 2017, 2018, 2019, 2025 (Licensed to you under the MIT License)
 https://github.com/richardcavell/6809-strlen
 
 Note: It is not within the scope of this project to teach you how to use

@@ -1,5 +1,5 @@
 # Makefile
-# by Richard John Foster Cavell (c) 2017, 2018, 2019
+# by Richard John Foster Cavell (c) 2017, 2018, 2019, 2025
 # Part of the 6809-strlen project
 
 # Note that we build the strlen and no_error_strlen routines as
@@ -33,7 +33,7 @@ HELPER2LST  = helper2.lst
 HELPER2SYM  = helper2.sym
 TESTBAS     = TEST.BAS
 DSKIMG      = TSTSUITE.DSK
-VERSION     = 1.7
+VERSION     = 1.8
 
 # This is not the intended use of -V but it works for our purposes
 SORT        = sort -V
@@ -131,4 +131,7 @@ help:
 	@echo "make clean"
 
 clean:
-	$(RM) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN) $(STRLENLST) $(NESTRLENLST) $(HELPER1LST) $(HELPER2LST) $(STRLENSYM) $(NESTRLENSYM) $(HELPER1SYM) $(HELPER2SYM) $(DSKIMG)
+	$(RM) $(STRLENBIN) $(NESTRLENBIN) $(HELPER1BIN) $(HELPER2BIN)
+	$(RM) $(STRLENLST) $(NESTRLENLST) $(HELPER1LST) $(HELPER2LST)
+	$(RM) $(STRLENSYM) $(NESTRLENSYM) $(HELPER1SYM) $(HELPER2SYM)
+	$(RM) $(DSKIMG)

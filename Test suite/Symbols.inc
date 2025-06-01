@@ -1,5 +1,5 @@
 ; Symbols.inc
-; by Richard John Foster Cavell (c) 2017, 2018, 2019
+; by Richard John Foster Cavell (c) 2017, 2018, 2019, 2025
 ; https://github.com/richardcavell/6809-strlen
 ;
 ; If you have less than 32K RAM, you need to re-work the memory map
